@@ -61,7 +61,8 @@
 
         <section class="cta">
             <h3>Get Involved</h3>
-            <p>Whether you're interested in facilitating or participating, we'd love to connect with you.</p>
+            <p class="callout">Interested in facilitating or participating? We'd love to hear from you!</p>
+            <p>Connect with us to learn more about our community and upcoming sessions.</p>
             <a href="mailto:events@coloft.org" class="button">Contact Us</a>
             <p class="email-text">events@coloft.org</p>
         </section>
@@ -70,5 +71,33 @@
     <footer>
         <p>&copy; 2025 Coloft. Rising together through connection and community.</p>
     </footer>
+
+    <script>
+        // Create 4 flyers for printing
+        window.addEventListener('beforeprint', function() {
+            const main = document.querySelector('main');
+            const cta = document.querySelector('.cta');
+
+            // Hide original sections
+            document.querySelector('.hero').style.display = 'none';
+            document.querySelector('.about').style.display = 'none';
+            document.querySelector('.values').style.display = 'none';
+
+            // Clone the CTA section 3 more times
+            for (let i = 0; i < 3; i++) {
+                const clone = cta.cloneNode(true);
+                clone.classList.add('flyer-clone');
+                main.appendChild(clone);
+            }
+        });
+
+        window.addEventListener('afterprint', function() {
+            // Remove cloned flyers and restore original view
+            document.querySelectorAll('.flyer-clone').forEach(el => el.remove());
+            document.querySelector('.hero').style.display = '';
+            document.querySelector('.about').style.display = '';
+            document.querySelector('.values').style.display = '';
+        });
+    </script>
 </body>
 </html>
