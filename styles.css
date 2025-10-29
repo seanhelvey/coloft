@@ -6,13 +6,17 @@
 }
 
 :root {
-    --primary-color: #6B9080;
-    --secondary-color: #A4C3B2;
-    --accent-color: #CCE3DE;
-    --text-dark: #2C3E3D;
-    --text-light: #5A6C6B;
-    --background: #F6FFF8;
+    --primary-color: #8B5CF6;
+    --secondary-color: #EC4899;
+    --accent-color: #F59E0B;
+    --teal: #14B8A6;
+    --coral: #FB923C;
+    --text-dark: #1F2937;
+    --text-light: #6B7280;
+    --background: #FEF3F2;
     --white: #FFFFFF;
+    --gradient-start: #FDE68A;
+    --gradient-end: #FCA5A5;
 }
 
 body {
@@ -26,7 +30,7 @@ body {
 header {
     text-align: center;
     padding: 2rem 1rem 1rem;
-    background: linear-gradient(135deg, var(--accent-color) 0%, var(--background) 100%);
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 50%, #DDD6FE 100%);
 }
 
 .logo {
@@ -53,6 +57,14 @@ header {
     font-size: 1.1rem;
     color: var(--text-light);
     font-style: italic;
+}
+
+.location {
+    font-size: 0.95rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-top: 0.5rem;
+    letter-spacing: 1px;
 }
 
 /* Main content */
@@ -95,63 +107,53 @@ h4 {
     color: var(--text-light);
 }
 
-/* About section */
-.about ul {
-    list-style: none;
-    padding-left: 0;
+/* Offerings section */
+.offerings {
+    margin: 3rem 0;
 }
 
-.about li {
-    padding: 0.75rem 0;
-    padding-left: 1.5rem;
-    position: relative;
-    color: var(--text-light);
-}
-
-.about li:before {
-    content: "•";
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    position: absolute;
-    left: 0;
-    top: 0.5rem;
-}
-
-/* Values grid */
-.values-grid {
+.offerings-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
-    margin-top: 1.5rem;
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
-.value-card {
+.offering-card {
     background: var(--white);
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(107, 144, 128, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
 }
 
-.value-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(107, 144, 128, 0.2);
+.offering-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.2);
 }
 
-.value-card h4 {
-    color: var(--primary-color);
+.offering-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1rem;
+    display: block;
 }
 
-.value-card p {
-    color: var(--text-light);
-    font-size: 0.95rem;
+.offering-card h3 {
+    font-size: 1.5rem;
+    margin: 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* CTA section */
 .cta {
     text-align: center;
     padding: 2rem 1rem;
-    background: linear-gradient(135deg, var(--background) 0%, var(--accent-color) 100%);
+    background: linear-gradient(135deg, #DDD6FE 0%, var(--gradient-start) 100%);
     border-radius: 12px;
 }
 
@@ -198,7 +200,7 @@ footer {
         font-size: 3rem;
     }
 
-    .values-grid {
+    .offerings-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -209,7 +211,7 @@ footer {
 
 /* Desktop */
 @media (min-width: 900px) {
-    .values-grid {
+    .offerings-grid {
         grid-template-columns: repeat(4, 1fr);
     }
 
@@ -224,21 +226,65 @@ footer {
         background: white;
     }
 
-    .hero, .about, .values {
+    .hero {
         display: none;
     }
 
     header {
         background: white;
-        border-bottom: 2px solid var(--primary-color);
+        border-bottom: 3px solid var(--primary-color);
+        padding: 1rem;
+    }
+
+    .location {
+        font-size: 1.1rem;
+        margin-top: 0.25rem;
+    }
+
+    /* Emphasize the offerings section with icons */
+    .offerings {
+        margin: 2rem 0;
+        page-break-inside: avoid;
+    }
+
+    .offerings-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .offering-card {
+        border: 2px solid #E5E7EB;
+        box-shadow: none;
+        page-break-inside: avoid;
+    }
+
+    .offering-icon {
+        width: 120px;
+        height: 120px;
+    }
+
+    .offering-card h3 {
+        font-size: 1.8rem;
+        color: var(--text-dark);
+        -webkit-text-fill-color: var(--text-dark);
     }
 
     .cta {
         background: white;
+        border: 2px solid var(--primary-color);
         page-break-inside: avoid;
+        margin-top: 2rem;
+    }
+
+    .cta h3 {
+        font-size: 1.5rem;
     }
 
     .button {
-        display: none;
+        background: white;
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+        font-size: 1.2rem;
+        pointer-events: none;
     }
 }
