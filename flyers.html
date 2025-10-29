@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coloft Flyers - Print 4 Per Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #6B9080;
+            --secondary-color: #A4C3B2;
+            --accent-color: #CCE3DE;
+            --text-dark: #2C3E3D;
+            --text-light: #5A6C6B;
+            --background: #F6FFF8;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f0f0f0;
+            padding: 20px;
+        }
+
+        .page-container {
+            max-width: 8.5in;
+            margin: 0 auto;
+            background: white;
+            padding: 0.25in;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .flyers-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 0.25in;
+            width: 100%;
+            height: 10.5in;
+        }
+
+        .flyer {
+            border: 2px dashed var(--accent-color);
+            padding: 0.5in;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--background) 0%, var(--accent-color) 50%, var(--background) 100%);
+            position: relative;
+        }
+
+        .flyer-logo {
+            margin-bottom: 0.5rem;
+        }
+
+        .flyer-logo svg {
+            width: 70px;
+            height: 70px;
+        }
+
+        .flyer-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.5px;
+        }
+
+        .flyer-tagline {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .flyer-description {
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            line-height: 1.4;
+            margin-bottom: 1rem;
+            max-width: 90%;
+        }
+
+        .flyer-offerings {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .flyer-contact {
+            font-size: 1rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-top: auto;
+            padding-top: 0.5rem;
+            border-top: 1px solid var(--accent-color);
+            width: 100%;
+        }
+
+        .instructions {
+            text-align: center;
+            margin: 2rem 0 1rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .instructions {
+                display: none;
+            }
+
+            .page-container {
+                max-width: 100%;
+                box-shadow: none;
+                padding: 0.25in;
+                margin: 0;
+            }
+
+            .flyers-grid {
+                gap: 0.25in;
+                height: 10.5in;
+            }
+
+            .flyer {
+                page-break-inside: avoid;
+            }
+
+            @page {
+                size: letter;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="instructions">
+        <p><strong>Print Instructions:</strong> Use Print Preview (Ctrl/Cmd + P) and ensure "Print backgrounds" is enabled for best results.</p>
+        <p>Cut along the dashed lines to create 4 separate flyers.</p>
+    </div>
+
+    <div class="page-container">
+        <div class="flyers-grid">
+            <!-- Flyer 1 -->
+            <div class="flyer">
+                <div class="flyer-logo">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="70" r="12" fill="#6B9080" opacity="0.7"/>
+                        <circle cx="50" cy="50" r="15" fill="#6B9080" opacity="0.85"/>
+                        <circle cx="70" cy="30" r="18" fill="#6B9080"/>
+                    </svg>
+                </div>
+                <div class="flyer-title">Coloft</div>
+                <div class="flyer-tagline">Rising Together</div>
+                <div class="flyer-description">
+                    A collective for connection through somatic practices, breathwork, and relational healing.
+                </div>
+                <div class="flyer-offerings">
+                    Therapy Groups • Workshops<br>
+                    Integration Sessions
+                </div>
+                <div class="flyer-contact">events@coloft.org</div>
+            </div>
+
+            <!-- Flyer 2 -->
+            <div class="flyer">
+                <div class="flyer-logo">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="70" r="12" fill="#6B9080" opacity="0.7"/>
+                        <circle cx="50" cy="50" r="15" fill="#6B9080" opacity="0.85"/>
+                        <circle cx="70" cy="30" r="18" fill="#6B9080"/>
+                    </svg>
+                </div>
+                <div class="flyer-title">Coloft</div>
+                <div class="flyer-tagline">Rising Together</div>
+                <div class="flyer-description">
+                    A collective for connection through somatic practices, breathwork, and relational healing.
+                </div>
+                <div class="flyer-offerings">
+                    Therapy Groups • Workshops<br>
+                    Integration Sessions
+                </div>
+                <div class="flyer-contact">events@coloft.org</div>
+            </div>
+
+            <!-- Flyer 3 -->
+            <div class="flyer">
+                <div class="flyer-logo">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="70" r="12" fill="#6B9080" opacity="0.7"/>
+                        <circle cx="50" cy="50" r="15" fill="#6B9080" opacity="0.85"/>
+                        <circle cx="70" cy="30" r="18" fill="#6B9080"/>
+                    </svg>
+                </div>
+                <div class="flyer-title">Coloft</div>
+                <div class="flyer-tagline">Rising Together</div>
+                <div class="flyer-description">
+                    A collective for connection through somatic practices, breathwork, and relational healing.
+                </div>
+                <div class="flyer-offerings">
+                    Therapy Groups • Workshops<br>
+                    Integration Sessions
+                </div>
+                <div class="flyer-contact">events@coloft.org</div>
+            </div>
+
+            <!-- Flyer 4 -->
+            <div class="flyer">
+                <div class="flyer-logo">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="70" r="12" fill="#6B9080" opacity="0.7"/>
+                        <circle cx="50" cy="50" r="15" fill="#6B9080" opacity="0.85"/>
+                        <circle cx="70" cy="30" r="18" fill="#6B9080"/>
+                    </svg>
+                </div>
+                <div class="flyer-title">Coloft</div>
+                <div class="flyer-tagline">Rising Together</div>
+                <div class="flyer-description">
+                    A collective for connection through somatic practices, breathwork, and relational healing.
+                </div>
+                <div class="flyer-offerings">
+                    Therapy Groups • Workshops<br>
+                    Integration Sessions
+                </div>
+                <div class="flyer-contact">events@coloft.org</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
