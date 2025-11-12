@@ -6,13 +6,15 @@
 }
 
 :root {
-    --primary-color: #6B9080;
-    --secondary-color: #A4C3B2;
-    --accent-color: #CCE3DE;
-    --text-dark: #2C3E3D;
-    --text-light: #5A6C6B;
-    --background: #F6FFF8;
+    --primary-color: #7B68B5;
+    --secondary-color: #E8926C;
+    --accent-color: #F4B860;
+    --healing-color: #6BC9A6;
+    --text-dark: #2D3047;
+    --text-light: #5C5E7A;
+    --background: #FFF9F0;
     --white: #FFFFFF;
+    --gradient-light: #FAE5D3;
 }
 
 body {
@@ -26,7 +28,7 @@ body {
 header {
     text-align: center;
     padding: 2rem 1rem 1rem;
-    background: linear-gradient(135deg, var(--accent-color) 0%, var(--background) 100%);
+    background: linear-gradient(135deg, var(--gradient-light) 0%, var(--background) 100%);
 }
 
 .logo {
@@ -129,13 +131,13 @@ h4 {
     background: var(--white);
     padding: 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(107, 144, 128, 0.1);
+    box-shadow: 0 2px 8px rgba(123, 104, 181, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .value-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(107, 144, 128, 0.2);
+    box-shadow: 0 4px 12px rgba(123, 104, 181, 0.2);
 }
 
 .value-card h4 {
@@ -147,11 +149,54 @@ h4 {
     font-size: 0.95rem;
 }
 
+/* Practices section with icons */
+.practices-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.practice-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(123, 104, 181, 0.12);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.practice-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(123, 104, 181, 0.2);
+}
+
+.practice-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+}
+
+.practice-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.practice-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+}
+
+.practice-card p {
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
 /* CTA section */
 .cta {
     text-align: center;
     padding: 2rem 1rem;
-    background: linear-gradient(135deg, var(--background) 0%, var(--accent-color) 100%);
+    background: linear-gradient(135deg, var(--background) 0%, var(--gradient-light) 100%);
     border-radius: 12px;
 }
 
@@ -202,6 +247,10 @@ footer {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .practices-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     main {
         padding: 2rem;
     }
@@ -213,32 +262,87 @@ footer {
         grid-template-columns: repeat(4, 1fr);
     }
 
+    .practices-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
     section {
         margin: 4rem 0;
     }
 }
 
-/* Print styles for flyers */
+/* Print styles for flyers and co-conspirator materials */
 @media print {
     body {
         background: white;
+        color: var(--text-dark);
     }
 
-    .hero, .about, .values {
+    .hero, .practices, .values {
         display: none;
     }
 
     header {
         background: white;
-        border-bottom: 2px solid var(--primary-color);
+        border-bottom: 3px solid var(--primary-color);
+        padding: 1.5rem;
+    }
+
+    .logo svg circle:nth-child(1) {
+        fill: var(--primary-color) !important;
+        opacity: 1 !important;
+    }
+
+    .logo svg circle:nth-child(2) {
+        fill: var(--secondary-color) !important;
+        opacity: 1 !important;
+    }
+
+    .logo svg circle:nth-child(3) {
+        fill: var(--accent-color) !important;
+        opacity: 1 !important;
+    }
+
+    .tagline {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--primary-color);
+        margin-top: 0.5rem;
     }
 
     .cta {
         background: white;
         page-break-inside: avoid;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .cta h3 {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .cta p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--text-dark);
     }
 
     .button {
         display: none;
+    }
+
+    .email-text {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--primary-color);
+        margin-top: 1rem;
+    }
+
+    footer {
+        border-top: 2px solid var(--accent-color);
+        padding: 1rem;
+        font-size: 0.85rem;
     }
 }
