@@ -271,31 +271,62 @@ footer {
     }
 }
 
+/* Location line in header */
+.location {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+/* Land acknowledgment in footer */
+.land-acknowledgment {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
 /* Print styles for flyers and co-conspirator materials */
 @media print {
+    @page {
+        margin: 0;
+        size: letter;
+    }
+
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+    }
+
     body {
         background: white;
         color: var(--text-dark);
-    }
-
-    .hero, .practices, .values {
-        display: none;
+        margin: 0;
+        padding: 0;
     }
 
     header {
-        background: white;
-        border-bottom: 3px solid var(--primary-color);
-        padding: 1.5rem;
+        background: linear-gradient(135deg, var(--gradient-light) 0%, var(--background) 100%);
+        border-bottom: 4px solid var(--primary-color);
+        padding: 2rem 1.5rem 1.5rem;
+        page-break-after: avoid;
+    }
+
+    .logo svg {
+        width: 70px;
+        height: 70px;
     }
 
     .logo svg circle:nth-child(1) {
         fill: var(--primary-color) !important;
-        opacity: 1 !important;
+        opacity: 0.8 !important;
     }
 
     .logo svg circle:nth-child(2) {
         fill: var(--secondary-color) !important;
-        opacity: 1 !important;
+        opacity: 0.9 !important;
     }
 
     .logo svg circle:nth-child(3) {
@@ -303,29 +334,133 @@ footer {
         opacity: 1 !important;
     }
 
+    .logo h1 {
+        font-size: 2.5rem;
+    }
+
     .tagline {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         font-weight: 600;
         color: var(--primary-color);
         margin-top: 0.5rem;
     }
 
-    .cta {
-        background: white;
+    .location {
+        font-size: 1rem;
+        color: var(--text-dark);
+        margin-top: 0.75rem;
+        font-weight: 600;
+    }
+
+    main {
+        padding: 1.5rem;
+        max-width: 100%;
+    }
+
+    section {
+        margin: 1.5rem 0;
         page-break-inside: avoid;
-        padding: 2rem;
+    }
+
+    .hero {
         text-align: center;
+        padding: 1rem;
+        background: linear-gradient(135deg, var(--background) 0%, var(--gradient-light) 100%);
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero h2 {
+        font-size: 1.6rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        color: var(--text-dark);
+    }
+
+    .practices h3 {
+        font-size: 1.4rem;
+        text-align: center;
+        margin-bottom: 0.75rem;
+    }
+
+    .practices > p {
+        text-align: center;
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+    }
+
+    .practices-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .practice-card {
+        background: white;
+        padding: 1rem;
+        border: 2px solid var(--primary-color);
+        border-radius: 8px;
+        text-align: center;
+        page-break-inside: avoid;
+    }
+
+    .practice-icon {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 0.5rem;
+    }
+
+    .practice-icon svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .practice-icon svg path,
+    .practice-icon svg circle,
+    .practice-icon svg line {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .practice-card h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        color: var(--primary-color);
+    }
+
+    .practice-card p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+        color: var(--text-dark);
+    }
+
+    .values {
+        display: none;
+    }
+
+    .cta {
+        background: linear-gradient(135deg, var(--background) 0%, var(--gradient-light) 100%);
+        page-break-inside: avoid;
+        padding: 1.5rem;
+        text-align: center;
+        border: 3px solid var(--accent-color);
+        border-radius: 8px;
+        margin: 1.5rem 0;
     }
 
     .cta h3 {
         color: var(--primary-color);
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
+        font-size: 1.4rem;
+        margin-bottom: 0.75rem;
     }
 
     .cta p {
-        font-size: 1.1rem;
-        line-height: 1.6;
+        font-size: 1rem;
+        line-height: 1.5;
         color: var(--text-dark);
     }
 
@@ -334,15 +469,29 @@ footer {
     }
 
     .email-text {
-        font-size: 1.2rem;
-        font-weight: 600;
+        font-size: 1.3rem;
+        font-weight: 700;
         color: var(--primary-color);
         margin-top: 1rem;
+        letter-spacing: 0.5px;
     }
 
     footer {
-        border-top: 2px solid var(--accent-color);
-        padding: 1rem;
+        border-top: 3px solid var(--accent-color);
+        padding: 1rem 1.5rem;
+        background: linear-gradient(135deg, var(--gradient-light) 0%, var(--background) 100%);
+        text-align: center;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+        margin: 0.25rem 0;
+        color: var(--text-dark);
+    }
+
+    .land-acknowledgment {
         font-size: 0.85rem;
+        font-style: italic;
+        color: var(--text-light);
     }
 }
