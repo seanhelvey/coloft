@@ -373,10 +373,10 @@ footer {
     font-weight: 700;
 }
 
-/* Land acknowledgment in footer */
-.land-acknowledgment {
+/* Practice note in footer */
+.practice-note {
     font-size: 0.9rem;
-    color: var(--terracotta);
+    color: var(--secondary-color);
     margin-top: 0.5rem;
     font-style: italic;
     font-weight: 600;
@@ -614,10 +614,10 @@ footer {
         font-weight: 600;
     }
 
-    .land-acknowledgment {
+    .practice-note {
         font-size: 0.7rem;
         font-style: italic;
-        color: var(--terracotta);
+        color: var(--secondary-color);
         line-height: 1.3;
         margin-top: 0.4rem;
         font-weight: 600;
