@@ -1,0 +1,12 @@
+{
+  "name": "coloft",
+  "version": "1.0.0",
+  "description": "Coloft healing collective website",
+  "scripts": {
+    "test": "node test-print.js",
+    "test:print": "node test-print.js"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^21.0.0"
+  }
+}

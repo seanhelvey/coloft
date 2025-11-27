@@ -1,149 +1,110 @@
 # Coloft - We Rise Together
 
-A vibrant, mobile-first static website for Coloft, a **co**llective dedicated to somatic practices, breathwork, and relational healing.
+A vibrant static website for Coloft, a grassroots healing **co**llective in Arcata, CA (Goudi'ni, Wiyot Land).
 
-## About Coloft
+---
 
-**We rise together** through intentional practices that bring us into deeper **co**nnection with ourselves and each other.
+## 📝 Session Notes (for Claude)
 
-Coloft creates **co**zy, **co**mpassionate spaces for local facilitators and practitioners to lead:
-- **Breathwork** sessions that connect mind and body
-- **Community gatherings** building authentic relationships
-- **Therapeutic integration** for processing healing experiences
-- **Healing circles** focused on listening, consent, and support
+**This README is the single source of truth for project context.**
 
-### The "Co-" Theme
+### Latest Session: 2025-11-27
+- ✅ Added QR code to CTA section (web: 200px, print: 80px)
+- ✅ Created automated print test (`npm test`) - verifies 1-page constraint
+- ✅ Restored CTA copy in print view while maintaining 1-page constraint
+- ✅ Consolidated documentation - removed `.claude/` folder, README is now sole context file
 
-Our identity centers around words beginning with "**co**":
-- **Co**llective - We are stronger together
-- **Co**mmunity - Rising as one
-- **Co**nnection - Deepening authentic bonds
-- **Co**llaboration - Supporting each other's growth
-- **Co**-creation - Building healing spaces together
-- **Co**zy - Creating warm, welcoming environments
-- **Co**mpassionate - Leading with empathy and care
-- **Co**-conspirators - Partners in transformation
+### Key Implementation Details
+- QR code from qr-code-generator.com (mailto:events@coloft.org)
+- Print test uses puppeteer-core + system Chrome (no browser download)
+- Print optimizations: reduced margins/padding, smaller QR/text sizes, hid values section
 
-## Design Philosophy
+---
 
-- **Mobile-first**: Optimized for small screens, scales up beautifully to desktop
-- **Vibrant & Welcoming**: Color palette inspired by yoga studios—comfortable yet energetic
-- **Print-friendly**: Optimized callout design for flyers and materials for potential **co**-conspirators
-- **Visual storytelling**: Icons representing breathwork, community, therapeutic integration, and healing
-- **Vanilla HTML/CSS**: No build process, no dependencies—just clean, maintainable code
-- **Accessible**: Semantic HTML and readable color contrast
+## Quick Start
 
-## Contact
+**Print flyer:** Open [index.html](index.html) in browser → Print Preview → Save as PDF
+**Test print constraint:** `npm test` (requires `npm install` first)
+**Deploy:** Push to GitHub, enable Pages in repo settings
 
-For facilitating or participating opportunities: **events@coloft.org**
+## Project Files
 
-## GitHub Pages Deployment
+- `index.html` - Main HTML structure
+- `styles.css` - All styling (web, mobile, print)
+- `qr-code.svg` - QR code for mailto:events@coloft.org (from qr-code-generator.com)
+- `test-print.js` - Automated test verifying 1-page print constraint
+- `package.json` - NPM config (puppeteer-core for testing only)
 
-This site is deployed using GitHub Pages. Here's how it works:
+## Design Constraints (DO NOT CHANGE)
 
-### Initial Setup
+### Core Purpose
+Landing page + printable flyer for somatic practices collective
+- Peer-led, grassroots, local to Humboldt County
+- "We rise together" theme
+- Not-for-money events and gatherings
 
-1. **Repository Settings**
-   - Go to your repository on GitHub
-   - Click on "Settings" → "Pages" (in the left sidebar)
-   - Under "Source", select the branch you want to deploy (usually `main`)
-   - Select the root folder (`/`) as the source
-   - Click "Save"
+### Fixed Elements
+- **Color palette:** Purple `#7C3AED`, Green `#059669`, Cyan `#0891B2`, Terracotta `#DC6B4A`
+- **"Co-" word theme:** co-llective, co-nnection, co-mmunity, co-nspirators throughout copy
+- **Land acknowledgment:** Wiyot land, Goudi'ni (indigenous name for Arcata)
+- **Four practices:** Breathwork, Community Gatherings, Therapeutic Integration, Healing Circles
+- **Contact:** events@coloft.org
 
-2. **Wait for Deployment**
-   - GitHub will automatically build and deploy your site
-   - This usually takes 1-2 minutes
-   - Once deployed, your site will be available at: `https://[username].github.io/coloft/`
+### Non-Negotiable Constraints
+- **MUST fit on 1 page when printed** (US Letter, portrait)
+- No browser headers/footers in print (`@page margin: 0`)
+- Responsive: mobile, tablet, desktop
+- Visual hierarchy: Icons PRIMARY, text secondary
 
-### Making Updates
+### Print View Specifications
+**What's shown:**
+- Header: Logo (60px SVG) + "We Rise Together" + location
+- Hero: Main collective message
+- Practices: All 4 cards with icons (48px, 2-column grid)
+- CTA: Full "Join Us" heading + paragraph + QR code (80px) + email
+- Footer: Brief description
 
-1. Edit the HTML or CSS files locally
-2. Commit your changes:
-   ```bash
-   git add .
-   git commit -m "Update site content"
-   git push
-   ```
-3. GitHub Pages will automatically redeploy within a few minutes
+**What's hidden:**
+- Values section (saves space)
+- Contact button (QR code serves this purpose)
 
-### Custom Domain (Optional)
-
-To use a custom domain like `coloft.org`:
-
-1. In your repository settings → Pages → Custom domain
-2. Enter your domain name
-3. Add a CNAME record in your DNS settings pointing to `[username].github.io`
-4. Wait for DNS propagation (can take up to 48 hours)
-
-### Files Structure
-
-```
-coloft/
-├── index.html       # Main HTML file
-├── styles.css       # All styling
-└── README.md        # This file
-```
+**Print margins:**
+- Body: 0.3in
+- Sections: 0.75rem
+- CTA padding: 0.75rem
 
 ## Customization
 
-### Color Palette
-
-The vibrant, yoga-studio-inspired palette is defined in CSS variables in [styles.css](styles.css):
-
-- **Primary**: `#7B68B5` - Calming purple (grounding, spiritual connection)
-- **Secondary**: `#E8926C` - Warm terracotta (community warmth, earthiness)
-- **Accent**: `#F4B860` - Golden amber (energy, transformation)
-- **Healing**: `#6BC9A6` - Fresh teal (renewal, breath, growth)
-- **Background**: `#FFF9F0` - Warm cream (comfort, openness)
-- **Text Dark**: `#2D3047` - Deep slate
-- **Text Light**: `#5C5E7A` - Soft gray
-
-These colors work together to create a **co**mfortable yet vibrant atmosphere that reflects the energy of somatic practices.
-
-### Logo & Icons
-
-**Logo**: Three ascending circles in purple, terracotta, and amber representing "**we rise together**"
-
-**Practice Icons**: Custom SVG icons throughout the site:
-- 🫁 **Breathwork**: Flowing waves symbolizing breath
-- 👥 **Community**: Connected circles representing relationships
-- 🌊 **Therapeutic Integration**: Embracing waves and circles for processing
-- 🌸 **Healing**: Blooming flower/heart shape for growth
-
-All SVGs are inline in [index.html](index.html) for easy customization and perfect print reproduction.
+### Colors
+CSS variables in [styles.css](styles.css):
+- Primary: `#7C3AED` (purple)
+- Secondary: `#059669` (green)
+- Accent: `#0891B2` (cyan)
+- Terracotta: `#DC6B4A`
 
 ### Content
+Edit [index.html](index.html) directly. No build process.
 
-All content is in [index.html](index.html). Edit the text directly—no build process needed!
+### Icons
+All SVG icons inline in HTML for easy customization and perfect print reproduction.
 
-## Creating Print Materials for Co-Conspirators
+## GitHub Pages Deployment
 
-The site includes print-optimized CSS perfect for creating flyers and callouts for potential **co**-conspirators:
+1. Push to GitHub
+2. Settings → Pages → Source: `main` branch, `/` root
+3. Site deploys to `https://[username].github.io/coloft/`
 
-### Quick Print Method
-1. Open the site in a browser
-2. Use Print Preview (Cmd/Ctrl + P)
-3. The print version shows just the logo, tagline, and contact info
-4. Save as PDF or print directly
+**Custom domain:** Add CNAME record pointing to `[username].github.io`
 
-### Custom Flyer Tips
-- Screenshot sections with the practice icons
-- Use the vibrant color palette for visual consistency
-- Key elements to include:
-  - Logo (three ascending circles)
-  - "Coloft—We Rise Together"
-  - Practice icons (breathwork, community, integration, healing)
-  - Contact: events@coloft.org
-  - Emphasize the **co**- theme
+## Testing
 
-## Browser Support
+```bash
+npm install  # First time only
+npm test     # Must pass with exactly 1 page
+```
 
-Works on all modern browsers and mobile devices:
-- Safari (iOS/macOS)
-- Chrome/Edge
-- Firefox
-- Mobile browsers
+Uses `puppeteer-core` (6M+ weekly downloads, audited) to generate PDF and count pages.
 
-## License
+## Contact
 
-Feel free to adapt and modify for your community needs.
+**events@coloft.org**
