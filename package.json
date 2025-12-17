@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Coloft healing collective website",
   "scripts": {
-    "test": "node test-print.js",
-    "test:print": "node test-print.js"
+    "test": "node test-all-print.js && node test-dates.js",
+    "test:print": "node test-all-print.js",
+    "test:dates": "node test-dates.js"
   },
   "devDependencies": {
     "puppeteer-core": "^21.0.0"

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sex Positive Friends - Coloft</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/event-print.css">
+    <style>
+        body {
+            --event-primary: #E91E63;
+            --event-secondary: #9C27B0;
+        }
+        .event-hero {
+            background: linear-gradient(135deg, var(--event-primary) 0%, var(--event-secondary) 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        .event-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+        .event-hero .tagline {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: white;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.6), 0 0 4px rgba(0,0,0,0.4);
+        }
+        .event-image-large {
+            width: 200px;
+            height: 200px;
+            margin: 2rem auto;
+        }
+        .event-image-large img {
+            width: 100%;
+            height: 100%;
+        }
+        .event-details {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .detail-box {
+            background: white;
+            border: 4px solid var(--event-primary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .detail-box h3 {
+            color: var(--event-primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
+        .detail-box p {
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        .upcoming-dates {
+            background: #FCE7F3;
+            border-left: 6px solid var(--event-secondary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .upcoming-dates h4 {
+            color: var(--event-secondary);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        .date-list {
+            list-style: none;
+            padding: 0;
+        }
+        .date-list li {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            background: white;
+            padding: 0.5rem;
+            margin: 0.3rem 0;
+            border-radius: 4px;
+        }
+        .event-nav {
+            background: white;
+            border-bottom: 3px solid var(--event-primary);
+            padding: 1rem;
+            text-align: center;
+        }
+        .event-nav a {
+            color: var(--event-primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .event-nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="event-nav">
+        <a href="../index.html">← All Events</a>
+    </nav>
+
+    <div class="event-hero">
+        <h1>Sex Positive Friends</h1>
+        <p class="tagline">Open conversations in a safe space</p>
+    </div>
+
+    <div class="event-image-large">
+        <img src="../images/sex-positive-friends.svg" alt="Sex Positive Friends">
+    </div>
+
+    <div class="event-details">
+        <div class="detail-box">
+            <h3>About</h3>
+            <p>An open table to connect in a safe public setting. Topics are fluid but may explore consent, communication, boundaries, relationships, intimacy, pleasure, and navigating desire with openness and curiosity.</p>
+        </div>
+
+        <div class="detail-box">
+            <h3>📅 When</h3>
+            <p><strong>5:30PM · 1st & 3rd Wednesday each month</strong></p>
+            <div class="upcoming-dates">
+                <h4>Next 3 Months:</h4>
+                <ul class="date-list">
+                    <li>Dec 3, 2025</li>
+                    <li>Dec 17, 2025</li>
+                    <li>Jan 7, 2026</li>
+                    <li>Jan 21, 2026</li>
+                    <li>Feb 4, 2026</li>
+                    <li>Feb 18, 2026</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="detail-box">
+            <h3>📍 Where</h3>
+            <p><strong>Froth</strong><br>
+            420 California Ave, Arcata, CA 95521</p>
+        </div>
+
+        <div class="detail-box">
+            <h3>💰 Price</h3>
+            <p>One drink or snack to support venue</p>
+        </div>
+
+        <div class="detail-box" style="text-align: center;">
+            <h3>Contact</h3>
+            <p style="font-size: 1.3rem; font-weight: 700; color: var(--event-secondary);">events@coloft.org</p>
+        </div>
+    </div>
+    <script src="../scripts/dates.js"></script>
+</body>
+</html>
