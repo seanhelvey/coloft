@@ -162,10 +162,20 @@ h4 {
 
 /* Events section with clickable cards */
 .events-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
     margin-top: 2rem;
+    justify-content: center;
+    align-items: stretch;
+}
+
+@media (min-width: 600px) {
+    .events-grid {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .event-card {
@@ -179,6 +189,9 @@ h4 {
     color: inherit;
     display: block;
     cursor: pointer;
+    flex: 1 1 300px;
+    max-width: 360px;
+    min-width: 280px;
 }
 
 .event-card:hover {
@@ -228,8 +241,9 @@ h4 {
 
 .event-next {
     color: var(--primary-color);
-    font-size: 0.85rem;
-    font-weight: 700;
+    font-size: 0.95rem;
+    font-weight: 800;
+    margin-top: 0.5rem;
 }
 
 /* CTA section */

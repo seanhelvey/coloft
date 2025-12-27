@@ -227,6 +227,30 @@
             "dance",
             "weekly"
           ]
+        },
+        {
+          "name": "🎪 The Breathe Reset: A Nervous System Tune-up",
+          "url": "https://omshalayoga.punchpass.com/classes/18915302",
+          "schedule": "Saturday, January 10, 2026, 1:00 PM (120 minutes)",
+          "venue": "Om Shala Yoga, 101 H St, Arcata",
+          "price": "$55 ($45 with code BREATHE before Jan 9)",
+          "description": "Breathwork, soft-tissue self-massage, gentle movement & rest to transition from stress to relaxation. Covers relaxation mechanics, diaphragm function, tension release, chronic stress relief. No yoga experience needed. Instructor: Ali McCall",
+          "tags": [
+            "breathwork",
+            "seasonal"
+          ]
+        },
+        {
+          "name": "🎪 Plant Dance :: Botanical Embodiment",
+          "url": "https://www.toshayoga.com/events/2025/12/8/plant-dance",
+          "schedule": "4-week series: Jan 9-30, 2026, Fridays 8:00-10:00 PM",
+          "venue": "Tosha Yoga, 1251 9th St (Creamery Building), Arcata",
+          "price": "See registration",
+          "description": "4-week botanical embodiment immersion with Lauryn Lavendula. Ecstatic movement through a botanical lens, combining dance with plant-based themes and consciousness exploration",
+          "tags": [
+            "dance",
+            "seasonal"
+          ]
         }
       ]
     },

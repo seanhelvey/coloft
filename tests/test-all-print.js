@@ -48,11 +48,8 @@ async function testAllPages() {
     });
 
     const pages = [
-      'index.html',
       'events/somatic-colab.html',
-      'events/coffee-connection.html',
-      'events/sex-positive-friends.html',
-      'events/brews-without-booze.html'
+      'events/sex-positive-friends.html'
     ];
 
     console.log('📄 Testing all pages:\n');

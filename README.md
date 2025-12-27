@@ -4,7 +4,7 @@ A vibrant static website for Coloft, a grassroots healing collective in Arcata, 
 
 ## Features
 
-- **Local Events**: Printable flyers for 4 recurring Humboldt County events
+- **Local Events**: Printable flyers for 2 active recurring Humboldt County events (starting January 2026)
 - **Regional Community Calendar**: 24 transformational events across 10 regions (SF to Ashland)
 - **Mobile Responsive**: Works beautifully on all devices
 - **Print Optimized**: All event flyers fit perfectly on 1 page
@@ -256,10 +256,13 @@ Add CNAME record pointing to `[username].github.io`
 - **Progressive enhancement**: Core content works without JavaScript
 
 **Local Events** ([index.html](index.html)):
+- **2 active events starting January 1, 2026**:
+  - Somatic Co-Lab: Every Sunday at 6:00 PM
+  - Sex Positive Friends: Every Tuesday at 5:30 PM
 - **Static HTML** with embedded event metadata (manually maintained)
 - **Dynamic date calculation**: [scripts/dates.js](scripts/dates.js) runs in browser on page load
-  - Hardcoded recurrence rules for each event (2nd Sunday, every Friday, etc.)
-  - Calculates "Next 3 occurrences" based on current date
+  - Hardcoded recurrence rules for each event (every Sunday, every Tuesday, etc.)
+  - Calculates "Next 3 occurrences" starting from January 1, 2026
   - Updates `.event-next` elements automatically
   - **Easy schedule changes**: Edit `EVENT_SCHEDULES` at top of scripts/dates.js - no rebuild needed!
 - **Always fresh**: Dates never go stale - no rebuild needed
@@ -274,84 +277,6 @@ Add CNAME record pointing to `[username].github.io`
 - **Build step**: Simple Node.js script generates regional calendar HTML from JSON
 - **Automated testing**: Puppeteer-core for print validation
 - **Progressive enhancement**: Works without JavaScript
-
-## Activating Local Event Schedules
-
-When you're ready to publish specific event schedules (currently showing "Schedule TBD - Coming Soon"):
-
-### Quick Update Checklist
-
-For each event you want to activate:
-
-1. **Update index.html** - Change "Schedule TBD - Coming Soon" to actual schedule
-2. **Verify scripts/dates.js** - Confirm EVENT_SCHEDULES configuration is correct
-3. **Update event detail page** - Change "Schedule TBD - Coming Soon" to actual schedule with date list
-4. **Test** - Run `npm test` and refresh page to see dynamic dates!
-
-### Example: Activating Somatic Co-Lab
-
-**Step 1:** Update [index.html](index.html#L42) (line 42):
-```html
-<!-- Change from: -->
-<p class="event-schedule" style="color: #7C3AED; font-weight: 600;">Schedule TBD - Coming Soon</p>
-
-<!-- To: -->
-<p class="event-schedule">6:00PM · 2nd Sunday every month</p>
-<p class="event-next">Next: Jan 11, 2026</p>
-```
-
-**Step 2:** Verify [scripts/dates.js](scripts/dates.js#L7-L28) EVENT_SCHEDULES (lines 7-28):
-```javascript
-'somatic-colab': {
-  name: 'Somatic Co-Lab',
-  rule: 'second-sunday',  // Change this to update schedule
-  isMonthly: true
-}
-```
-
-Available rule options:
-- Monthly: `first-sunday`, `second-sunday`, `third-sunday`, `fourth-sunday`, `first-monday`, `second-monday`, etc.
-- Weekly: `every-monday`, `every-tuesday`, `every-wednesday`, `every-thursday`, `every-friday`, `every-saturday`, `every-sunday`
-- Custom: `first-third-wednesday` (for 1st & 3rd Wednesday)
-
-**Step 3:** Update [events/somatic-colab.html](events/somatic-colab.html#L134-L138) (lines 134-138):
-```html
-<!-- Change from: -->
-<div class="detail-box">
-    <h3>📅 When</h3>
-    <p><strong style="color: #7C3AED;">Schedule TBD - Coming Soon</strong></p>
-    <p style="font-size: 0.95rem; color: #666; margin-top: 0.5rem;">Email events@coloft.org for updates on upcoming dates</p>
-</div>
-
-<!-- To: -->
-<div class="detail-box">
-    <h3>📅 When</h3>
-    <p><strong>6:00PM · 2nd Sunday every month</strong></p>
-    <div class="upcoming-dates">
-        <h4>Next 3 Months:</h4>
-        <ul class="date-list">
-            <!-- Dates automatically populated by scripts/dates.js -->
-        </ul>
-    </div>
-</div>
-```
-
-**Step 4:** Test and verify:
-```bash
-npm test  # Confirm all tests pass
-# Then refresh index.html and the event page in browser - dates appear automatically!
-```
-
-### Event Configuration Reference
-
-| Event | Color | Rule | Files to Update |
-|-------|-------|------|-----------------|
-| Somatic Co-Lab | `#7C3AED` (purple) | `second-sunday` | index.html (line 42), events/somatic-colab.html (line 136) |
-| Coffee & Connection | `#DC6B4A` (terracotta) | `every-friday` | index.html (line 52), events/coffee-connection.html (line 136) |
-| Sex Positive Friends | `#E91E63` (pink) | `first-third-wednesday` | index.html (line 62), events/sex-positive-friends.html (line 125) |
-| Brews Without Booze | `#0891B2` (cyan) | `second-monday` | index.html (line 72), events/brews-without-booze.html (line 125) |
-
-**Note**: You can activate events one at a time! Others will continue showing "Schedule TBD - Coming Soon" until you're ready.
 
 ## Contact
 

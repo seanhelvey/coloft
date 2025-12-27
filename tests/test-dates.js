@@ -1,15 +1,18 @@
 // Test that date calculations are correct for each event
 // Run with: node test-dates.js
 
-function getNextOccurrences(rule, options = {}, fromDate = new Date()) {
+function getNextOccurrences(rule, options = {}) {
   const { count = 3, months = 3 } = options;
-  const today = new Date(fromDate);
-  today.setHours(0, 0, 0, 0);
+
+  // Start from January 1, 2026 (when events begin)
+  const startDate = new Date('2026-01-01');
+  startDate.setHours(0, 0, 0, 0);
 
   const dates = [];
-  let checkDate = new Date(today);
+  let checkDate = new Date(startDate);
 
-  const maxDate = new Date(today);
+  // Look ahead specified number of months
+  const maxDate = new Date(startDate);
   maxDate.setMonth(maxDate.getMonth() + months);
 
   while (checkDate <= maxDate) {
@@ -28,44 +31,18 @@ function getNextOccurrences(rule, options = {}, fromDate = new Date()) {
   return dates;
 }
 
-// Rule: 2nd Sunday of each month
-const secondSundayRule = {
-  name: '2nd Sunday',
-  isMonthly: true,
-  matches: (date) => {
-    if (date.getDay() !== 0) return false;
-    const dayOfMonth = date.getDate();
-    return dayOfMonth >= 8 && dayOfMonth <= 14;
-  }
-};
-
-// Rule: Every Friday
-const everyFridayRule = {
-  name: 'Every Friday',
+// Rule: Every Sunday
+const everySundayRule = {
+  name: 'Every Sunday',
   isMonthly: false,
-  matches: (date) => date.getDay() === 5
+  matches: (date) => date.getDay() === 0
 };
 
-// Rule: 1st and 3rd Wednesday
-const firstThirdWednesdayRule = {
-  name: '1st & 3rd Wednesday',
+// Rule: Every Tuesday
+const everyTuesdayRule = {
+  name: 'Every Tuesday',
   isMonthly: false,
-  matches: (date) => {
-    if (date.getDay() !== 3) return false;
-    const dayOfMonth = date.getDate();
-    return (dayOfMonth >= 1 && dayOfMonth <= 7) || (dayOfMonth >= 15 && dayOfMonth <= 21);
-  }
-};
-
-// Rule: 2nd Monday of each month
-const secondMondayRule = {
-  name: '2nd Monday',
-  isMonthly: true,
-  matches: (date) => {
-    if (date.getDay() !== 1) return false;
-    const dayOfMonth = date.getDate();
-    return dayOfMonth >= 8 && dayOfMonth <= 14;
-  }
+  matches: (date) => date.getDay() === 2
 };
 
 function formatDate(date) {
@@ -106,15 +83,15 @@ function testRule(eventName, rule) {
 }
 
 console.log('📅 Testing Event Date Calculations\n');
-console.log(`Today: ${formatDate(new Date())}\n`);
+const startDate = new Date('2026-01-01');
+startDate.setHours(0, 0, 0, 0);
+console.log(`Start date: ${formatDate(startDate)}\n`);
 console.log('=' .repeat(60));
 
 let allPass = true;
 
-allPass = testRule('Somatic Co-Lab', secondSundayRule, 3) && allPass;
-allPass = testRule('Coffee & Connection', everyFridayRule, 3) && allPass;
-allPass = testRule('Sex Positive Friends', firstThirdWednesdayRule, 3) && allPass;
-allPass = testRule('Brews Without Booze', secondMondayRule, 3) && allPass;
+allPass = testRule('Somatic Co-Lab', everySundayRule, 3) && allPass;
+allPass = testRule('Sex Positive Friends', everyTuesdayRule, 3) && allPass;
 
 console.log('\n' + '=' .repeat(60));
 if (allPass) {

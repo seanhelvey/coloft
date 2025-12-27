@@ -7,23 +7,13 @@
 const EVENT_SCHEDULES = {
   'somatic-colab': {
     name: 'Somatic Co-Lab',
-    rule: 'second-sunday',     // Options: second-sunday, first-sunday, third-sunday, fourth-sunday
-    isMonthly: true
-  },
-  'coffee-connection': {
-    name: 'Coffee & Connection',
-    rule: 'every-friday',       // Options: every-monday, every-tuesday, etc.
+    rule: 'every-sunday',       // Every Sunday at 6:00 PM
     isMonthly: false
   },
   'sex-positive-friends': {
     name: 'Sex Positive Friends',
-    rule: 'first-third-wednesday',  // Custom: 1st & 3rd Wednesday
+    rule: 'every-tuesday',      // Every Tuesday at 5:30 PM
     isMonthly: false
-  },
-  'brews-without-booze': {
-    name: 'Brews Without Booze',
-    rule: 'second-monday',      // Options: second-monday, first-monday, etc.
-    isMonthly: true
   }
 };
 
@@ -33,14 +23,16 @@ const EVENT_SCHEDULES = {
 
 function getNextOccurrences(rule, options = {}) {
   const { count = 3, months = 3 } = options;
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+
+  // Start from January 1, 2026 (when events begin)
+  const startDate = new Date('2026-01-01');
+  startDate.setHours(0, 0, 0, 0);
 
   const dates = [];
-  let checkDate = new Date(today);
+  let checkDate = new Date(startDate);
 
   // Look ahead specified number of months
-  const maxDate = new Date(today);
+  const maxDate = new Date(startDate);
   maxDate.setMonth(maxDate.getMonth() + months);
 
   while (checkDate <= maxDate) {
@@ -120,23 +112,29 @@ function updateEventDates(eventId, rule) {
   }
 }
 
+// Rule: Every Sunday
+const everySundayRule = {
+  isMonthly: false,
+  matches: (date) => date.getDay() === 0
+};
+
+// Rule: Every Tuesday
+const everyTuesdayRule = {
+  isMonthly: false,
+  matches: (date) => date.getDay() === 2
+};
+
 // Run when page loads
 document.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname;
 
   if (path.includes('somatic-colab')) {
-    updateEventDates('somatic-colab', secondSundayRule);
-  } else if (path.includes('coffee-connection')) {
-    updateEventDates('coffee-connection', everyFridayRule);
+    updateEventDates('somatic-colab', everySundayRule);
   } else if (path.includes('sex-positive-friends')) {
-    updateEventDates('sex-positive-friends', firstThirdWednesdayRule);
-  } else if (path.includes('brews-without-booze')) {
-    updateEventDates('brews-without-booze', secondMondayRule);
+    updateEventDates('sex-positive-friends', everyTuesdayRule);
   } else if (path.includes('index.html') || path.endsWith('/') || path === '') {
-    // Update all events on index page
-    updateEventDates('somatic-colab', secondSundayRule);
-    updateEventDates('coffee-connection', everyFridayRule);
-    updateEventDates('sex-positive-friends', firstThirdWednesdayRule);
-    updateEventDates('brews-without-booze', secondMondayRule);
+    // Update all active events on index page
+    updateEventDates('somatic-colab', everySundayRule);
+    updateEventDates('sex-positive-friends', everyTuesdayRule);
   }
 });
