@@ -149,6 +149,18 @@
             "dance",
             "weekly"
           ]
+        },
+        {
+          "name": "🔄 DROPGYM Breath Journey",
+          "url": "https://www.dropgym.com/breath-journey-dates/",
+          "schedule": "Monthly (3rd Wednesday), 6:45-9 PM",
+          "venue": "DROPGYM, 943 Automation Way Suite D, Medford",
+          "price": "See website for pricing",
+          "description": "Monthly breathwork journey combining movement and conscious breathing. In-person and online options. Email: hello@dropgym.com",
+          "tags": [
+            "breathwork",
+            "monthly"
+          ]
         }
       ]
     },
@@ -163,6 +175,54 @@
           "schedule": "Sundays, 10 AM - 12 PM",
           "venue": "D St. Neighborhood Center, Arcata",
           "price": "$8-$20",
+          "tags": [
+            "dance",
+            "weekly"
+          ]
+        },
+        {
+          "name": "🔄 Sunday Waves (5Rhythms)",
+          "url": "https://www.5rhythms.com/classes/SundayWaves-293859",
+          "schedule": "Sundays, 10:30 AM - 12:15 PM",
+          "venue": "Blue Lake Sanctuary, 14599 West End Rd, Arcata",
+          "price": "Contact for pricing",
+          "description": "5Rhythms conscious dance with Albo Mussmann. Contact: (707) 954-9488",
+          "tags": [
+            "dance",
+            "weekly"
+          ]
+        },
+        {
+          "name": "🔄 Ancient Forest Sangha",
+          "url": "https://ancientforestsangha.org/",
+          "schedule": "2nd, 3rd, 4th Thursdays, 7-8:15 PM",
+          "venue": "Humboldt Unitarian Universalist Fellowship, Bayside",
+          "price": "Donation-based",
+          "description": "Meditation sangha in Plum Village tradition of Thich Nhat Hanh. Community-focused practice with over 10 years of continuous gathering",
+          "tags": [
+            "consciousness",
+            "weekly"
+          ]
+        },
+        {
+          "name": "🔄 Community Song Circle",
+          "url": "https://huuf.org/events/community-song-circle-2-2025-11-21-2025-12-19/",
+          "schedule": "1st & 3rd Fridays, 4:00-5:30 PM",
+          "venue": "Humboldt Unitarian Universalist Fellowship, 24 Fellowship Way, Bayside",
+          "price": "Donation-based",
+          "description": "Led by Maggie McKnight. Welcomes all singing abilities. Participatory singing, not performance. Learn songs through call-and-response from various traditions. Group singing as catalyst for social change and community building. Contact: office@huuf.org",
+          "tags": [
+            "music",
+            "monthly"
+          ]
+        },
+        {
+          "name": "🔄 Synapsis Contact Improvisation Jam",
+          "url": "https://www.humboldtci.dance",
+          "schedule": "Thursdays, 7:00-9:00 PM (1st Thursday: class, others: jam)",
+          "venue": "Synapsis, 1675 Union St, Eureka",
+          "price": "$5-$15 suggested (no one turned away)",
+          "description": "Weekly CI jam at renovated historic theatre with wood floor. 1st Thursday: experienced instructors teach class. Other Thursdays: open jam. Email: jebsky@gmail.com for Signal group",
           "tags": [
             "dance",
             "weekly"
@@ -184,6 +244,18 @@
           "description": "HeartBeat Ecstatic Dance at Mt. Shasta City Park. Contact: (415) 519-8661",
           "tags": [
             "dance",
+            "weekly"
+          ]
+        },
+        {
+          "name": "🔄 Crystal Tones Sound Meditation",
+          "url": "https://crystalsingingbowls.com/mt-shasta/",
+          "schedule": "Daily, 8:30 AM (30 min)",
+          "venue": "201 N. Mt. Shasta Blvd (downstairs), Mt. Shasta",
+          "price": "Free",
+          "description": "Daily crystal bowl meditation open to all. Evening sound bath experiences also available (schedule varies). Certified sound bath leader. Showroom open 10am-6pm daily",
+          "tags": [
+            "ritual",
             "weekly"
           ]
         }
@@ -255,6 +327,18 @@
             "retreat",
             "seasonal",
             "connection"
+          ]
+        },
+        {
+          "name": "🔄 Mendocino Dance Project Contact Improvisation",
+          "url": "https://mendocinodanceproject.org/",
+          "schedule": "Seasonal 6-week sessions, Thursdays 9:45-11 AM",
+          "venue": "Fort Bragg",
+          "price": "Free (community grants supported)",
+          "description": "Contact improvisation classes in 6-week sessions. Also offers contemporary dance and vertical dance in the redwoods. Email: info@mendocinodanceproject.org",
+          "tags": [
+            "dance",
+            "seasonal"
           ]
         }
       ]
@@ -350,6 +434,79 @@
           "price": "$10-$15 door",
           "tags": [
             "dance",
+            "weekly"
+          ]
+        },
+        {
+          "name": "🔄 Monday Night Ecstatic Dance",
+          "url": "https://www.dolphindancing.com/monday-night-ecstatic-dance-santa-cruz",
+          "schedule": "Mondays, 8-10 PM",
+          "venue": "The 418 Project, 418 Front St, Santa Cruz",
+          "price": "$12-$15",
+          "tags": [
+            "dance",
+            "weekly"
+          ]
+        },
+        {
+          "name": "🔄 Santa Cruz Dance Circle",
+          "url": "https://santacruzdancecircle.org/",
+          "schedule": "Sundays, 9-11 AM",
+          "venue": "Tannery Arts Center Studio A, Santa Cruz",
+          "price": "Donation-based",
+          "description": "Weekly dance circle with sharing circle afterwards. Ecstatic dance, 5Rhythms, contact improvisation community",
+          "tags": [
+            "dance",
+            "weekly"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Chico & Northern Sacramento Valley, CA",
+      "id": "chico-northern-sacramento-valley-ca",
+      "state": "california",
+      "events": [
+        {
+          "name": "🔄 Infinite Rhythms Ecstatic Dance",
+          "url": "https://www.yogacenterofchico.com/",
+          "schedule": "Thursdays, 8:00-9:30 PM (Qigong 7:15-8:00 PM)",
+          "venue": "Yoga Center of Chico",
+          "price": "See website (scholarships available)",
+          "description": "Shoe/talk/food/drug/alcohol/smoke-free, soul-full ecstatic dance. Preceded by Qigong taught by Bonnie. Facebook: facebook.com/groups/infiniterhythmschico | Email: equalrightsforyouth@yahoo.com",
+          "tags": [
+            "dance",
+            "weekly"
+          ]
+        },
+        {
+          "name": "🔄 Full Moon Women's Breathwork Circle",
+          "url": "https://www.fairylightyoga.com/workshops/p/fullmoon-breathwork-classes",
+          "schedule": "Monthly on full moons",
+          "venue": "Chico Holistic Wellness Center, 287 Rio Lindo Ave, Chico",
+          "price": "$20 single / $100 for 6 classes (20% student discount: STUDENT)",
+          "description": "Breathwork powered by the full moon for women. Breath practices and rituals inspired by lunar energy. Community gathering. Bring journal, paper, pen",
+          "tags": [
+            "breathwork",
+            "monthly"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Redding & Shasta County, CA",
+      "id": "redding-shasta-county-ca",
+      "state": "california",
+      "events": [
+        {
+          "name": "🔄 Balance Yoga Center Integrative Breathwork",
+          "url": "https://www.balance-yogacenter.com/classes/specialty-classes",
+          "schedule": "Weekly (check website for current schedule)",
+          "venue": "Balance Yoga Center, 2821 Bechelli Ln, Redding",
+          "price": "By donation",
+          "description": "Simple rhythmic breathing practice that releases stored patterns of stress and tension. Combines breath and body awareness to relax and connect with natural peace and joy. Phone: (530) 262-6298",
+          "tags": [
+            "breathwork",
             "weekly"
           ]
         }

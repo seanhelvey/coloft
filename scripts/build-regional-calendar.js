@@ -365,8 +365,6 @@ const html = `<!DOCTYPE html>
                     <span class="filter-tag" data-filter="breathwork">Breathwork</span>
                     <span class="filter-tag" data-filter="festival">Festival</span>
                     <span class="filter-tag" data-filter="music">Music</span>
-                    <span class="filter-tag" data-filter="consciousness">Consciousness</span>
-                    <span class="filter-tag" data-filter="ritual">Ritual</span>
                 </div>
             </div>
 
@@ -456,7 +454,7 @@ ${californiaSections}
             activeFilters.forEach(filter => {
                 if (filter.startsWith('region-')) {
                     regionFilters.add(filter);
-                } else if (['dance', 'connection', 'retreat', 'breathwork', 'consciousness', 'ritual', 'festival', 'music'].includes(filter)) {
+                } else if (['dance', 'connection', 'retreat', 'breathwork', 'festival', 'music'].includes(filter)) {
                     typeFilters.add(filter);
                 } else if (['weekly', 'monthly', 'annual', 'seasonal'].includes(filter)) {
                     frequencyFilters.add(filter);
