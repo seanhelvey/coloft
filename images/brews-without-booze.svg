@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Brews Without Booze: Simple, clear beer mug -->
+  <defs>
+    <linearGradient id="brew-grad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#FDE047;stop-opacity:0.6" />
+    </linearGradient>
+  </defs>
+
+  <!-- Beer mug body -->
+  <rect x="65" y="90" width="70" height="80" rx="5" fill="url(#brew-grad)" stroke="#0891B2" stroke-width="5"/>
+  <rect x="65" y="90" width="70" height="80" rx="5" fill="none" stroke="#1E293B" stroke-width="2" opacity="0.3"/>
+
+  <!-- Mug handle -->
+  <path d="M 135 110 Q 155 110, 155 135 Q 155 160, 135 160"
+        fill="none" stroke="#0891B2" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Foam on top (white, fluffy with shadow) -->
+  <ellipse cx="100" cy="90" rx="38" ry="15" fill="#F5F5F5" stroke="#CBD5E1" stroke-width="2"/>
+  <ellipse cx="80" cy="85" rx="18" ry="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+  <ellipse cx="100" cy="80" rx="22" ry="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+  <ellipse cx="120" cy="85" rx="18" ry="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+
+  <!-- Bubbles in beer -->
+  <circle cx="85" cy="120" r="4" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="95" cy="140" r="5" fill="#FFFFFF" opacity="0.5"/>
+  <circle cx="110" cy="130" r="4" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="105" cy="155" r="3" fill="#FFFFFF" opacity="0.5"/>
+</svg>

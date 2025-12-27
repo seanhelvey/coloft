@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "description": "Coloft healing collective website",
   "scripts": {
-    "test": "node test-print.js",
-    "test:print": "node test-print.js"
+    "test": "node tests/test-all-print.js && node tests/test-dates.js",
+    "test:print": "node tests/test-all-print.js",
+    "test:dates": "node tests/test-dates.js",
+    "build:regional": "node scripts/build-regional-calendar.js",
+    "verify-calendar": "node scripts/verify-order.js",
+    "validate-links": "node scripts/validate-links.js",
+    "validate-data": "node scripts/validate-event-data.js",
+    "check-stale-dates": "node scripts/check-stale-dates.js"
   },
   "devDependencies": {
     "puppeteer-core": "^21.0.0"

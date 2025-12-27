@@ -1,0 +1,86 @@
+@media print {
+    @page {
+        margin: 0;
+        size: letter portrait;
+    }
+
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+    }
+
+    body {
+        margin: 0.3in;
+        padding: 0;
+    }
+
+    .event-hero {
+        padding: 1.2rem 1rem !important;
+        page-break-inside: avoid;
+    }
+
+    .event-hero h1 {
+        font-size: 1.6rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+
+    .event-hero .tagline {
+        font-size: 0.9rem !important;
+    }
+
+    .event-image-large {
+        width: 100px !important;
+        height: 100px !important;
+        margin: 0.75rem auto !important;
+    }
+
+    .event-details {
+        padding: 0.5rem 0 !important;
+    }
+
+    .detail-box {
+        padding: 0.6rem !important;
+        margin: 0.5rem 0 !important;
+        page-break-inside: avoid;
+    }
+
+    .detail-box h3 {
+        font-size: 0.95rem !important;
+        margin-bottom: 0.3rem !important;
+    }
+
+    .detail-box p {
+        font-size: 0.8rem !important;
+        line-height: 1.25 !important;
+    }
+
+    .upcoming-dates {
+        padding: 0.6rem !important;
+        margin: 0.5rem 0 !important;
+        page-break-inside: avoid;
+    }
+
+    .upcoming-dates h3 {
+        font-size: 0.9rem !important;
+        margin-bottom: 0.4rem !important;
+    }
+
+    .date-list {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.2rem !important;
+    }
+
+    .date-list li {
+        font-size: 0.75rem !important;
+        padding: 0.2rem 0.3rem !important;
+        margin: 0 !important;
+    }
+
+    .back-link,
+    .event-nav,
+    iframe {
+        display: none;
+    }
+}

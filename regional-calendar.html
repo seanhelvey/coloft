@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regional Community Calendar - Coloft</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <style>
+        body {
+            --page-primary: #7C3AED;
+            --page-secondary: #E8926C;
+        }
+        .calendar-hero {
+            background: linear-gradient(135deg, var(--page-primary) 0%, var(--page-secondary) 100%);
+            color: white;
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+        .calendar-hero h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+        .calendar-hero .tagline {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+        }
+        .calendar-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
+        }
+        .region-section {
+            margin-bottom: 1.5rem;
+        }
+        .region-section h2 {
+            color: var(--page-primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            border-bottom: 2px solid var(--page-primary);
+            padding-bottom: 0.25rem;
+        }
+        .event-item {
+            background: white;
+            border-left: 4px solid var(--page-secondary);
+            padding: 0.75rem;
+            margin-bottom: 0.75rem;
+            border-radius: 4px;
+        }
+        .event-item h3 {
+            color: var(--text-dark);
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+        .event-item h3 a {
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+        .event-item h3 a:hover {
+            color: var(--page-primary);
+            text-decoration: underline;
+        }
+        .event-meta {
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            margin: 0.2rem 0;
+        }
+        .event-meta strong {
+            color: var(--page-primary);
+        }
+        .event-price {
+            font-size: 0.8rem;
+            color: #666;
+            font-style: italic;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 1.5rem 0;
+            color: var(--page-primary);
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .nav-bar {
+            background: white;
+            border-bottom: 3px solid var(--page-primary);
+            padding: 1rem;
+            text-align: center;
+        }
+        .nav-bar a {
+            color: var(--page-primary);
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .nav-bar a:hover {
+            text-decoration: underline;
+        }
+        .filter-container {
+            background: white;
+            border: 2px solid var(--page-primary);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .filter-container h3 {
+            color: var(--page-primary);
+            margin: 0 0 0.75rem 0;
+            font-size: 1.1rem;
+        }
+        .filter-group {
+            margin-bottom: 0.75rem;
+        }
+        .filter-group label {
+            font-weight: 600;
+            color: var(--text-dark);
+            display: block;
+            margin-bottom: 0.25rem;
+            font-size: 0.9rem;
+        }
+        .filter-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .filter-tag {
+            padding: 0.4rem 0.8rem;
+            border: 2px solid var(--page-secondary);
+            border-radius: 20px;
+            background: white;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+        .filter-tag:hover {
+            background: #fef3ee;
+        }
+        .filter-tag.active {
+            background: var(--page-secondary);
+            color: white;
+        }
+        .filter-controls {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+        .filter-controls button {
+            padding: 0.4rem 1rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .filter-controls .clear-btn {
+            background: #e0e0e0;
+            color: #333;
+        }
+        .filter-controls .clear-btn:hover {
+            background: #d0d0d0;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--page-primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 1000;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            background: var(--page-secondary);
+            transform: translateY(-3px);
+        }
+        .event-item.hidden {
+            display: none;
+        }
+        .region-section.all-hidden {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .calendar-hero h1 {
+                font-size: 1.5rem;
+            }
+            .calendar-hero .tagline {
+                font-size: 0.95rem;
+            }
+            .calendar-content {
+                padding: 1rem 0.75rem;
+            }
+            .region-section h2 {
+                font-size: 1.1rem;
+            }
+            .event-item {
+                padding: 0.6rem;
+            }
+            .event-meta {
+                font-size: 0.8rem;
+            }
+            /* Make visual map stack on mobile */
+            .calendar-content > div[style*="grid-template-columns: 1fr 1fr"] {
+                display: block !important;
+            }
+            .calendar-content > div[style*="grid-template-columns: 1fr 1fr"] > div {
+                margin-bottom: 1rem;
+            }
+        }
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .nav-bar {
+                display: none;
+            }
+            .calendar-hero {
+                padding: 0.5rem;
+            }
+            .calendar-hero h1 {
+                font-size: 1.3rem;
+                margin-bottom: 0.25rem;
+            }
+            .calendar-hero .tagline {
+                font-size: 0.9rem;
+            }
+            .calendar-content {
+                padding: 0.3rem;
+            }
+            .region-section {
+                margin-bottom: 0.6rem;
+            }
+            .region-section h2 {
+                font-size: 0.95rem;
+                margin-bottom: 0.3rem;
+                padding-bottom: 0.1rem;
+            }
+            .event-item {
+                padding: 0.35rem 0.5rem;
+                margin-bottom: 0.35rem;
+                page-break-inside: avoid;
+            }
+            .event-item h3 {
+                font-size: 0.85rem;
+                margin-bottom: 0.15rem;
+            }
+            .event-meta {
+                font-size: 0.7rem;
+                margin: 0.1rem 0;
+            }
+            .event-price {
+                font-size: 0.65rem;
+            }
+            .calendar-content > p {
+                font-size: 0.7rem;
+                padding: 0.5rem;
+                margin-top: 0.75rem;
+            }
+            .back-link {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <a href="index.html">← Back to Coloft Events</a>
+    </nav>
+
+    <div class="calendar-hero">
+        <h1>Regional Community Calendar</h1>
+        <p class="tagline">Transformational events across Oregon & Northern California—dance, connection practices, retreats & festivals</p>
+    </div>
+
+    <div class="calendar-content">
+
+        <div style="background: linear-gradient(135deg, #E8926C 0%, #7C3AED 100%); color: white; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+            <h3 style="margin: 0 0 0.5rem 0; font-size: 1.1rem;">How to Use This Calendar</h3>
+            <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
+                <strong>🔄 Weekly/Monthly</strong> = Recurring events • <strong>🎪 Workshop/Retreat</strong> = One-time or seasonal events<br>
+                Regions organized <strong>North to South</strong> for easy trip planning. Click event links to verify schedules before traveling.
+            </p>
+        </div>
+
+        <div class="filter-container">
+            <h3>🔍 Filter Events</h3>
+
+            <div class="filter-group">
+                <label>📍 Regions:</label>
+                <div class="filter-tags">
+                    <span class="filter-tag" data-filter="region-eugene-or">Eugene</span>
+                    <span class="filter-tag" data-filter="region-rogue-valley-or-ashlandmedfordgrants-pass">Rogue Valley</span>
+                    <span class="filter-tag" data-filter="region-san-francisco-bay-area-ca">Bay Area</span>
+                    <span class="filter-tag" data-filter="region-humboldt-county-ca">Humboldt County</span>
+                    <span class="filter-tag" data-filter="region-portland-or">Portland</span>
+                    <span class="filter-tag" data-filter="region-nevada-county-ca-nevada-citygrass-valley">Nevada County</span>
+                    <span class="filter-tag" data-filter="region-mendocino-county-ca">Mendocino County</span>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label>Event Type:</label>
+                <div class="filter-tags">
+                    <span class="filter-tag" data-filter="dance">Dance</span>
+                    <span class="filter-tag" data-filter="connection">Connection</span>
+                    <span class="filter-tag" data-filter="retreat">Retreat</span>
+                    <span class="filter-tag" data-filter="breathwork">Breathwork</span>
+                    <span class="filter-tag" data-filter="consciousness">Consciousness</span>
+                    <span class="filter-tag" data-filter="ritual">Ritual</span>
+                    <span class="filter-tag" data-filter="festival">Festival</span>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label>Frequency:</label>
+                <div class="filter-tags">
+                    <span class="filter-tag" data-filter="weekly">Weekly</span>
+                    <span class="filter-tag" data-filter="monthly">Monthly</span>
+                    <span class="filter-tag" data-filter="annual">Annual</span>
+                    <span class="filter-tag" data-filter="seasonal">Seasonal</span>
+                </div>
+            </div>
+
+            <div class="filter-controls">
+                <button class="clear-btn" onclick="clearFilters()">Clear All Filters</button>
+            </div>
+        </div>
+
+        <div style="background: #059669; color: white; padding: 0.75rem 1rem; margin: 2rem 0 1rem 0; border-radius: 6px; font-weight: 800; font-size: 1.2rem; text-align: center;">
+            🌲 OREGON
+        </div>
+
+
+<div class="region-section" id="portland-or">
+            <h2>Portland, OR</h2>
+            <div class="event-item" data-tag-dance="true" data-tag-weekly="true" data-tag-region-portland-or="true">
+                <h3><a href="https://dancepdx.com/" target="_blank">🔄 Ecstatic Dance Portland</a></h3>
+                <p class="event-meta"><strong>When:</strong> Wednesdays, 7-10 PM | <strong>Where:</strong> The Den, 116 SE Yamhill St | <span class="event-price">$15-$20</span></p>
+            </div>
+            <div class="event-item" data-tag-dance="true" data-tag-weekly="true" data-tag-region-portland-or="true">
+                <h3><a href="https://dancepdx.com/" target="_blank">🔄 Dance Rooted (5Rhythms)</a></h3>
+                <p class="event-meta"><strong>When:</strong> Sundays, 3:30-5 PM | <strong>Where:</strong> Vitalidad Movement Arts, 2626 E Burnside | <span class="event-price">$15</span></p>
+            </div>
+        </div>
+
+
+<div class="region-section" id="eugene-or">
+            <h2>Eugene, OR</h2>
+            <div class="event-item" data-tag-dance="true" data-tag-weekly="true" data-tag-region-eugene-or="true">
+                <h3><a href="https://coalessencedance.com/" target="_blank">🔄 Coalessence Ecstatic Dance</a></h3>
+                <p class="event-meta"><strong>When:</strong> Tuesdays, 6-8:30 PM | <strong>Where:</strong> Village School Commons, 3411 Willamette St | <span class="event-price">$10-$24+</span></p>
+                <p class="event-meta" style="margin-top: 0.3rem; font-size: 0.8rem;">Eugene's 16-year ecstatic dance community. Email: coalessenceeugene@gmail.com</p>
+            </div>
+            <div class="event-item" data-tag-connection="true" data-tag-monthly="true" data-tag-region-eugene-or="true">
+                <h3><a href="https://allevents.in/eugene/authentic-relating-circle/200029352033649" target="_blank">🔄 Authentic Relating Eugene</a></h3>
+                <p class="event-meta"><strong>When:</strong> 2nd & 4th Mondays, 5:30 PM | <strong>Where:</strong> Sacred Connections, 810 W. 3rd Ave | <span class="event-price">$3-$10 donation</span></p>
+                <p class="event-meta" style="margin-top: 0.3rem; font-size: 0.8rem;">Authentic relating games and connection practices. Community space for vulnerable, real connection</p>
+            </div>
+            <div class="event-item" data-tag-retreat="true" data-tag-annual="true" data-tag-connection="true" data-tag-region-eugene-or="true">
+                <h3><a href="https://www.networkfornewculture.org/events/summer-camp-west" target="_blank">🎪 New Culture Summer Camp West</a></h3>
+                <p class="event-meta"><strong>When:</strong> July 31 - Aug 9, 2026 (dates TBA for 2025) | <strong>Where:</strong> Near Veneta (close to Eugene) | <span class="event-price">Registration opens spring</span></p>
+                <p class="event-meta" style="margin-top: 0.3rem; font-size: 0.8rem;">10-day intentional community gathering focused on heart-centered connections, emotional resilience, boundary work, conflict resolution. Families with children welcome. Registration: networkfornewculture.org | Email: registration@cfnc.us</p>
+            </div>
+            <div class="event-item" data-tag-festival="true" data-tag-annual="true" data-tag-music="true" data-tag-region-eugene-or="true">
+                <h3><a href="https://www.oregoncountryfair.org/" target="_blank">🎪 Oregon Country Fair</a></h3>
+                <p class="event-meta"><strong>When:</strong> July 11-13, 2025 | <strong>Where:</strong> Veneta (near Eugene) | <span class="event-price">~$45K attendees expected</span></p>
+                <p class="event-meta" style="margin-top: 0.3rem; font-size: 0.8rem;">56-year transformational gathering in the woods. 500+ performances on 17+ stages, 260 craft booths, art, hand-made goods, gourmet food. "Nourish the spirit, explore living artfully & authentically on earth." Counter-culture roots, environmentally-friendly practices, magic & community</p>
+            </div>
+        </div>
+
+
+<div class="region-section" id="rogue-valley-or-ashlandmedfordgrants-pass">
+            <h2>Rogue Valley, OR (Ashland/Medford/Grants Pass)</h2>
+            <div class="event-item" data-tag-dance="true" data-tag-monthly="true" data-tag-region-rogue-valley-or-ashlandmedfordgrants-pass="true">
+                <h3><a href="https://danceashland.com/" target="_blank">🔄 Dancing Prayers</a></h3>
+                <p class="event-meta"><strong>When:</strong> Select Sundays, 10:30 AM - 12:30 PM (Dec 28, Jan 11, 25) | <strong>Where:</strong> The Dance Space, 280 E. Hersey St #10, Ashland | <span class="event-price">$15</span></p>
+            </div>
+            <div class="event-item" data-tag-dance="true" data-tag-weekly="true" data-tag-region-rogue-valley-or-ashlandmedfordgrants-pass="true">
+                <h3><a href="https://danceashland.com/" target="_blank">🔄 Sunday Morning Conscious Dance</a></h3>
+                <p class="event-meta"><strong>When:</strong> Sundays, 9:30 AM | <strong>Where:</strong> Studio Z, 280 E. Hersey St #1, Ashland | <span class="event-price">$10-$15 cash</span></p>
+                <p class="event-meta" style="margin-top: 0.3rem; font-size: 0.8rem;">Weekly conscious dance in inclusive community. Everyone welcome. Email: fluidityecstaticdance@gmail.com</p>
+            </div>
+            <div class="event-item" data-tag-dance="true" data-tag-weekly="true" data-tag-region-rogue-valley-or-ashlandmedfordgrants-pass="true">
+                <h3><a href="https://ecstaticdance.org/dance/the-dance-expanse/" target="_blank">🔄 Dance Expanse (SaturDAYtime)</a></h3>
+                <p class="event-meta"><strong>When:</strong> Saturdays, 11:11 AM - 1:11 PM | <strong>Where:</strong> Studio Z, 280 E. Hersey St #1, Ashland | <span class="event-price">$11</span></p>
+            </div>
+            <div class="event-item" data-tag-dance="true" data-tag-weekly="true" data-tag-region-rogue-valley-or-ashlandmedfordgrants-pass="true">
+                <h3><a href="https://ashlandci.wordpress.com/" target="_blank">🔄 Ashland Contact Improvisation Jam</a></h3>
+                <p class="event-meta"><strong>When:</strong> Saturdays during school year (1:30-3:30 or 4:30-6:30), check Facebook | <strong>Where:</strong> Various locations, Ashland | <span class="event-price">$5-$10</span></p>
+                <p class="event-meta" style="margin-top: 0.3rem; font-size: 0.8rem;">Contact-friendly ecstatic dances also Wed/Fri 8-10pm at The Dance Space, Sun 10:30-12:30pm (The Dance Space), Sun 9-11am (Studio Z)</p>
+            </div>
+            <div class="event-item" data-tag-ritual="true" data-tag-seasonal="true" data-tag-region-rogue-valley-or-ashlandmedfordgrants-pass="true">
+                <h3><a href="https://ashlandgoddesstemple.com/" target="_blank">🔄 Goddess Temple of Ashland</a></h3>
+                <p class="event-meta"><strong>When:</strong> April 30-Oct 31 yearly, noon-4pm | <strong>Where:</strong> Behind Jackson Wellsprings, 2253 Hwy 99 N, Ashland | <span class="event-price">Donation-based, tours: 541-601-8983</span></p>
+                <p class="event-meta" style="margin-top: 0.3rem; font-size: 0.8rem;">Multi-faith Earth-based sanctuary. Sacred feminine temple with geodesic dome, Moon Lodge, Red Tent, Mikvah. Community ritual, monthly Red Tents, Priestess trainings, rites of passage. Seasonal sabbats. All-inclusive: gender fluidity, circle consciousness. Contact Lady Graellyn for tours/ceremonies. Email: priestessgraell@gmail.com</p>
+            </div>
+            <div class="event-item" data-tag-consciousness="true" data-tag-weekly="true" data-tag-region-rogue-valley-or-ashlandmedfordgrants-pass="true">
+                <h3><a href="https://rvml.org/" target="_blank">🔄 RVML Tuesday Lecture Series</a></h3>
+                <p class="event-meta"><strong>When:</strong> Tuesdays, 7 PM | <strong>Where:</strong> Rogue Valley Metaphysical Library, 1757 Ashland St | <span class="event-price">Free</span></p>
+                <p class="event-meta" style="margin-top: 0.3rem; font-size: 0.8rem;">Weekly lectures on spirituality, wellness, personal development. Topics include embodiment practices, Vedic chanting, conscious living. Authors, researchers & practitioners presenting. Library open Tue-Sat 10-6</p>
+            </div>
+        </div>
+
+
+        <div style="background: #DC6B4A; color: white; padding: 0.75rem 1rem; margin: 2rem 0 1rem 0; border-radius: 6px; font-weight: 800; font-size: 1.2rem; text-align: center;">
+            🌊 CALIFORNIA
+        </div>
+
+
+<div class="region-section" id="humboldt-county-ca">
+            <h2>Humboldt County, CA</h2>
+            <div class="event-item" data-tag-dance="true" data-tag-weekly="true" data-tag-region-humboldt-county-ca="true">
+                <h3><a href="https://lostcoastoutpost.com/lowdown/events/arcata-ecstatic-dance/" target="_blank">🔄 Arcata Ecstatic Dance</a></h3>
+                <p class="event-meta"><strong>When:</strong> Sundays, 10 AM - 12 PM | <strong>Where:</strong> D St. Neighborhood Center, Arcata | <span class="event-price">$8-$20</span></p>
+            </div>
+        </div>
+
+
+<div class="region-section" id="mt-shasta-ca">
+            <h2>Mt. Shasta, CA</h2>
+            <div class="event-item" data-tag-dance="true" data-tag-weekly="true" data-tag-region-mt-shasta-ca="true">
+                <h3><a href="https://ecstaticdance.org/dance/mt-shasta-ecstatic-dance/" target="_blank">🔄 Mt Shasta Ecstatic Dance</a></h3>
+                <p class="event-meta"><strong>When:</strong> Thursdays, 7-9 PM | <strong>Where:</strong> Mt Shasta City Park, 1315 Nixon Rd | <span class="event-price">$12-$22</span></p>
+                <p class="event-meta" style="margin-top: 0.3rem; font-size: 0.8rem;">HeartBeat Ecstatic Dance at Mt. Shasta City Park. Contact: (415) 519-8661</p>
+            </div>
+        </div>
+
+
+<div class="region-section" id="sonoma-county-ca">
+            <h2>Sonoma County, CA</h2>
+            <div class="event-item" data-tag-dance="true" data-tag-monthly="true" data-tag-region-sonoma-county-ca="true">
+                <h3><a href="https://ecstaticdance.org/dance/ecstatic-dance-sebastopol/" target="_blank">🔄 Ecstatic Dance Sebastopol</a></h3>
+                <p class="event-meta"><strong>When:</strong> 1st Friday (dhyana Center, 7pm yoga/8-10pm dance) & 1st/3rd Sunday (Youth Annex) | <strong>Where:</strong> 186 N. Main St #250 & 425 Morris St, Sebastopol | <span class="event-price">$15-$20 sliding scale</span></p>
+                <p class="event-meta" style="margin-top: 0.3rem; font-size: 0.8rem;">Sacred space with bass-filled electronic music, starts slow for stretching, rhythmic wave journey, ends with sound bath & meditation. Childcare included ($5 for 12 & under)</p>
+            </div>
+        </div>
+
+
+<div class="region-section" id="mendocino-county-ca">
+            <h2>Mendocino County, CA</h2>
+            <div class="event-item" data-tag-dance="true" data-tag-monthly="true" data-tag-region-mendocino-county-ca="true">
+                <h3><a href="https://ecstaticdance.org/dance/ukiah-dance-collective-ecstatic-dance/" target="_blank">🔄 Ukiah Dance Collective</a></h3>
+                <p class="event-meta"><strong>When:</strong> First Sunday monthly, 11:30 AM - 1 PM | <strong>Where:</strong> Young for Life, 75 Kunzler Ranch Rd #H, Ukiah | <span class="event-price">Donation-based</span></p>
+                <p class="event-meta" style="margin-top: 0.3rem; font-size: 0.8rem;">Monthly ecstatic dance gathering. Barefoot, silent, substance-free community space</p>
+            </div>
+            <div class="event-item" data-tag-retreat="true" data-tag-seasonal="true" data-tag-breathwork="true" data-tag-region-mendocino-county-ca="true">
+                <h3><a href="https://www.spirit.camp/retreats" target="_blank">🎪 Spirit Camp Retreat Center</a></h3>
+                <p class="event-meta"><strong>When:</strong> Sep 26-28, Oct 2-6, Oct 16-19, 2025 | <strong>Where:</strong> Mendocino Coast redwood sanctuary | <span class="event-price">Varies by retreat</span></p>
+                <p class="event-meta" style="margin-top: 0.3rem; font-size: 0.8rem;">Movement Retreat (Sep 26-28): Yoga, ecstatic dance, mindfulness • FORGED Breathwork & Embodiment (Oct 2-6): Holotropic breathwork, ecstatic dance, vinyasa yoga, somatic healing • Samhain Portal (Oct 16-19): Kriya yoga, breathwork, ecstatic dance, fire ritual. Newsletter: spirit.camp/connect</p>
+            </div>
+        </div>
+
+
+<div class="region-section" id="west-marin-ca-point-reyesbolinasstinson-beach">
+            <h2>West Marin, CA (Point Reyes/Bolinas/Stinson Beach)</h2>
+            <div class="event-item" data-tag-dance="true" data-tag-monthly="true" data-tag-region-west-marin-ca-point-reyesbolinasstinson-beach="true">
+                <h3><a href="https://dancepalace.org/" target="_blank">🔄 Dance Palace - Contact Improvisation Jam</a></h3>
+                <p class="event-meta"><strong>When:</strong> First Sunday monthly, 11 AM - 1:30 PM | <strong>Where:</strong> Dance Palace Community Center, Point Reyes Station | <span class="event-price">$15-$20 sliding scale</span></p>
+                <p class="event-meta" style="margin-top: 0.3rem; font-size: 0.8rem;">Monthly West Marin contact improvisation jam at historic Dance Palace. Community-focused movement practice. Email: info@dancepalace.org | Phone: (415) 663-1075</p>
+            </div>
+        </div>
+
+
+<div class="region-section" id="san-francisco-bay-area-ca">
+            <h2>San Francisco Bay Area, CA</h2>
+            <div class="event-item" data-tag-dance="true" data-tag-weekly="true" data-tag-region-san-francisco-bay-area-ca="true">
+                <h3><a href="https://ecstaticdance.org/dance/san-francisco-ecstatic-dance/" target="_blank">🔄 MOVEMENT Ecstatic Dance SF</a></h3>
+                <p class="event-meta"><strong>When:</strong> Sundays, 10 AM - 1 PM (contact improv lesson at 10am) | <strong>Where:</strong> Church Of 8 Wheels, 554 Fillmore St, SF | <span class="event-price">$25 door (6 for 5 passes)</span></p>
+                <p class="event-meta" style="margin-top: 0.3rem; font-size: 0.8rem;">Freeform conscious dance on 10,000 sq ft wooden floor. First hour includes contact improv lesson. Continuous sonic journey without verbal guidance</p>
+            </div>
+            <div class="event-item" data-tag-dance="true" data-tag-weekly="true" data-tag-region-san-francisco-bay-area-ca="true">
+                <h3><a href="https://www.ecstaticdanceoakland.com/" target="_blank">🔄 Ecstatic Dance Oakland - Sundays</a></h3>
+                <p class="event-meta"><strong>When:</strong> Sundays, 9:30 AM yoga / 10:30 AM-1 PM dance / 1-1:30 PM circle | <strong>Where:</strong> 1933 Broadway, Oakland (19th St BART) | <span class="event-price">$15</span></p>
+                <p class="event-meta" style="margin-top: 0.3rem; font-size: 0.8rem;">Local & national DJs, 10,000 sq ft suspended wooden floor. Slow, medium, fast & wind down pattern. Phone: (510) 206-8617</p>
+            </div>
+            <div class="event-item" data-tag-dance="true" data-tag-weekly="true" data-tag-region-san-francisco-bay-area-ca="true">
+                <h3><a href="https://www.ecstaticdanceoakland.com/" target="_blank">🔄 Ecstatic Dance Oakland - Wednesdays</a></h3>
+                <p class="event-meta"><strong>When:</strong> Wednesdays, 7-10 PM (movement class first hour) | <strong>Where:</strong> 1933 Broadway, Oakland | <span class="event-price">$15</span></p>
+                <p class="event-meta" style="margin-top: 0.3rem; font-size: 0.8rem;">Phone: (510) 873-8800</p>
+            </div>
+            <div class="event-item" data-tag-dance="true" data-tag-weekly="true" data-tag-region-san-francisco-bay-area-ca="true">
+                <h3><a href="https://thursdayjam.org/" target="_blank">🔄 Thursday Jam - Contact Improvisation</a></h3>
+                <p class="event-meta"><strong>When:</strong> Thursdays, 7-8 PM class / 8-11 PM jam | <strong>Where:</strong> Finnish Hall, Berkeley | <span class="event-price">Donation-based</span></p>
+                <p class="event-meta" style="margin-top: 0.3rem; font-size: 0.8rem;">Bay Area's biggest Contact Improv jam since 2008. Weekly class with rotating instructors, dynamic soundscapes, upstairs labs/scores/screenings 8-10pm. Welcoming to newcomers and experienced dancers</p>
+            </div>
+            <div class="event-item" data-tag-dance="true" data-tag-weekly="true" data-tag-region-san-francisco-bay-area-ca="true">
+                <h3><a href="https://www.dolphindancing.com/soul-motion-saturdays-berkeley" target="_blank">🔄 Soul Motion Saturdays</a></h3>
+                <p class="event-meta"><strong>When:</strong> Saturdays, 10:30 AM - 12:30 PM | <strong>Where:</strong> 2525 8th St, Berkeley (Sawtooth Building Studio 12) | <span class="event-price">$15</span></p>
+            </div>
+        </div>
+
+
+<div class="region-section" id="santa-cruz-ca">
+            <h2>Santa Cruz, CA</h2>
+            <div class="event-item" data-tag-dance="true" data-tag-weekly="true" data-tag-region-santa-cruz-ca="true">
+                <h3><a href="https://downtownsantacruz.com/do/vx-virtual-ecstatic-dance-santa-cruz" target="_blank">🔄 Ecstatic Dance Santa Cruz - Saturdays</a></h3>
+                <p class="event-meta"><strong>When:</strong> Saturdays, 10 AM - 12 PM | <strong>Where:</strong> 418 Front Street, Santa Cruz | <span class="event-price">$10-$15 door</span></p>
+            </div>
+        </div>
+
+
+        <p style="margin-top: 2rem; padding: 1rem; background: #f5f5f5; border-radius: 8px; font-size: 0.9rem;">
+            <strong>Note:</strong> All events and schedules are subject to change. Please click event links to verify current details, dates, and any updates before traveling. This calendar is maintained to help Humboldt County residents plan regional trips around multiple movement events.
+        </p>
+
+        <a href="index.html" class="back-link">← Back to Coloft Events</a>
+    </div>
+
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+    <script>
+        // Filter functionality
+        const activeFilters = new Set();
+
+        document.querySelectorAll('.filter-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                const filter = this.dataset.filter;
+
+                if (this.classList.contains('active')) {
+                    this.classList.remove('active');
+                    activeFilters.delete(filter);
+                } else {
+                    this.classList.add('active');
+                    activeFilters.add(filter);
+                }
+
+                applyFilters();
+            });
+        });
+
+        function clearFilters() {
+            activeFilters.clear();
+            document.querySelectorAll('.filter-tag.active').forEach(tag => {
+                tag.classList.remove('active');
+            });
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const events = document.querySelectorAll('.event-item');
+
+            if (activeFilters.size === 0) {
+                // No filters active - show all events
+                events.forEach(event => event.classList.remove('hidden'));
+                document.querySelectorAll('.region-section').forEach(section => {
+                    section.classList.remove('all-hidden');
+                });
+                return;
+            }
+
+            // Apply filters with AND logic - event must match ALL active filters
+            events.forEach(event => {
+                const eventTags = Array.from(event.attributes)
+                    .filter(attr => attr.name.startsWith('data-tag-'))
+                    .map(attr => attr.name.replace('data-tag-', ''));
+
+                // Check if event has ALL active filters
+                const matches = Array.from(activeFilters).every(filter =>
+                    eventTags.includes(filter)
+                );
+
+                if (matches) {
+                    event.classList.remove('hidden');
+                } else {
+                    event.classList.add('hidden');
+                }
+            });
+
+            // Hide regions with no visible events
+            document.querySelectorAll('.region-section').forEach(section => {
+                const visibleEvents = section.querySelectorAll('.event-item:not(.hidden)');
+                if (visibleEvents.length === 0) {
+                    section.classList.add('all-hidden');
+                } else {
+                    section.classList.remove('all-hidden');
+                }
+            });
+        }
+
+        // Back to top functionality
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

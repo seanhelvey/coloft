@@ -1,0 +1,68 @@
+{
+  "events": [
+    {
+      "id": "somatic-colab",
+      "name": "Somatic Co-Lab",
+      "tagline": "Practice peer-led somatic work together",
+      "schedule": "6:00PM 2nd Sunday every month",
+      "location": "Private residence (email for RSVP details)",
+      "description": "Facilitators, practitioners, and curious collaborators gather to explore and practice peer-led somatic work including breathwork, circling, and relational exercises.",
+      "price": "Optional donations for facilitators",
+      "contact": "events@coloft.org",
+      "image": "somatic-colab.svg",
+      "recurrence": "second-sunday",
+      "theme": {
+        "primary": "#7C3AED",
+        "secondary": "#059669"
+      }
+    },
+    {
+      "id": "coffee-connection",
+      "name": "Coffee & Connection",
+      "tagline": "Start your day with a break",
+      "schedule": "7:00AM every Friday",
+      "location": "Coffee Break in Bayside",
+      "description": "Start your day with a break! Enjoy a friendly group discussion with good coffee and great company.",
+      "price": "One drink or snack to support venue",
+      "contact": "events@coloft.org",
+      "image": "coffee-connection.svg",
+      "recurrence": "every-friday",
+      "theme": {
+        "primary": "#DC6B4A",
+        "secondary": "#F4B860"
+      }
+    },
+    {
+      "id": "sex-positive-friends",
+      "name": "Sex Positive Friends",
+      "tagline": "Open conversations in a safe space",
+      "schedule": "5:30PM 1st & 3rd Wednesday each month",
+      "location": "Froth in Arcata",
+      "description": "An open table to connect in a safe public setting. Topics are fluid but may explore consent, communication, boundaries, relationships, intimacy, pleasure, and navigating desire with openness and curiosity.",
+      "price": "One drink or snack to support venue",
+      "contact": "events@coloft.org",
+      "image": "sex-positive-friends.svg",
+      "recurrence": "first-third-wednesday",
+      "theme": {
+        "primary": "#E91E63",
+        "secondary": "#9C27B0"
+      }
+    },
+    {
+      "id": "brews-without-booze",
+      "name": "Brews Without Booze",
+      "tagline": "Best NA beer selection in Humboldt",
+      "schedule": "5:30PM 2nd Monday every month",
+      "location": "Dead Reckoning Tavern",
+      "description": "Enjoy the best selection of non-alcoholic (NA) beers in Humboldt with friends and games!",
+      "price": "One drink to support venue",
+      "contact": "events@coloft.org",
+      "image": "brews-without-booze.svg",
+      "recurrence": "second-monday",
+      "theme": {
+        "primary": "#0891B2",
+        "secondary": "#059669"
+      }
+    }
+  ]
+}
