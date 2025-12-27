@@ -345,13 +345,14 @@ const html = `<!DOCTYPE html>
             <div class="filter-group">
                 <label>📍 Regions:</label>
                 <div class="filter-tags">
-                    <span class="filter-tag" data-filter="region-eugene-or">Eugene</span>
-                    <span class="filter-tag" data-filter="region-rogue-valley-or-ashlandmedfordgrants-pass">Rogue Valley</span>
-                    <span class="filter-tag" data-filter="region-san-francisco-bay-area-ca">Bay Area</span>
-                    <span class="filter-tag" data-filter="region-humboldt-county-ca">Humboldt County</span>
                     <span class="filter-tag" data-filter="region-portland-or">Portland</span>
-                    <span class="filter-tag" data-filter="region-nevada-county-ca-nevada-citygrass-valley">Nevada County</span>
-                    <span class="filter-tag" data-filter="region-mendocino-county-ca">Mendocino County</span>
+                    <span class="filter-tag" data-filter="region-eugene-central-oregon">Eugene & Central OR</span>
+                    <span class="filter-tag" data-filter="region-rogue-valley-or-ashlandmedfordgrants-pass">Rogue Valley</span>
+                    <span class="filter-tag" data-filter="region-humboldt-county-ca">Humboldt</span>
+                    <span class="filter-tag" data-filter="region-mt-shasta-ca">Shasta</span>
+                    <span class="filter-tag" data-filter="region-sonoma-mendocino-lake-counties-ca">Sonoma/Mendo/Lake</span>
+                    <span class="filter-tag" data-filter="region-san-francisco-bay-area-ca">Bay Area</span>
+                    <span class="filter-tag" data-filter="region-santa-cruz-ca">Santa Cruz</span>
                 </div>
             </div>
 
@@ -362,9 +363,10 @@ const html = `<!DOCTYPE html>
                     <span class="filter-tag" data-filter="connection">Connection</span>
                     <span class="filter-tag" data-filter="retreat">Retreat</span>
                     <span class="filter-tag" data-filter="breathwork">Breathwork</span>
+                    <span class="filter-tag" data-filter="festival">Festival</span>
+                    <span class="filter-tag" data-filter="music">Music</span>
                     <span class="filter-tag" data-filter="consciousness">Consciousness</span>
                     <span class="filter-tag" data-filter="ritual">Ritual</span>
-                    <span class="filter-tag" data-filter="festival">Festival</span>
                 </div>
             </div>
 
@@ -446,16 +448,52 @@ ${californiaSections}
                 return;
             }
 
-            // Apply filters with AND logic - event must match ALL active filters
+            // Group filters by category (region-, event type, frequency)
+            const regionFilters = new Set();
+            const typeFilters = new Set();
+            const frequencyFilters = new Set();
+
+            activeFilters.forEach(filter => {
+                if (filter.startsWith('region-')) {
+                    regionFilters.add(filter);
+                } else if (['dance', 'connection', 'retreat', 'breathwork', 'consciousness', 'ritual', 'festival', 'music'].includes(filter)) {
+                    typeFilters.add(filter);
+                } else if (['weekly', 'monthly', 'annual', 'seasonal'].includes(filter)) {
+                    frequencyFilters.add(filter);
+                }
+            });
+
+            // Apply filters: OR within category, AND across categories
             events.forEach(event => {
                 const eventTags = Array.from(event.attributes)
                     .filter(attr => attr.name.startsWith('data-tag-'))
                     .map(attr => attr.name.replace('data-tag-', ''));
 
-                // Check if event has ALL active filters
-                const matches = Array.from(activeFilters).every(filter =>
-                    eventTags.includes(filter)
-                );
+                let matches = true;
+
+                // Check region filters (OR logic - match ANY selected region)
+                if (regionFilters.size > 0) {
+                    const hasRegion = Array.from(regionFilters).some(filter =>
+                        eventTags.includes(filter)
+                    );
+                    matches = matches && hasRegion;
+                }
+
+                // Check type filters (OR logic - match ANY selected type)
+                if (typeFilters.size > 0) {
+                    const hasType = Array.from(typeFilters).some(filter =>
+                        eventTags.includes(filter)
+                    );
+                    matches = matches && hasType;
+                }
+
+                // Check frequency filters (OR logic - match ANY selected frequency)
+                if (frequencyFilters.size > 0) {
+                    const hasFrequency = Array.from(frequencyFilters).some(filter =>
+                        eventTags.includes(filter)
+                    );
+                    matches = matches && hasFrequency;
+                }
 
                 if (matches) {
                     event.classList.remove('hidden');

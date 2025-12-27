@@ -3,7 +3,7 @@
 ## Project Overview
 Coloft is a grassroots healing collective in Arcata, CA (Goudi'ni, Wiyot Land). The website includes:
 - **Local Events**: 4 recurring Humboldt County events with dynamic date calculation
-- **Regional Calendar**: 24 transformational events across 10 regions (Oregon & Northern California)
+- **Regional Calendar**: 25 transformational events across 8 regions (Oregon & Northern California)
   - Data stored in regional-events.json
   - HTML generated via build script: `npm run build:regional`
 
@@ -171,21 +171,19 @@ When ready to publish a specific event schedule:
 ## Geographic Regions (North to South)
 **Oregon (3)**:
 1. Portland, OR
-2. Eugene, OR
+2. Eugene & Central Oregon
 3. Rogue Valley, OR (Ashland/Medford/Grants Pass)
 
-**California (7)**:
+**California (5)**:
 4. Humboldt County, CA
 5. Mt. Shasta, CA
-6. Sonoma County, CA
-7. Mendocino County, CA
-8. West Marin, CA (Point Reyes/Bolinas/Stinson Beach)
-9. San Francisco Bay Area, CA
-10. Santa Cruz, CA
+6. Sonoma, Mendocino & Lake Counties, CA
+7. San Francisco Bay Area, CA
+8. Santa Cruz, CA
 
 ## Current Status (2025-12-27)
 - **Local events**: All showing "Schedule TBD - Coming Soon" (ready to activate)
-- **Regional calendar**: 24 events across 10 regions, all tests passing
+- **Regional calendar**: 25 events across 8 regions, all tests passing
 - **Data quality**: Automated validation in place
 - **Maintenance**: Quarterly workflow documented
 - **Tests**: All passing (print constraint + date calculations)

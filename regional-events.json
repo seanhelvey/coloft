@@ -30,8 +30,8 @@
       ]
     },
     {
-      "name": "Eugene, OR",
-      "id": "eugene-or",
+      "name": "Eugene & Central Oregon",
+      "id": "eugene-central-oregon",
       "state": "oregon",
       "events": [
         {
@@ -82,6 +82,19 @@
             "festival",
             "annual",
             "music"
+          ]
+        },
+        {
+          "name": "🎪 Ecstatic Immersion",
+          "url": "https://www.ecstaticimmersion.net/",
+          "schedule": "Winter (Feb 20-22, 2026) & Summer (dates TBA)",
+          "venue": "Breitenbush Hot Springs",
+          "price": "See registration page",
+          "description": "Femme-forward 3-day/2-night retreat at hot springs. 75 adults (18+). Includes ecstatic dance, workshops, meditation, movement classes, organic vegetarian meals, access to pools/sauna. Requires foundation in ecstatic dance. Values: consent & attunement. Email: OregonEcstatic@gmail.com | Newsletter: http://eepurl.com/ioqaeQ",
+          "tags": [
+            "retreat",
+            "seasonal",
+            "dance"
           ]
         }
       ]
@@ -177,8 +190,8 @@
       ]
     },
     {
-      "name": "Sonoma County, CA",
-      "id": "sonoma-county-ca",
+      "name": "Sonoma, Mendocino & Lake Counties, CA",
+      "id": "sonoma-mendocino-lake-counties-ca",
       "state": "california",
       "events": [
         {
@@ -192,14 +205,7 @@
             "dance",
             "monthly"
           ]
-        }
-      ]
-    },
-    {
-      "name": "Mendocino County, CA",
-      "id": "mendocino-county-ca",
-      "state": "california",
-      "events": [
+        },
         {
           "name": "🔄 Ukiah Dance Collective",
           "url": "https://ecstaticdance.org/dance/ukiah-dance-collective-ecstatic-dance/",
@@ -224,24 +230,31 @@
             "seasonal",
             "breathwork"
           ]
-        }
-      ]
-    },
-    {
-      "name": "West Marin, CA (Point Reyes/Bolinas/Stinson Beach)",
-      "id": "west-marin-ca-point-reyesbolinasstinson-beach",
-      "state": "california",
-      "events": [
+        },
         {
-          "name": "🔄 Dance Palace - Contact Improvisation Jam",
-          "url": "https://dancepalace.org/",
-          "schedule": "First Sunday monthly, 11 AM - 1:30 PM",
-          "venue": "Dance Palace Community Center, Point Reyes Station",
-          "price": "$15-$20 sliding scale",
-          "description": "Monthly West Marin contact improvisation jam at historic Dance Palace. Community-focused movement practice. Email: info@dancepalace.org | Phone: (415) 663-1075",
+          "name": "🎪 Spring Connection Camp",
+          "url": "https://www.newculturenorcal.org/",
+          "schedule": "May 5-10, 2025 (6 days/5 nights)",
+          "venue": "Sky Temple, Lake County, CA",
+          "price": "$500-$1,500 sliding scale",
+          "description": "Mountaintop retreat at 2,000ft elevation. Morning gatherings, ZEGG forum, love pods, workshops, authentic games, variety show, sensual spaces, temple space for consensual connection. Includes lodging, brunch, dinner, snacks. Camping, RV, limited indoor beds. Scholarships & work-trade available. Registration opens Feb 1",
           "tags": [
-            "dance",
-            "monthly"
+            "retreat",
+            "seasonal",
+            "connection"
+          ]
+        },
+        {
+          "name": "🎪 Autumn Convergence",
+          "url": "https://www.newculturenorcal.org/",
+          "schedule": "Sep 17-23, 2025 (6 days/5 nights, soft start Sep 17)",
+          "venue": "Saratoga Springs Retreat Center, Upper Lake, CA",
+          "price": "$650-$2,500 sliding scale",
+          "description": "260-acre pristine valley retreat. Morning gatherings, ZEGG forum, love pods, workshops, authentic games, variety show, sensual spaces, temple space. Pool, hot tub, hiking. Camping, dorm, RV, private rooms. Includes all meals. Under 40 & BIPoC: $650+. Registration opens Jun 15",
+          "tags": [
+            "retreat",
+            "seasonal",
+            "connection"
           ]
         }
       ]
@@ -308,6 +321,18 @@
           "tags": [
             "dance",
             "weekly"
+          ]
+        },
+        {
+          "name": "🔄 Dance Palace - Contact Improvisation Jam",
+          "url": "https://dancepalace.org/",
+          "schedule": "First Sunday monthly, 11 AM - 1:30 PM",
+          "venue": "Dance Palace Community Center, Point Reyes Station",
+          "price": "$15-$20 sliding scale",
+          "description": "Monthly West Marin contact improvisation jam at historic Dance Palace. Community-focused movement practice. Email: info@dancepalace.org | Phone: (415) 663-1075",
+          "tags": [
+            "dance",
+            "monthly"
           ]
         }
       ]
