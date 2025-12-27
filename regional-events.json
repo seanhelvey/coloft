@@ -1,0 +1,283 @@
+{
+  "regions": [
+    {
+      "name": "Portland, OR",
+      "id": "portland-or",
+      "state": "oregon",
+      "events": [
+        {
+          "name": "🔄 Ecstatic Dance Portland",
+          "url": "https://dancepdx.com/",
+          "schedule": "Wednesdays, 7-10 PM",
+          "venue": "The Den, 116 SE Yamhill St",
+          "price": "$15-$20",
+          "tags": ["dance", "weekly"]
+        },
+        {
+          "name": "🔄 Dance Rooted (5Rhythms)",
+          "url": "https://dancepdx.com/",
+          "schedule": "Sundays, 3:30-5 PM",
+          "venue": "Vitalidad Movement Arts, 2626 E Burnside",
+          "price": "$15",
+          "tags": ["dance", "weekly"]
+        }
+      ]
+    },
+    {
+      "name": "Eugene, OR",
+      "id": "eugene-or",
+      "state": "oregon",
+      "events": [
+        {
+          "name": "🔄 Coalessence Ecstatic Dance",
+          "url": "https://coalessencedance.com/",
+          "schedule": "Tuesdays, 6-8:30 PM",
+          "venue": "Village School Commons, 3411 Willamette St",
+          "price": "$10-$24+",
+          "description": "Eugene's 16-year ecstatic dance community. Email: coalessenceeugene@gmail.com",
+          "tags": ["dance", "weekly"]
+        },
+        {
+          "name": "🔄 Authentic Relating Eugene",
+          "url": "https://allevents.in/eugene/authentic-relating-circle/200029352033649",
+          "schedule": "2nd & 4th Mondays, 5:30 PM",
+          "venue": "Sacred Connections, 810 W. 3rd Ave",
+          "price": "$3-$10 donation",
+          "description": "Authentic relating games and connection practices. Community space for vulnerable, real connection",
+          "tags": ["connection", "monthly"]
+        },
+        {
+          "name": "🎪 New Culture Summer Camp West",
+          "url": "https://www.networkfornewculture.org/events/summer-camp-west",
+          "schedule": "July 31 - Aug 9, 2026 (dates TBA for 2025)",
+          "venue": "Near Veneta (close to Eugene)",
+          "price": "Registration opens spring",
+          "description": "10-day intentional community gathering focused on heart-centered connections, emotional resilience, boundary work, conflict resolution. Families with children welcome. Registration: networkfornewculture.org | Email: registration@cfnc.us",
+          "tags": ["retreat", "annual", "connection"]
+        },
+        {
+          "name": "🎪 Oregon Country Fair",
+          "url": "https://www.oregoncountryfair.org/",
+          "schedule": "July 11-13, 2025",
+          "venue": "Veneta (near Eugene)",
+          "price": "~$45K attendees expected",
+          "description": "56-year transformational gathering in the woods. 500+ performances on 17+ stages, 260 craft booths, art, hand-made goods, gourmet food. \"Nourish the spirit, explore living artfully & authentically on earth.\" Counter-culture roots, environmentally-friendly practices, magic & community",
+          "tags": ["festival", "annual", "music"]
+        }
+      ]
+    },
+    {
+      "name": "Rogue Valley, OR (Ashland/Medford/Grants Pass)",
+      "id": "rogue-valley-or-ashlandmedfordgrants-pass",
+      "state": "oregon",
+      "events": [
+        {
+          "name": "🔄 Dancing Prayers",
+          "url": "https://danceashland.com/",
+          "schedule": "Select Sundays, 10:30 AM - 12:30 PM (Dec 28, Jan 11, 25)",
+          "venue": "The Dance Space, 280 E. Hersey St #10, Ashland",
+          "price": "$15",
+          "tags": ["dance", "monthly"]
+        },
+        {
+          "name": "🔄 Sunday Morning Conscious Dance",
+          "url": "https://danceashland.com/",
+          "schedule": "Sundays, 9:30 AM",
+          "venue": "Studio Z, 280 E. Hersey St #1, Ashland",
+          "price": "$10-$15 cash",
+          "description": "Weekly conscious dance in inclusive community. Everyone welcome. Email: fluidityecstaticdance@gmail.com",
+          "tags": ["dance", "weekly"]
+        },
+        {
+          "name": "🔄 Dance Expanse (SaturDAYtime)",
+          "url": "https://ecstaticdance.org/dance/the-dance-expanse/",
+          "schedule": "Saturdays, 11:11 AM - 1:11 PM",
+          "venue": "Studio Z, 280 E. Hersey St #1, Ashland",
+          "price": "$11",
+          "tags": ["dance", "weekly"]
+        },
+        {
+          "name": "🔄 Ashland Contact Improvisation Jam",
+          "url": "https://ashlandci.wordpress.com/",
+          "schedule": "Saturdays during school year (1:30-3:30 or 4:30-6:30), check Facebook",
+          "venue": "Various locations, Ashland",
+          "price": "$5-$10",
+          "description": "Contact-friendly ecstatic dances also Wed/Fri 8-10pm at The Dance Space, Sun 10:30-12:30pm (The Dance Space), Sun 9-11am (Studio Z)",
+          "tags": ["dance", "weekly"]
+        },
+        {
+          "name": "🔄 Goddess Temple of Ashland",
+          "url": "https://ashlandgoddesstemple.com/",
+          "schedule": "April 30-Oct 31 yearly, noon-4pm",
+          "venue": "Behind Jackson Wellsprings, 2253 Hwy 99 N, Ashland",
+          "price": "Donation-based, tours: 541-601-8983",
+          "description": "Multi-faith Earth-based sanctuary. Sacred feminine temple with geodesic dome, Moon Lodge, Red Tent, Mikvah. Community ritual, monthly Red Tents, Priestess trainings, rites of passage. Seasonal sabbats. All-inclusive: gender fluidity, circle consciousness. Contact Lady Graellyn for tours/ceremonies. Email: priestessgraell@gmail.com",
+          "tags": ["ritual", "seasonal"]
+        },
+        {
+          "name": "🔄 RVML Tuesday Lecture Series",
+          "url": "https://rvml.org/",
+          "schedule": "Tuesdays, 7 PM",
+          "venue": "Rogue Valley Metaphysical Library, 1757 Ashland St",
+          "price": "Free",
+          "description": "Weekly lectures on spirituality, wellness, personal development. Topics include embodiment practices, Vedic chanting, conscious living. Authors, researchers & practitioners presenting. Library open Tue-Sat 10-6",
+          "tags": ["consciousness", "weekly"]
+        }
+      ]
+    },
+    {
+      "name": "Humboldt County, CA",
+      "id": "humboldt-county-ca",
+      "state": "california",
+      "events": [
+        {
+          "name": "🔄 Arcata Ecstatic Dance",
+          "url": "https://lostcoastoutpost.com/lowdown/events/arcata-ecstatic-dance/",
+          "schedule": "Sundays, 10 AM - 12 PM",
+          "venue": "D St. Neighborhood Center, Arcata",
+          "price": "$8-$20",
+          "tags": ["dance", "weekly"]
+        }
+      ]
+    },
+    {
+      "name": "Mt. Shasta, CA",
+      "id": "mt-shasta-ca",
+      "state": "california",
+      "events": [
+        {
+          "name": "🔄 Mt Shasta Ecstatic Dance",
+          "url": "https://ecstaticdance.org/dance/mt-shasta-ecstatic-dance/",
+          "schedule": "Thursdays, 7-9 PM",
+          "venue": "Mt Shasta City Park, 1315 Nixon Rd",
+          "price": "$12-$22",
+          "description": "HeartBeat Ecstatic Dance at Mt. Shasta City Park. Contact: (415) 519-8661",
+          "tags": ["dance", "weekly"]
+        }
+      ]
+    },
+    {
+      "name": "Sonoma County, CA",
+      "id": "sonoma-county-ca",
+      "state": "california",
+      "events": [
+        {
+          "name": "🔄 Ecstatic Dance Sebastopol",
+          "url": "https://ecstaticdance.org/dance/ecstatic-dance-sebastopol/",
+          "schedule": "1st Friday (dhyana Center, 7pm yoga/8-10pm dance) & 1st/3rd Sunday (Youth Annex)",
+          "venue": "186 N. Main St #250 & 425 Morris St, Sebastopol",
+          "price": "$15-$20 sliding scale",
+          "description": "Sacred space with bass-filled electronic music, starts slow for stretching, rhythmic wave journey, ends with sound bath & meditation. Childcare included ($5 for 12 & under)",
+          "tags": ["dance", "monthly"]
+        }
+      ]
+    },
+    {
+      "name": "Mendocino County, CA",
+      "id": "mendocino-county-ca",
+      "state": "california",
+      "events": [
+        {
+          "name": "🔄 Ukiah Dance Collective",
+          "url": "https://ecstaticdance.org/dance/ukiah-dance-collective-ecstatic-dance/",
+          "schedule": "First Sunday monthly, 11:30 AM - 1 PM",
+          "venue": "Young for Life, 75 Kunzler Ranch Rd #H, Ukiah",
+          "price": "Donation-based",
+          "description": "Monthly ecstatic dance gathering. Barefoot, silent, substance-free community space",
+          "tags": ["dance", "monthly"]
+        },
+        {
+          "name": "🎪 Spirit Camp Retreat Center",
+          "url": "https://www.spirit.camp/retreats",
+          "schedule": "Sep 26-28, Oct 2-6, Oct 16-19, 2025",
+          "venue": "Mendocino Coast redwood sanctuary",
+          "price": "Varies by retreat",
+          "description": "Movement Retreat (Sep 26-28): Yoga, ecstatic dance, mindfulness • FORGED Breathwork & Embodiment (Oct 2-6): Holotropic breathwork, ecstatic dance, vinyasa yoga, somatic healing • Samhain Portal (Oct 16-19): Kriya yoga, breathwork, ecstatic dance, fire ritual. Newsletter: spirit.camp/connect",
+          "tags": ["retreat", "seasonal", "breathwork"]
+        }
+      ]
+    },
+    {
+      "name": "West Marin, CA (Point Reyes/Bolinas/Stinson Beach)",
+      "id": "west-marin-ca-point-reyesbolinasstinson-beach",
+      "state": "california",
+      "events": [
+        {
+          "name": "🔄 Dance Palace - Contact Improvisation Jam",
+          "url": "https://dancepalace.org/",
+          "schedule": "First Sunday monthly, 11 AM - 1:30 PM",
+          "venue": "Dance Palace Community Center, Point Reyes Station",
+          "price": "$15-$20 sliding scale",
+          "description": "Monthly West Marin contact improvisation jam at historic Dance Palace. Community-focused movement practice. Email: info@dancepalace.org | Phone: (415) 663-1075",
+          "tags": ["dance", "monthly"]
+        }
+      ]
+    },
+    {
+      "name": "San Francisco Bay Area, CA",
+      "id": "san-francisco-bay-area-ca",
+      "state": "california",
+      "events": [
+        {
+          "name": "🔄 MOVEMENT Ecstatic Dance SF",
+          "url": "https://ecstaticdance.org/dance/san-francisco-ecstatic-dance/",
+          "schedule": "Sundays, 10 AM - 1 PM (contact improv lesson at 10am)",
+          "venue": "Church Of 8 Wheels, 554 Fillmore St, SF",
+          "price": "$25 door (6 for 5 passes)",
+          "description": "Freeform conscious dance on 10,000 sq ft wooden floor. First hour includes contact improv lesson. Continuous sonic journey without verbal guidance",
+          "tags": ["dance", "weekly"]
+        },
+        {
+          "name": "🔄 Ecstatic Dance Oakland - Sundays",
+          "url": "https://www.ecstaticdanceoakland.com/",
+          "schedule": "Sundays, 9:30 AM yoga / 10:30 AM-1 PM dance / 1-1:30 PM circle",
+          "venue": "1933 Broadway, Oakland (19th St BART)",
+          "price": "$15",
+          "description": "Local & national DJs, 10,000 sq ft suspended wooden floor. Slow, medium, fast & wind down pattern. Phone: (510) 206-8617",
+          "tags": ["dance", "weekly"]
+        },
+        {
+          "name": "🔄 Ecstatic Dance Oakland - Wednesdays",
+          "url": "https://www.ecstaticdanceoakland.com/",
+          "schedule": "Wednesdays, 7-10 PM (movement class first hour)",
+          "venue": "1933 Broadway, Oakland",
+          "price": "$15",
+          "description": "Phone: (510) 873-8800",
+          "tags": ["dance", "weekly"]
+        },
+        {
+          "name": "🔄 Thursday Jam - Contact Improvisation",
+          "url": "https://thursdayjam.org/",
+          "schedule": "Thursdays, 7-8 PM class / 8-11 PM jam",
+          "venue": "Finnish Hall, Berkeley",
+          "price": "Donation-based",
+          "description": "Bay Area's biggest Contact Improv jam since 2008. Weekly class with rotating instructors, dynamic soundscapes, upstairs labs/scores/screenings 8-10pm. Welcoming to newcomers and experienced dancers",
+          "tags": ["dance", "weekly"]
+        },
+        {
+          "name": "🔄 Soul Motion Saturdays",
+          "url": "https://www.dolphindancing.com/soul-motion-saturdays-berkeley",
+          "schedule": "Saturdays, 10:30 AM - 12:30 PM",
+          "venue": "2525 8th St, Berkeley (Sawtooth Building Studio 12)",
+          "price": "$15",
+          "tags": ["dance", "weekly"]
+        }
+      ]
+    },
+    {
+      "name": "Santa Cruz, CA",
+      "id": "santa-cruz-ca",
+      "state": "california",
+      "events": [
+        {
+          "name": "🔄 Ecstatic Dance Santa Cruz - Saturdays",
+          "url": "https://downtownsantacruz.com/do/vx-virtual-ecstatic-dance-santa-cruz",
+          "schedule": "Saturdays, 10 AM - 12 PM",
+          "venue": "418 Front Street, Santa Cruz",
+          "price": "$10-$15 door",
+          "tags": ["dance", "weekly"]
+        }
+      ]
+    }
+  ]
+}

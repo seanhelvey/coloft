@@ -1,5 +1,35 @@
-// Dynamic date calculation for recurring events
-// This runs in the browser and always shows correct upcoming dates
+// ============================================================================
+// EVENT SCHEDULE CONFIGURATION
+// ============================================================================
+// Update these rules to change when events occur
+// After changing, just refresh the page - no rebuild needed!
+
+const EVENT_SCHEDULES = {
+  'somatic-colab': {
+    name: 'Somatic Co-Lab',
+    rule: 'second-sunday',     // Options: second-sunday, first-sunday, third-sunday, fourth-sunday
+    isMonthly: true
+  },
+  'coffee-connection': {
+    name: 'Coffee & Connection',
+    rule: 'every-friday',       // Options: every-monday, every-tuesday, etc.
+    isMonthly: false
+  },
+  'sex-positive-friends': {
+    name: 'Sex Positive Friends',
+    rule: 'first-third-wednesday',  // Custom: 1st & 3rd Wednesday
+    isMonthly: false
+  },
+  'brews-without-booze': {
+    name: 'Brews Without Booze',
+    rule: 'second-monday',      // Options: second-monday, first-monday, etc.
+    isMonthly: true
+  }
+};
+
+// ============================================================================
+// DATE CALCULATION ENGINE (don't modify below unless you know what you're doing)
+// ============================================================================
 
 function getNextOccurrences(rule, options = {}) {
   const { count = 3, months = 3 } = options;

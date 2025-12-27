@@ -1,150 +1,362 @@
 # Coloft - We Rise Together
 
-A vibrant static website for Coloft, a grassroots healing **co**llective in Arcata, CA (Goudi'ni, Wiyot Land).
+A vibrant static website for Coloft, a grassroots healing collective in Arcata, CA (Goudi'ni, Wiyot Land).
 
----
+## Features
 
-## 📝 Session Notes (for Claude)
-
-**This README is the single source of truth for project context.**
-
-### Latest Session: 2025-12-03 (Afternoon)
-- ✅ **Major shift:** From 4 abstract practices → 4 concrete recurring events
-  - Somatic Co-Lab (2nd Sunday, 6PM) - Purple/Green theme
-  - Coffee & Connection (Every Friday, 7AM) - Terracotta/Amber theme
-  - Sex Positive Friends (1st & 3rd Wednesday, 5:30PM) - Pink/Purple theme
-  - Brews Without Booze (2nd Monday, 5:30PM) - Cyan/Green theme
-- ✅ Removed values section (implied by events themselves)
-- ✅ Index page: Summary cards with headline info (clickable to event pages)
-- ✅ Each event has own full-page flyer with unique color theme/design
-- ✅ Generated unique SVG image for each event (simple, clear icons)
-- ✅ Added upcoming dates (copy-paste ready format) to each event page
-- ✅ All 5 pages (index + 4 events) fit on exactly 1 page when printed
-- ✅ Created events.json with all event data and calculated dates
-- ✅ Improved tagline contrast (dark semi-transparent background + stronger shadows)
-- ✅ Enhanced beer SVG visibility (added strokes to foam)
-- ✅ Added full addresses and Google Maps embeds to venue-based events
-- ✅ Added navigation menu at top of each event page
-- ✅ Restructured date display: moved upcoming dates into When section
-- ✅ Removed "Copy & Paste" label from date headings
-- ✅ Created event-print.css for shared print styles across all event pages
-- ✅ Improved tagline font weight (800) and explicit white color for better visibility
-- ✅ Reorganized file structure into `/events/`, `/images/`, and `/styles/` directories
-- ✅ Updated all file paths and test scripts to work with new structure
-- ✅ Removed redundant test-print.js (test-all-print.js covers all pages)
-
-### Latest Session: 2025-11-27 (Morning)
-- ✅ Added QR code to CTA section (web: 200px, print: 80px)
-- ✅ Created automated print test (`npm test`) - verifies 1-page constraint
-- ✅ Restored CTA copy in print view while maintaining 1-page constraint
-- ✅ Consolidated documentation - removed `.claude/` folder, README is now sole context file
-
-### Key Implementation Details
-- QR code from qr-code-generator.com (mailto:events@coloft.org)
-- Print test uses puppeteer-core + system Chrome (no browser download)
-- Print optimizations: reduced margins/padding, smaller QR/text sizes, hid values section
-
----
+- **Local Events**: Printable flyers for 4 recurring Humboldt County events
+- **Regional Community Calendar**: 24 transformational events across 10 regions (SF to Ashland)
+- **Mobile Responsive**: Works beautifully on all devices
+- **Print Optimized**: All event flyers fit perfectly on 1 page
+- **Data-Driven**: Regional calendar built from JSON for easy maintenance
 
 ## Quick Start
 
-**Print flyer:** Open [index.html](index.html) in browser → Print Preview → Save as PDF
-**Test print constraint:** `npm test` (requires `npm install` first)
-**Deploy:** Push to GitHub, enable Pages in repo settings
+```bash
+# Build regional calendar from data
+npm run build:regional
+
+# Run tests
+npm install
+npm test
+
+# Print local event flyers
+Open index.html in browser → Print Preview → Save as PDF
+
+# Deploy to GitHub Pages
+Push to GitHub → Settings → Pages → Enable
+```
 
 ## Project Structure
 
 ```
 /
-├── index.html              # Main landing page
-├── events/                 # Individual event pages
-│   ├── somatic-colab.html
-│   ├── coffee-connection.html
-│   ├── sex-positive-friends.html
-│   └── brews-without-booze.html
-├── images/                 # All SVG images
-│   ├── somatic-colab.svg
-│   ├── coffee-connection.svg
-│   ├── sex-positive-friends.svg
-│   ├── brews-without-booze.svg
-│   └── qr-code.svg
-├── styles/                 # CSS files
-│   ├── styles.css          # Main styles (web, mobile, print)
-│   └── event-print.css     # Shared event page print styles
-├── events.json             # Event data with calculated dates
-├── test-all-print.js       # Automated test (all pages must fit on 1 page)
-└── package.json            # NPM config (puppeteer-core only)
+├── index.html              # Main landing page (Coloft local events)
+├── regional-calendar.html  # Regional community calendar (generated from regional-events.json)
+├── regional-events.json    # Regional calendar data (24 events, 10 regions)
+├── events.json             # Local event metadata (not currently used by date calculation)
+├── events/                 # Individual event pages with printable flyers
+├── scripts/                # Maintenance & build scripts
+│   ├── build-regional-calendar.js  # Build regional-calendar.html from JSON
+│   ├── dates.js            # Browser-side dynamic date calculations
+│   ├── verify-order.js     # Validate region ordering
+│   ├── validate-links.js   # Check external URLs
+│   ├── validate-event-data.js  # Validate regional event data quality
+│   └── check-stale-dates.js    # Identify events needing quarterly updates
+├── tests/                  # Automated tests
+│   ├── test-all-print.js   # Verify 1-page print constraint
+│   └── test-dates.js       # Verify date calculations
+└── .claude/                # AI assistant context
+    ├── instructions.md     # Project guidelines for Claude
+    └── settings.local.json # Permissions
 ```
 
-## Design Constraints (DO NOT CHANGE)
+## Testing & Validation
 
-### Core Purpose
-Landing page + printable flyers for local healing collective events
-- Peer-led, grassroots, local to Humboldt County
-- "We rise together" theme
-- Not-for-money events and gatherings
+```bash
+npm run validate-data       # Validate event data quality (run before building)
+npm run build:regional      # Build regional-calendar.html from JSON
+npm test                    # Run all tests (print + dates)
+npm run test:print          # Test print constraint only
+npm run test:dates          # Test date calculations only
+npm run verify-calendar     # Validate region ordering
+npm run validate-links      # Check all external links (may take ~1 min)
+npm run check-stale-dates   # Identify events needing quarterly date updates
+```
 
-### Fixed Elements
-- **Color palette:** Purple `#7C3AED`, Green `#059669`, Cyan `#0891B2`, Terracotta `#DC6B4A`, Pink `#E91E63`, Amber `#F4B860`
-- **"Co-" word theme:** co-llective, co-nnection, co-mmunity, co-nspirators throughout copy
-- **Land acknowledgment:** Wiyot land, Goudi'ni (indigenous name for Arcata)
-- **Four recurring events:** Somatic Co-Lab, Coffee & Connection, Sex Positive Friends, Brews Without Booze
-- **Contact:** events@coloft.org
+## Design Principles
 
-### Non-Negotiable Constraints
-- **MUST fit on 1 page when printed** (US Letter, portrait)
-- No browser headers/footers in print (`@page margin: 0`)
-- Responsive: mobile, tablet, desktop
-- Visual hierarchy: Icons PRIMARY, text secondary
+### Color Palette
+- **Purple** `#7C3AED` - Primary
+- **Green** `#059669` - Secondary
+- **Cyan** `#0891B2` - Accent
+- **Terracotta** `#DC6B4A` - Warm accent
+- **Pink** `#E91E63` - Highlight
+- **Amber** `#F4B860` - Glow
 
-### Print View Specifications
-**What's shown:**
-- Header: Logo (60px SVG) + "We Rise Together" + location
-- Hero: Main collective message
-- Events: All 4 event cards with icons (48px, 2-column grid)
-- CTA: Full "Join Us" heading + paragraph + QR code (80px) + email
-- Footer: Brief description
+### Typography & Theme
+- "Co-" prefix throughout: co-llective, co-nnection, co-mmunity
+- Land acknowledgment: Wiyot land, Goudi'ni
+- Visual hierarchy: Icons first, text secondary
 
-**What's hidden:**
-- Contact button (QR code serves this purpose)
+### Print Constraint
+**Critical**: All event flyers MUST fit on 1 page (US Letter, portrait)
+- Tested automatically via `npm run test:print`
+- No browser headers/footers (`@page margin: 0`)
 
-**Print margins:**
-- Body: 0.3in
-- Sections: 0.75rem
-- CTA padding: 0.75rem
+## Regional Community Calendar
 
-## Customization
+The regional community calendar features transformational events focused on:
+- **Movement**: Ecstatic dance, 5Rhythms, Contact Improvisation, Tai Chi, Qigong
+- **Healing**: Breathwork, sound healing, somatic practices, embodiment work
+- **Connection**: Authentic relating, circling, polyamory/ENM community
+- **Transformation**: Psychedelic integration, tantra, sacred sexuality
+- **Sacred Feminine**: Goddess temples, women's circles, Red Tents, priestess trainings
+- **Consciousness**: Meditation sanghas (Vipassana, Zen), mindfulness communities
+- **Community**: Ecovillages, intentional communities, land trusts
+- **Nature**: Wilderness retreats, forest gatherings
+- **Festivals**: Oregon Country Fair, New Culture Summer Camp, tantra festivals
 
-### Colors
-CSS variables in [styles.css](styles.css):
-- Primary: `#7C3AED` (purple)
-- Secondary: `#059669` (green)
-- Accent: `#0891B2` (cyan)
-- Terracotta: `#DC6B4A`
+### Features
+- **Interactive Filtering**: Filter events by region, type (ecstatic dance, meditation, connection, etc.), and frequency (weekly, monthly, annual, seasonal)
+- **AND Logic**: Combine filters to find exactly what you're looking for (e.g., "weekly ecstatic dance in Humboldt")
+- **Smart Filters**: Only shows filter options with 2+ events to keep the interface clean
+- **Back to Top**: Sticky button for easy navigation on long pages
 
-### Content
-Edit [index.html](index.html) directly. No build process.
+### Event Indicators
+- 🔄 = Recurring (weekly/monthly)
+- 🎪 = Workshops/retreats/festivals
 
-### Icons
-All SVG icons inline in HTML for easy customization and perfect print reproduction.
+### Geographic Coverage
+**10 regions** organized north to south for easy trip planning:
 
-## GitHub Pages Deployment
+**Oregon (3)**: Portland → Eugene → Rogue Valley
 
+**California (7)**: Humboldt → Mt. Shasta → Sonoma → Mendocino → West Marin → SF Bay → Santa Cruz
+
+### Adding Regional Events
+
+1. Edit [regional-events.json](regional-events.json) to add your event:
+
+```json
+{
+  "name": "🔄 Event Name",
+  "url": "https://example.com",
+  "schedule": "Wednesdays, 7-10 PM",
+  "venue": "Venue Name, City",
+  "price": "$15-$20",
+  "description": "Optional description with email, newsletter, phone, etc.",
+  "tags": ["dance", "weekly"]
+}
+```
+
+**Tag Taxonomy** (use 1 event type + 1 frequency):
+- **Event Types**: `dance`, `connection`, `retreat`, `breathwork`, `consciousness`, `ritual`, `festival`, `music`
+- **Frequencies**: `weekly`, `monthly`, `annual`, `seasonal`
+- **Emoji Indicators**: 🔄 for recurring (weekly/monthly), 🎪 for workshops/retreats/festivals
+
+2. Validate the data:
+```bash
+npm run validate-data
+```
+
+3. Build the HTML:
+```bash
+npm run build:regional
+```
+
+4. Verify ordering:
+```bash
+npm run verify-calendar
+```
+
+The build script generates [regional-calendar.html](regional-calendar.html) from the JSON data. **Never edit the HTML file directly** - always edit the JSON and rebuild.
+
+## Maintenance Workflows
+
+### Regular Maintenance Tasks
+
+**Monthly** (1st of each month):
+1. Verify recurring event schedules haven't changed
+2. Check for venue changes or closures
+3. Update contact information (emails, phones, newsletters)
+
+**Quarterly** (Jan/Apr/Jul/Oct):
+1. **Check which events need date updates**: `npm run check-stale-dates`
+2. **Update annual event dates** in [regional-events.json](regional-events.json):
+   - Visit event URLs shown by check-stale-dates script
+   - Update `schedule` field with confirmed dates, note "(dates TBA for YYYY)" if unconfirmed
+   - Always include year in schedule field for annual/seasonal events
+3. Validate all external links: `npm run validate-links`
+4. Review and prune inactive events (check event URLs for cancellations/closures)
+5. Search for new events in underrepresented regions (Lake County, Mendocino)
+6. Rebuild after updates: `npm run build:regional`
+
+**Before Every Build**:
+1. Validate data quality: `npm run validate-data`
+2. Build calendar: `npm run build:regional`
+3. Verify region ordering: `npm run verify-calendar`
+4. Run tests: `npm test`
+
+### Adding Community Resources
+
+Prefer official websites and direct contact methods (no Facebook/Instagram):
+- **Best**: Email newsletters (e.g., "Subscribe: https://example.com/newsletter")
+- **Good**: Direct email/phone (e.g., "Email: events@example.org, Phone: 555-1234")
+- **Acceptable**: Official websites with event calendars
+- **Avoid**: Social media links
+
+### Data Quality Guidelines
+
+1. **Required fields**: All events must have `name`, `url`, `schedule`, `venue`, `price`, `tags`
+2. **Tag structure**: Use exactly 1 event type + 1 frequency (e.g., `["dance", "weekly"]`)
+3. **Emoji indicators**: Add 🔄 for recurring events, 🎪 for workshops/retreats/festivals
+4. **Recurring events**: Use patterns like "Wednesdays, 7-10 PM" (no specific dates)
+5. **Annual events**: Estimate dates based on previous years, note in description if unconfirmed
+6. **Geographic focus**: Prioritize events within 2-3 hours of Humboldt County
+
+### Data Freshness Strategy
+
+**Static data (doesn't require updates):**
+- Recurring event patterns ("Tuesdays, 6-8:30 PM", "2nd Monday")
+- Event names, descriptions, tags
+- Venue addresses (update only if changed)
+- URLs, contact info (update only if changed)
+
+**Dynamic data (requires quarterly updates):**
+- **Annual festival dates**: Update every January for summer festivals
+  - Check official event websites 3-6 months before event
+  - Use "(dates TBA for 2026)" format when dates unconfirmed
+  - Always include year in schedule field
+- **Seasonal retreat dates**: Update quarterly based on organizer announcements
+- **Semi-recurring specific dates**: Events with occasional dates (e.g., "Select Sundays: Dec 28, Jan 11, 25")
+
+**Automation strategy**: Static build with manual quarterly updates is optimal because:
+- Client-side fetching would require CORS/API keys (most event sites don't have APIs)
+- Event organizers announce dates months in advance (plenty of lead time)
+- Quarterly maintenance cycle aligns with festival announcement schedules
+- Static patterns (90% of events) never go stale
+
+### Finding New Events
+
+**Search strategies**:
+- Google: `"ecstatic dance" OR "5Rhythms" [city name]`
+- Google: `"authentic relating" OR "circling" [city name]`
+- Google: `"contact improvisation" [city name]`
+- Check existing event websites for related communities
+- Ask organizers for recommendations
+
+**Geographic priorities** (closest to Humboldt first):
+1. Humboldt County, Mendocino County, Lake County
+2. Mt. Shasta, Rogue Valley (Ashland)
+3. Sonoma County, West Marin
+4. Eugene, Santa Cruz
+5. SF Bay Area, Portland (endpoints of range)
+
+## Deployment
+
+### GitHub Pages
 1. Push to GitHub
 2. Settings → Pages → Source: `main` branch, `/` root
 3. Site deploys to `https://[username].github.io/coloft/`
 
-**Custom domain:** Add CNAME record pointing to `[username].github.io`
+### Custom Domain
+Add CNAME record pointing to `[username].github.io`
 
-## Testing
+## Technology & Architecture
 
-```bash
-npm install  # First time only
-npm test     # Must pass with exactly 1 page
+### Hybrid Static/Dynamic Approach
+
+**Regional Calendar** ([regional-calendar.html](regional-calendar.html)):
+- **Static HTML generation**: Build from [regional-events.json](regional-events.json) via `npm run build:regional`
+- **Community-sourced data**: Event schedules and details collected from organizer websites - always verify via event links before traveling
+- **Recurring patterns**: Events show schedules like "Tuesdays, 6-8:30 PM" (no rebuild needed)
+- **One-off events**: Annual festivals/retreats have estimated dates based on previous years - check official sites for confirmation
+- **Client-side filtering**: JavaScript-powered AND-logic filtering works without page reload
+- **Progressive enhancement**: Core content works without JavaScript
+
+**Local Events** ([index.html](index.html)):
+- **Static HTML** with embedded event metadata (manually maintained)
+- **Dynamic date calculation**: [scripts/dates.js](scripts/dates.js) runs in browser on page load
+  - Hardcoded recurrence rules for each event (2nd Sunday, every Friday, etc.)
+  - Calculates "Next 3 occurrences" based on current date
+  - Updates `.event-next` elements automatically
+  - **Easy schedule changes**: Edit `EVENT_SCHEDULES` at top of scripts/dates.js - no rebuild needed!
+- **Always fresh**: Dates never go stale - no rebuild needed
+- **Print-optimized**: Individual event pages fit perfectly on 1 page (US Letter)
+- **Event metadata**: [events.json](events.json) stores event configuration (descriptions, themes, etc.)
+  - Currently **not used** by date calculation (reserved for future data-driven architecture)
+  - Event metadata currently duplicated in HTML files
+
+### Stack
+- **Pure HTML/CSS/JS**: No frameworks, minimal JavaScript
+- **Static site**: Fast, secure, free hosting on GitHub Pages
+- **Build step**: Simple Node.js script generates regional calendar HTML from JSON
+- **Automated testing**: Puppeteer-core for print validation
+- **Progressive enhancement**: Works without JavaScript
+
+## Activating Local Event Schedules
+
+When you're ready to publish specific event schedules (currently showing "Schedule TBD - Coming Soon"):
+
+### Quick Update Checklist
+
+For each event you want to activate:
+
+1. **Update index.html** - Change "Schedule TBD - Coming Soon" to actual schedule
+2. **Verify scripts/dates.js** - Confirm EVENT_SCHEDULES configuration is correct
+3. **Update event detail page** - Change "Schedule TBD - Coming Soon" to actual schedule with date list
+4. **Test** - Run `npm test` and refresh page to see dynamic dates!
+
+### Example: Activating Somatic Co-Lab
+
+**Step 1:** Update [index.html](index.html#L42) (line 42):
+```html
+<!-- Change from: -->
+<p class="event-schedule" style="color: #7C3AED; font-weight: 600;">Schedule TBD - Coming Soon</p>
+
+<!-- To: -->
+<p class="event-schedule">6:00PM · 2nd Sunday every month</p>
+<p class="event-next">Next: Jan 11, 2026</p>
 ```
 
-Uses `puppeteer-core` (6M+ weekly downloads, audited) to generate PDF and count pages.
+**Step 2:** Verify [scripts/dates.js](scripts/dates.js#L7-L28) EVENT_SCHEDULES (lines 7-28):
+```javascript
+'somatic-colab': {
+  name: 'Somatic Co-Lab',
+  rule: 'second-sunday',  // Change this to update schedule
+  isMonthly: true
+}
+```
+
+Available rule options:
+- Monthly: `first-sunday`, `second-sunday`, `third-sunday`, `fourth-sunday`, `first-monday`, `second-monday`, etc.
+- Weekly: `every-monday`, `every-tuesday`, `every-wednesday`, `every-thursday`, `every-friday`, `every-saturday`, `every-sunday`
+- Custom: `first-third-wednesday` (for 1st & 3rd Wednesday)
+
+**Step 3:** Update [events/somatic-colab.html](events/somatic-colab.html#L134-L138) (lines 134-138):
+```html
+<!-- Change from: -->
+<div class="detail-box">
+    <h3>📅 When</h3>
+    <p><strong style="color: #7C3AED;">Schedule TBD - Coming Soon</strong></p>
+    <p style="font-size: 0.95rem; color: #666; margin-top: 0.5rem;">Email events@coloft.org for updates on upcoming dates</p>
+</div>
+
+<!-- To: -->
+<div class="detail-box">
+    <h3>📅 When</h3>
+    <p><strong>6:00PM · 2nd Sunday every month</strong></p>
+    <div class="upcoming-dates">
+        <h4>Next 3 Months:</h4>
+        <ul class="date-list">
+            <!-- Dates automatically populated by scripts/dates.js -->
+        </ul>
+    </div>
+</div>
+```
+
+**Step 4:** Test and verify:
+```bash
+npm test  # Confirm all tests pass
+# Then refresh index.html and the event page in browser - dates appear automatically!
+```
+
+### Event Configuration Reference
+
+| Event | Color | Rule | Files to Update |
+|-------|-------|------|-----------------|
+| Somatic Co-Lab | `#7C3AED` (purple) | `second-sunday` | index.html (line 42), events/somatic-colab.html (line 136) |
+| Coffee & Connection | `#DC6B4A` (terracotta) | `every-friday` | index.html (line 52), events/coffee-connection.html (line 136) |
+| Sex Positive Friends | `#E91E63` (pink) | `first-third-wednesday` | index.html (line 62), events/sex-positive-friends.html (line 125) |
+| Brews Without Booze | `#0891B2` (cyan) | `second-monday` | index.html (line 72), events/brews-without-booze.html (line 125) |
+
+**Note**: You can activate events one at a time! Others will continue showing "Schedule TBD - Coming Soon" until you're ready.
 
 ## Contact
 
 **events@coloft.org**
+
+---
+
+*Built with ❤️ for the healing collective community*

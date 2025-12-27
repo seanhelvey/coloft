@@ -10,7 +10,7 @@
       "price": "Optional donations for facilitators",
       "contact": "events@coloft.org",
       "image": "somatic-colab.svg",
-      "upcoming": ["Dec 14, 2025", "Jan 11, 2026", "Feb 8, 2026"],
+      "recurrence": "second-sunday",
       "theme": {
         "primary": "#7C3AED",
         "secondary": "#059669"
@@ -26,7 +26,7 @@
       "price": "One drink or snack to support venue",
       "contact": "events@coloft.org",
       "image": "coffee-connection.svg",
-      "upcoming": ["Nov 28, 2025", "Dec 5, 2025", "Dec 12, 2025"],
+      "recurrence": "every-friday",
       "theme": {
         "primary": "#DC6B4A",
         "secondary": "#F4B860"
@@ -42,7 +42,7 @@
       "price": "One drink or snack to support venue",
       "contact": "events@coloft.org",
       "image": "sex-positive-friends.svg",
-      "upcoming": ["Dec 3, 2025", "Dec 17, 2025", "Jan 7, 2026"],
+      "recurrence": "first-third-wednesday",
       "theme": {
         "primary": "#E91E63",
         "secondary": "#9C27B0"
@@ -58,7 +58,7 @@
       "price": "One drink to support venue",
       "contact": "events@coloft.org",
       "image": "brews-without-booze.svg",
-      "upcoming": ["Dec 8, 2025", "Jan 12, 2026", "Feb 9, 2026"],
+      "recurrence": "second-monday",
       "theme": {
         "primary": "#0891B2",
         "secondary": "#059669"

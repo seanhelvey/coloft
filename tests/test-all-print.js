@@ -23,7 +23,7 @@ function findChrome() {
 async function testPage(browser, filename) {
   const page = await browser.newPage();
 
-  const htmlPath = 'file://' + path.resolve(__dirname, filename);
+  const htmlPath = 'file://' + path.resolve(__dirname, '..', filename);
   await page.goto(htmlPath, { waitUntil: 'networkidle0' });
 
   const pdf = await page.pdf({

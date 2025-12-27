@@ -541,6 +541,11 @@ footer {
         display: none; /* Hide intro text in print to save space */
     }
 
+    .regional-calendar-promo,
+    .coming-soon {
+        display: none; /* Hide regional calendar promo and coming soon section in print */
+    }
+
     .events-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
