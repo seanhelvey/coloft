@@ -2,21 +2,21 @@
 // Run with: node test-dates.js
 
 function getNextOccurrences(rule, options = {}) {
-  const { count = 3, months = 3 } = options;
+  const { count = 3, months = 3, startDate: customStartDate } = options;
 
-  // Start from January 1, 2026 (when events begin)
-  const startDate = new Date('2026-01-01');
-  startDate.setHours(0, 0, 0, 0);
+  // Use custom start date if provided, otherwise default to January 1, 2026
+  const eventStartDate = customStartDate ? new Date(customStartDate) : new Date('2026-01-01');
+  eventStartDate.setHours(0, 0, 0, 0);
 
   const dates = [];
-  let checkDate = new Date(startDate);
+  let checkDate = new Date(eventStartDate);
 
-  // Look ahead specified number of months
-  const maxDate = new Date(startDate);
+  // Look ahead specified number of months from the start date
+  const maxDate = new Date(eventStartDate);
   maxDate.setMonth(maxDate.getMonth() + months);
 
   while (checkDate <= maxDate) {
-    if (rule.matches(checkDate)) {
+    if (rule.matches(checkDate) && checkDate >= eventStartDate) {
       dates.push(new Date(checkDate));
     }
     checkDate.setDate(checkDate.getDate() + 1);
@@ -83,15 +83,37 @@ function testRule(eventName, rule) {
 }
 
 console.log('📅 Testing Event Date Calculations\n');
-const startDate = new Date('2026-01-01');
-startDate.setHours(0, 0, 0, 0);
-console.log(`Start date: ${formatDate(startDate)}\n`);
 console.log('=' .repeat(60));
 
 let allPass = true;
 
-allPass = testRule('Somatic Co-Lab', everySundayRule, 3) && allPass;
-allPass = testRule('Sex Positive Friends', everyTuesdayRule, 3) && allPass;
+// Test Somatic Co-Lab (starts Jan 11, 2026)
+console.log('\nSomatic Co-Lab (Every Sunday, starting Jan 11, 2026):');
+const somaticDates = getNextOccurrences(everySundayRule, { count: 3, months: 3, startDate: '2026-01-11' });
+console.log(`  Next 3 occurrences:`);
+somaticDates.slice(0, 3).forEach((date, i) => {
+  console.log(`    ${i + 1}. ${formatDate(date)}`);
+});
+if (somaticDates.every(date => everySundayRule.matches(date))) {
+  console.log('  ✅ All dates match the recurrence rule');
+} else {
+  console.log('  ❌ Some dates do not match!');
+  allPass = false;
+}
+
+// Test Sex Positive Friends (starts Jan 13, 2026)
+console.log('\nSex Positive Friends (Every Tuesday, starting Jan 13, 2026):');
+const sexPosDates = getNextOccurrences(everyTuesdayRule, { count: 3, months: 3, startDate: '2026-01-13' });
+console.log(`  Next 3 occurrences:`);
+sexPosDates.slice(0, 3).forEach((date, i) => {
+  console.log(`    ${i + 1}. ${formatDate(date)}`);
+});
+if (sexPosDates.every(date => everyTuesdayRule.matches(date))) {
+  console.log('  ✅ All dates match the recurrence rule');
+} else {
+  console.log('  ❌ Some dates do not match!');
+  allPass = false;
+}
 
 console.log('\n' + '=' .repeat(60));
 if (allPass) {

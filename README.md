@@ -4,7 +4,7 @@ A vibrant static website for Coloft, a grassroots healing collective in Arcata, 
 
 ## Features
 
-- **Local Events**: Printable flyers for 2 active recurring Humboldt County events (starting January 2026)
+- **Local Events**: Printable flyers for 2 active recurring Humboldt County events (starting mid-January 2026)
 - **Regional Community Calendar**: 24 transformational events across 10 regions (SF to Ashland)
 - **Mobile Responsive**: Works beautifully on all devices
 - **Print Optimized**: All event flyers fit perfectly on 1 page
@@ -256,13 +256,14 @@ Add CNAME record pointing to `[username].github.io`
 - **Progressive enhancement**: Core content works without JavaScript
 
 **Local Events** ([index.html](index.html)):
-- **2 active events starting January 1, 2026**:
-  - Somatic Co-Lab: Every Sunday at 6:00 PM
-  - Sex Positive Friends: Every Tuesday at 5:30 PM
+- **2 active events starting mid-January 2026**:
+  - Somatic Co-Lab: Every Sunday at 6:00 PM (starts Jan 11, 2026)
+  - Sex Positive Friends: Every Tuesday at 5:30 PM (starts Jan 13, 2026)
 - **Static HTML** with embedded event metadata (manually maintained)
 - **Dynamic date calculation**: [scripts/dates.js](scripts/dates.js) runs in browser on page load
   - Hardcoded recurrence rules for each event (every Sunday, every Tuesday, etc.)
-  - Calculates "Next 3 occurrences" starting from January 1, 2026
+  - Each event has its own start date (Somatic Co-Lab: Jan 11, Sex Positive Friends: Jan 13)
+  - Calculates "Next 3 occurrences" from each event's start date
   - Updates `.event-next` elements automatically
   - **Easy schedule changes**: Edit `EVENT_SCHEDULES` at top of scripts/dates.js - no rebuild needed!
 - **Always fresh**: Dates never go stale - no rebuild needed

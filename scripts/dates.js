@@ -8,12 +8,14 @@ const EVENT_SCHEDULES = {
   'somatic-colab': {
     name: 'Somatic Co-Lab',
     rule: 'every-sunday',       // Every Sunday at 6:00 PM
-    isMonthly: false
+    isMonthly: false,
+    startDate: '2026-01-11'     // Start on January 11, 2026
   },
   'sex-positive-friends': {
     name: 'Sex Positive Friends',
     rule: 'every-tuesday',      // Every Tuesday at 5:30 PM
-    isMonthly: false
+    isMonthly: false,
+    startDate: '2026-01-13'     // Start on January 13, 2026
   }
 };
 
@@ -22,21 +24,21 @@ const EVENT_SCHEDULES = {
 // ============================================================================
 
 function getNextOccurrences(rule, options = {}) {
-  const { count = 3, months = 3 } = options;
+  const { count = 3, months = 3, startDate: customStartDate } = options;
 
-  // Start from January 1, 2026 (when events begin)
-  const startDate = new Date('2026-01-01');
-  startDate.setHours(0, 0, 0, 0);
+  // Use custom start date if provided, otherwise default to January 1, 2026
+  const eventStartDate = customStartDate ? new Date(customStartDate) : new Date('2026-01-01');
+  eventStartDate.setHours(0, 0, 0, 0);
 
   const dates = [];
-  let checkDate = new Date(startDate);
+  let checkDate = new Date(eventStartDate);
 
-  // Look ahead specified number of months
-  const maxDate = new Date(startDate);
+  // Look ahead specified number of months from the start date
+  const maxDate = new Date(eventStartDate);
   maxDate.setMonth(maxDate.getMonth() + months);
 
   while (checkDate <= maxDate) {
-    if (rule.matches(checkDate)) {
+    if (rule.matches(checkDate) && checkDate >= eventStartDate) {
       dates.push(new Date(checkDate));
     }
     checkDate.setDate(checkDate.getDate() + 1);
@@ -94,8 +96,8 @@ function formatDate(date) {
   return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
 }
 
-function updateEventDates(eventId, rule) {
-  const dates = getNextOccurrences(rule, { count: 3, months: 3 });
+function updateEventDates(eventId, rule, startDate = null) {
+  const dates = getNextOccurrences(rule, { count: 3, months: 3, startDate });
 
   // Update "Next: " date on index page
   const nextElement = document.querySelector(`a[href*="${eventId}"] .event-next`);
@@ -129,12 +131,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname;
 
   if (path.includes('somatic-colab')) {
-    updateEventDates('somatic-colab', everySundayRule);
+    updateEventDates('somatic-colab', everySundayRule, '2026-01-11');
   } else if (path.includes('sex-positive-friends')) {
-    updateEventDates('sex-positive-friends', everyTuesdayRule);
+    updateEventDates('sex-positive-friends', everyTuesdayRule, '2026-01-13');
   } else if (path.includes('index.html') || path.endsWith('/') || path === '') {
     // Update all active events on index page
-    updateEventDates('somatic-colab', everySundayRule);
-    updateEventDates('sex-positive-friends', everyTuesdayRule);
+    updateEventDates('somatic-colab', everySundayRule, '2026-01-11');
+    updateEventDates('sex-positive-friends', everyTuesdayRule, '2026-01-13');
   }
 });
