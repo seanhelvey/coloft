@@ -7,12 +7,12 @@
 const EVENT_SCHEDULES = {
   'somatic-colab': {
     name: 'Somatic Co-Lab',
-    rule: 'every-sunday',       // Every Sunday at 6:00 PM
+    rule: 'select-sundays',     // Select Sundays at 6:00 PM
     isMonthly: false,
-    startDate: '2026-01-11'     // Start on January 11, 2026
+    startDate: '2026-01-25'     // First event on January 25, 2026
   },
-  'sex-positive-friends': {
-    name: 'Sex Positive Friends',
+  'munch': {
+    name: 'Munch',
     rule: 'every-tuesday',      // Every Tuesday at 5:30 PM
     isMonthly: false,
     startDate: '2026-01-13'     // Start on January 13, 2026
@@ -114,10 +114,28 @@ function updateEventDates(eventId, rule, startDate = null) {
   }
 }
 
-// Rule: Every Sunday
-const everySundayRule = {
+// Rule: Select Sundays (specific dates)
+const selectSundaysRule = {
   isMonthly: false,
-  matches: (date) => date.getDay() === 0
+  matches: (date) => {
+    // Convert date to YYYY-MM-DD format for comparison
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const dateStr = `${year}-${month}-${day}`;
+
+    // List of select Sunday dates (update this list as needed)
+    const selectDates = [
+      '2026-01-25',
+      '2026-02-08',
+      '2026-02-22',
+      '2026-03-08',
+      '2026-03-22'
+      // Add more dates as they are scheduled
+    ];
+
+    return selectDates.includes(dateStr);
+  }
 };
 
 // Rule: Every Tuesday
@@ -131,12 +149,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname;
 
   if (path.includes('somatic-colab')) {
-    updateEventDates('somatic-colab', everySundayRule, '2026-01-11');
-  } else if (path.includes('sex-positive-friends')) {
-    updateEventDates('sex-positive-friends', everyTuesdayRule, '2026-01-13');
+    updateEventDates('somatic-colab', selectSundaysRule, '2026-01-25');
+  } else if (path.includes('munch')) {
+    updateEventDates('munch', everyTuesdayRule, '2026-01-13');
   } else if (path.includes('index.html') || path.endsWith('/') || path === '') {
     // Update all active events on index page
-    updateEventDates('somatic-colab', everySundayRule, '2026-01-11');
-    updateEventDates('sex-positive-friends', everyTuesdayRule, '2026-01-13');
+    updateEventDates('somatic-colab', selectSundaysRule, '2026-01-25');
+    updateEventDates('munch', everyTuesdayRule, '2026-01-13');
   }
 });

@@ -31,11 +31,24 @@ function getNextOccurrences(rule, options = {}) {
   return dates;
 }
 
-// Rule: Every Sunday
-const everySundayRule = {
-  name: 'Every Sunday',
+// Rule: Select Sundays (specific dates)
+const selectSundaysRule = {
+  name: 'Select Sundays',
   isMonthly: false,
-  matches: (date) => date.getDay() === 0
+  matches: (date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const dateStr = `${year}-${month}-${day}`;
+    const selectDates = [
+      '2026-01-25',
+      '2026-02-08',
+      '2026-02-22',
+      '2026-03-08',
+      '2026-03-22'
+    ];
+    return selectDates.includes(dateStr);
+  }
 };
 
 // Rule: Every Tuesday
@@ -87,28 +100,28 @@ console.log('=' .repeat(60));
 
 let allPass = true;
 
-// Test Somatic Co-Lab (starts Jan 11, 2026)
-console.log('\nSomatic Co-Lab (Every Sunday, starting Jan 11, 2026):');
-const somaticDates = getNextOccurrences(everySundayRule, { count: 3, months: 3, startDate: '2026-01-11' });
+// Test Somatic Co-Lab (select Sundays starting Jan 25, 2026)
+console.log('\nSomatic Co-Lab (Select Sundays, starting Jan 25, 2026):');
+const somaticDates = getNextOccurrences(selectSundaysRule, { count: 3, months: 3, startDate: '2026-01-25' });
 console.log(`  Next 3 occurrences:`);
 somaticDates.slice(0, 3).forEach((date, i) => {
   console.log(`    ${i + 1}. ${formatDate(date)}`);
 });
-if (somaticDates.every(date => everySundayRule.matches(date))) {
+if (somaticDates.every(date => selectSundaysRule.matches(date))) {
   console.log('  ✅ All dates match the recurrence rule');
 } else {
   console.log('  ❌ Some dates do not match!');
   allPass = false;
 }
 
-// Test Sex Positive Friends (starts Jan 13, 2026)
-console.log('\nSex Positive Friends (Every Tuesday, starting Jan 13, 2026):');
-const sexPosDates = getNextOccurrences(everyTuesdayRule, { count: 3, months: 3, startDate: '2026-01-13' });
+// Test Munch (starts Jan 13, 2026)
+console.log('\nMunch (Every Tuesday, starting Jan 13, 2026):');
+const munchDates = getNextOccurrences(everyTuesdayRule, { count: 3, months: 3, startDate: '2026-01-13' });
 console.log(`  Next 3 occurrences:`);
-sexPosDates.slice(0, 3).forEach((date, i) => {
+munchDates.slice(0, 3).forEach((date, i) => {
   console.log(`    ${i + 1}. ${formatDate(date)}`);
 });
-if (sexPosDates.every(date => everyTuesdayRule.matches(date))) {
+if (munchDates.every(date => everyTuesdayRule.matches(date))) {
   console.log('  ✅ All dates match the recurrence rule');
 } else {
   console.log('  ❌ Some dates do not match!');

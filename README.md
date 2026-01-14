@@ -1,4 +1,4 @@
-# Coloft - We Rise Together
+# Coloft - A Soft Place to Land
 
 A vibrant static website for Coloft, a grassroots healing collective in Arcata, CA (Goudi'ni, Wiyot Land).
 
@@ -258,11 +258,11 @@ Add CNAME record pointing to `[username].github.io`
 **Local Events** ([index.html](index.html)):
 - **2 active events starting mid-January 2026**:
   - Somatic Co-Lab: Every Sunday at 6:00 PM (starts Jan 11, 2026)
-  - Sex Positive Friends: Every Tuesday at 5:30 PM (starts Jan 13, 2026)
+  - Munch: Every Tuesday at 5:30 PM (starts Jan 13, 2026)
 - **Static HTML** with embedded event metadata (manually maintained)
 - **Dynamic date calculation**: [scripts/dates.js](scripts/dates.js) runs in browser on page load
   - Hardcoded recurrence rules for each event (every Sunday, every Tuesday, etc.)
-  - Each event has its own start date (Somatic Co-Lab: Jan 11, Sex Positive Friends: Jan 13)
+  - Each event has its own start date (Somatic Co-Lab: Jan 11, Munch: Jan 13)
   - Calculates "Next 3 occurrences" from each event's start date
   - Updates `.event-next` elements automatically
   - **Easy schedule changes**: Edit `EVENT_SCHEDULES` at top of scripts/dates.js - no rebuild needed!

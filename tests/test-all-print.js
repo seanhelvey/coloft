@@ -49,7 +49,7 @@ async function testAllPages() {
 
     const pages = [
       'events/somatic-colab.html',
-      'events/sex-positive-friends.html'
+      'events/munch.html'
     ];
 
     console.log('📄 Testing all pages:\n');

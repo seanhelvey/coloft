@@ -47,14 +47,14 @@
           ]
         },
         {
-          "name": "🔄 Authentic Relating Eugene",
-          "url": "https://allevents.in/eugene/authentic-relating-circle/200029352033649",
-          "schedule": "2nd & 4th Mondays, 5:30 PM",
-          "venue": "Sacred Connections, 810 W. 3rd Ave",
-          "price": "$3-$10 donation",
-          "description": "Authentic relating games and connection practices. Community space for vulnerable, real connection",
+          "name": "🔄 Ecstatic Dance Corvallis",
+          "url": "https://www.ecstaticdancecorvallis.com/schedule.html",
+          "schedule": "Fridays & Saturdays (varies, see website calendar)",
+          "venue": "Odd Fellows Hall, 223 SW 2nd St, Corvallis",
+          "price": "$12-25 sliding scale",
+          "description": "Movement medicine through choreographed musical journeys with DJ sets blending global beats and bass music, concluding with gong meditation. Subscribe: https://www.ecstaticdancecorvallis.com/contact.html",
           "tags": [
-            "connection",
+            "dance",
             "monthly"
           ]
         },
@@ -193,18 +193,6 @@
           ]
         },
         {
-          "name": "🔄 Ancient Forest Sangha",
-          "url": "https://ancientforestsangha.org/",
-          "schedule": "2nd, 3rd, 4th Thursdays, 7-8:15 PM",
-          "venue": "Humboldt Unitarian Universalist Fellowship, Bayside",
-          "price": "Donation-based",
-          "description": "Meditation sangha in Plum Village tradition of Thich Nhat Hanh. Community-focused practice with over 10 years of continuous gathering",
-          "tags": [
-            "consciousness",
-            "weekly"
-          ]
-        },
-        {
           "name": "🔄 Community Song Circle",
           "url": "https://huuf.org/events/community-song-circle-2-2025-11-21-2025-12-19/",
           "schedule": "1st & 3rd Fridays, 4:00-5:30 PM",
@@ -226,18 +214,6 @@
           "tags": [
             "dance",
             "weekly"
-          ]
-        },
-        {
-          "name": "🎪 The Breathe Reset: A Nervous System Tune-up",
-          "url": "https://omshalayoga.punchpass.com/classes/18915302",
-          "schedule": "Saturday, January 10, 2026, 1:00 PM (120 minutes)",
-          "venue": "Om Shala Yoga, 101 H St, Arcata",
-          "price": "$55 ($45 with code BREATHE before Jan 9)",
-          "description": "Breathwork, soft-tissue self-massage, gentle movement & rest to transition from stress to relaxation. Covers relaxation mechanics, diaphragm function, tension release, chronic stress relief. No yoga experience needed. Instructor: Ali McCall",
-          "tags": [
-            "breathwork",
-            "seasonal"
           ]
         },
         {
@@ -292,11 +268,11 @@
       "events": [
         {
           "name": "🔄 Ecstatic Dance Sebastopol",
-          "url": "https://ecstaticdance.org/dance/ecstatic-dance-sebastopol/",
-          "schedule": "1st Friday (dhyana Center, 7pm yoga/8-10pm dance) & 1st/3rd Sunday (Youth Annex)",
-          "venue": "186 N. Main St #250 & 425 Morris St, Sebastopol",
-          "price": "$15-$20 sliding scale",
-          "description": "Sacred space with bass-filled electronic music, starts slow for stretching, rhythmic wave journey, ends with sound bath & meditation. Childcare included ($5 for 12 & under)",
+          "url": "https://ecstaticdance.org/?p=9574",
+          "schedule": "1st & 3rd Fridays, 7:00-9:00 PM",
+          "venue": "Youth Annex, 425 Morris St, Sebastopol",
+          "price": "$20-25 (cash/Venmo at door)",
+          "description": "Bass-filled electronic music in sacred space. Substance-free dance from slow stretching to energetic movement, ending with sound healing. Phone: (707) 823-1511, Email: sccc@seb.org",
           "tags": [
             "dance",
             "monthly"
@@ -385,24 +361,12 @@
           ]
         },
         {
-          "name": "🔄 Ecstatic Dance Oakland - Sundays",
+          "name": "🔄 Ecstatic Dance Oakland",
           "url": "https://www.ecstaticdanceoakland.com/",
-          "schedule": "Sundays, 9:30 AM yoga / 10:30 AM-1 PM dance / 1-1:30 PM circle",
+          "schedule": "Wednesdays 7-10 PM & Sundays 9:30 AM yoga / 10:30 AM-1 PM dance",
           "venue": "1933 Broadway, Oakland (19th St BART)",
           "price": "$15",
-          "description": "Local & national DJs, 10,000 sq ft suspended wooden floor. Slow, medium, fast & wind down pattern. Phone: (510) 206-8617",
-          "tags": [
-            "dance",
-            "weekly"
-          ]
-        },
-        {
-          "name": "🔄 Ecstatic Dance Oakland - Wednesdays",
-          "url": "https://www.ecstaticdanceoakland.com/",
-          "schedule": "Wednesdays, 7-10 PM (movement class first hour)",
-          "venue": "1933 Broadway, Oakland",
-          "price": "$15",
-          "description": "Phone: (510) 873-8800",
+          "description": "Local & national DJs, 10,000 sq ft suspended wooden floor. Slow, medium, fast & wind down pattern. Phone: (510) 206-8617 / (510) 873-8800",
           "tags": [
             "dance",
             "weekly"
@@ -441,6 +405,18 @@
           "tags": [
             "dance",
             "monthly"
+          ]
+        },
+        {
+          "name": "🔄 Open Floor Sundays",
+          "url": "https://www.openfloordance.org/dances",
+          "schedule": "Sundays, 10:30 AM - 12:30 PM",
+          "venue": "MLK Gym, 610 Coloma St, Sausalito",
+          "price": "$25 (advance purchase recommended)",
+          "description": "Transformational movement meditation practice and lively dance inquiry awakening sensate experience, emotional intelligence, and mindful awareness. No steps to learn, all bodies welcome. Community gathering since 1987",
+          "tags": [
+            "dance",
+            "weekly"
           ]
         }
       ]
