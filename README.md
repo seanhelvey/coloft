@@ -5,7 +5,7 @@ A vibrant static website for Coloft, a grassroots healing collective in Arcata, 
 ## Features
 
 - **Local Events**: Printable flyers for 2 active recurring Humboldt County events (starting mid-January 2026)
-- **Regional Community Calendar**: 24 transformational events across 10 regions (SF to Ashland)
+- **Regional Community Calendar**: 37 transformational events across 10 regions (SF to Ashland)
 - **Mobile Responsive**: Works beautifully on all devices
 - **Print Optimized**: All event flyers fit perfectly on 1 page
 - **Data-Driven**: Regional calendar built from JSON for easy maintenance
@@ -257,16 +257,16 @@ Add CNAME record pointing to `[username].github.io`
 
 **Local Events** ([index.html](index.html)):
 - **2 active events starting mid-January 2026**:
-  - Somatic Co-Lab: Every Sunday at 6:00 PM (starts Jan 11, 2026)
+  - Somatic Co-Lab: Select Sundays at 6:00 PM (starts Jan 25, 2026)
   - Munch: Every Tuesday at 5:30 PM (starts Jan 13, 2026)
 - **Static HTML** with embedded event metadata (manually maintained)
 - **Dynamic date calculation**: [scripts/dates.js](scripts/dates.js) runs in browser on page load
-  - Hardcoded recurrence rules for each event (every Sunday, every Tuesday, etc.)
-  - Each event has its own start date (Somatic Co-Lab: Jan 11, Munch: Jan 13)
-  - Calculates "Next 3 occurrences" from each event's start date
+  - Hardcoded recurrence rules for each event (select Sundays, every Tuesday, etc.)
+  - Each event has its own start date (Somatic Co-Lab: Jan 25, Munch: Jan 13)
+  - Calculates "Next 3 occurrences" from today's date (always current)
   - Updates `.event-next` elements automatically
   - **Easy schedule changes**: Edit `EVENT_SCHEDULES` at top of scripts/dates.js - no rebuild needed!
-- **Always fresh**: Dates never go stale - no rebuild needed
+- **Always fresh**: Dates never go stale - calculated from today on every page load
 - **Print-optimized**: Individual event pages fit perfectly on 1 page (US Letter)
 - **Event metadata**: [events.json](events.json) stores event configuration (descriptions, themes, etc.)
   - Currently **not used** by date calculation (reserved for future data-driven architecture)

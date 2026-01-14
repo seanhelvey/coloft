@@ -26,28 +26,29 @@ const EVENT_SCHEDULES = {
 function getNextOccurrences(rule, options = {}) {
   const { count = 3, months = 3, startDate: customStartDate } = options;
 
-  // Use custom start date if provided, otherwise default to January 1, 2026
+  // Always start from today to get current upcoming dates
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  // Event start date is the earliest date to consider (don't show dates before event started)
   const eventStartDate = customStartDate ? new Date(customStartDate) : new Date('2026-01-01');
   eventStartDate.setHours(0, 0, 0, 0);
 
-  const dates = [];
-  let checkDate = new Date(eventStartDate);
+  // Start checking from whichever is later: today or event start date
+  const checkStartDate = today > eventStartDate ? today : eventStartDate;
 
-  // Look ahead specified number of months from the start date
-  const maxDate = new Date(eventStartDate);
+  const dates = [];
+  let checkDate = new Date(checkStartDate);
+
+  // Look ahead specified number of months from check start date
+  const maxDate = new Date(checkStartDate);
   maxDate.setMonth(maxDate.getMonth() + months);
 
-  while (checkDate <= maxDate) {
-    if (rule.matches(checkDate) && checkDate >= eventStartDate) {
+  while (checkDate <= maxDate && dates.length < count) {
+    if (rule.matches(checkDate)) {
       dates.push(new Date(checkDate));
     }
     checkDate.setDate(checkDate.getDate() + 1);
-  }
-
-  // For monthly events, limit to count
-  // For weekly events, return all within date range
-  if (dates.length > count && rule.isMonthly) {
-    return dates.slice(0, count);
   }
 
   return dates;
