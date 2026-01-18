@@ -31,6 +31,22 @@
         "primary": "#E91E63",
         "secondary": "#9C27B0"
       }
+    },
+    {
+      "id": "relating-games",
+      "name": "Relating Games",
+      "tagline": "Playful connection through games",
+      "schedule": "3:00PM most Saturdays",
+      "location": "Ramone's in McKinleyville",
+      "description": "Join us for an afternoon of playful authentic relating games designed to spark genuine connection, curiosity, and laughter. These structured games create a lighthearted container for exploring presence, vulnerability, and human connection—no experience needed, just a willingness to play. Enjoy beverages and treats from Ramone's while discovering new ways to connect.",
+      "price": "One drink or treat to support venue",
+      "contact": "events@coloft.org",
+      "image": "relating-games.svg",
+      "recurrence": "most-saturdays",
+      "theme": {
+        "primary": "#F59E0B",
+        "secondary": "#06B6D4"
+      }
     }
   ]
 }

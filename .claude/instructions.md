@@ -2,7 +2,7 @@
 
 ## Project Overview
 Coloft is a grassroots healing collective in Arcata, CA (Goudi'ni, Wiyot Land). The website includes:
-- **Local Events**: 4 recurring Humboldt County events with dynamic date calculation
+- **Local Events**: 3 recurring Humboldt County events with dynamic date calculation
 - **Regional Calendar**: 37 transformational events across 10 regions (Oregon & Northern California)
   - Data stored in regional-events.json
   - HTML generated via build script: `npm run build:regional`
@@ -57,9 +57,8 @@ Coloft is a grassroots healing collective in Arcata, CA (Goudi'ni, Wiyot Land). 
 ├── events.json             # Local event metadata (not used by date calculation yet)
 ├── events/                 # Individual Coloft event pages with printable flyers
 │   ├── somatic-colab.html
-│   ├── coffee-connection.html
-│   ├── sex-positive-friends.html
-│   └── brews-without-booze.html
+│   ├── munch.html
+│   └── relating-games.html
 ├── images/                 # SVG images for events
 ├── styles/                 # CSS files
 │   ├── styles.css          # Main styles + print styles for index
@@ -105,13 +104,14 @@ npm run test:dates          # Test date calculations only
 
 ## Architecture
 
-### Local Events (4 events)
+### Local Events (3 events)
+- **Somatic Co-Lab**: Select Sundays at 6:00 PM (starts Jan 25, 2026)
+- **Munch**: Every Tuesday at 5:30 PM (starts Jan 13, 2026)
+- **Relating Games**: Most Saturdays at 3:00 PM (starts Jan 24, 2026)
 - **Static HTML** with embedded metadata in index.html and events/*.html
 - **Dynamic dates**: scripts/dates.js calculates "Next 3 occurrences" in browser on page load
 - **Configuration**: EVENT_SCHEDULES object at top of scripts/dates.js
 - **Always fresh**: Dates never go stale, no rebuild needed
-- **Currently**: All show "Schedule TBD - Coming Soon" until activated
-- **Future**: Will display dynamic dates when schedules are finalized
 
 ### Regional Events (24 events, 10 regions)
 - **Static build**: regional-calendar.html generated from regional-events.json
@@ -183,8 +183,11 @@ When ready to publish a specific event schedule:
 9. San Francisco Bay Area, CA
 10. Santa Cruz, CA
 
-## Current Status (2025-12-27)
-- **Local events**: All showing "Schedule TBD - Coming Soon" (ready to activate)
+## Current Status (2026-01-17)
+- **Local events**: 3 active events with dynamic date calculation
+  - Somatic Co-Lab (Select Sundays)
+  - Munch (Every Tuesday)
+  - Relating Games (Most Saturdays)
 - **Regional calendar**: 37 events across 10 regions, all tests passing
 - **Data quality**: Automated validation in place
 - **Maintenance**: Quarterly workflow documented

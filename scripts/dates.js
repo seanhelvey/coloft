@@ -16,6 +16,12 @@ const EVENT_SCHEDULES = {
     rule: 'every-tuesday',      // Every Tuesday at 5:30 PM
     isMonthly: false,
     startDate: '2026-01-13'     // Start on January 13, 2026
+  },
+  'relating-games': {
+    name: 'Relating Games',
+    rule: 'most-saturdays',     // Most Saturdays at 3:00 PM
+    isMonthly: false,
+    startDate: '2026-01-24'     // First event on January 24, 2026
   }
 };
 
@@ -145,6 +151,35 @@ const everyTuesdayRule = {
   matches: (date) => date.getDay() === 2
 };
 
+// Rule: Most Saturdays (specific dates for Relating Games)
+const mostSaturdaysRule = {
+  isMonthly: false,
+  matches: (date) => {
+    // Convert date to YYYY-MM-DD format for comparison
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const dateStr = `${year}-${month}-${day}`;
+
+    // List of Saturday dates (update this list as needed)
+    const saturdayDates = [
+      '2026-01-24',
+      '2026-01-31',
+      '2026-02-07',
+      '2026-02-14',
+      '2026-02-21',
+      '2026-02-28',
+      '2026-03-07',
+      '2026-03-14',
+      '2026-03-21',
+      '2026-03-28'
+      // Add more dates as they are scheduled
+    ];
+
+    return saturdayDates.includes(dateStr);
+  }
+};
+
 // Run when page loads
 document.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname;
@@ -153,9 +188,12 @@ document.addEventListener('DOMContentLoaded', () => {
     updateEventDates('somatic-colab', selectSundaysRule, '2026-01-25');
   } else if (path.includes('munch')) {
     updateEventDates('munch', everyTuesdayRule, '2026-01-13');
+  } else if (path.includes('relating-games')) {
+    updateEventDates('relating-games', mostSaturdaysRule, '2026-01-24');
   } else if (path.includes('index.html') || path.endsWith('/') || path === '') {
     // Update all active events on index page
     updateEventDates('somatic-colab', selectSundaysRule, '2026-01-25');
     updateEventDates('munch', everyTuesdayRule, '2026-01-13');
+    updateEventDates('relating-games', mostSaturdaysRule, '2026-01-24');
   }
 });
