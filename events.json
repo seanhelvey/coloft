@@ -1,7 +1,7 @@
 {
   "events": [
     {
-      "id": "somatic-colab",
+      "id": "somatic-lab",
       "name": "Somatic Lab Loft Sessions",
       "tagline": "Practice peer-led somatic work together",
       "schedule": "6:00PM every Sunday",
@@ -9,7 +9,7 @@
       "description": "Facilitators, practitioners, and curious collaborators gather to explore and practice peer-led somatic work including breathwork, circling, and relational exercises.",
       "price": "Optional donations for facilitators",
       "contact": "events@coloft.org",
-      "image": "somatic-colab.svg",
+      "image": "somatic-lab.svg",
       "recurrence": "every-sunday",
       "theme": {
         "primary": "#7C3AED",

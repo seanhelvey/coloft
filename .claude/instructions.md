@@ -56,7 +56,7 @@ Coloft is a grassroots healing collective in Arcata, CA (Goudi'ni, Wiyot Land). 
 ├── regional-events.json    # Regional event data (24 events, 10 regions)
 ├── events.json             # Local event metadata (not used by date calculation yet)
 ├── events/                 # Individual Coloft event pages with printable flyers
-│   ├── somatic-colab.html
+│   ├── somatic-lab.html
 │   ├── munch.html
 │   └── relating-games.html
 ├── images/                 # SVG images for events

@@ -263,7 +263,7 @@ Add CNAME record pointing to `[username].github.io`
 - **Static HTML** with embedded event metadata (manually maintained)
 - **Dynamic date calculation**: [scripts/dates.js](scripts/dates.js) runs in browser on page load
   - Hardcoded recurrence rules for each event (select Sundays, every Tuesday, etc.)
-  - Each event has its own start date (Somatic Co-Lab: Jan 25, Munch: Jan 13)
+  - Each event has its own start date (Somatic Lab Loft Sessions: Jan 25, Munch: Jan 13)
   - Calculates "Next 3 occurrences" from today's date (always current)
   - Updates `.event-next` elements automatically
   - **Easy schedule changes**: Edit `EVENT_SCHEDULES` at top of scripts/dates.js - no rebuild needed!

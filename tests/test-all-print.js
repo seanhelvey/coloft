@@ -48,7 +48,7 @@ async function testAllPages() {
     });
 
     const pages = [
-      'events/somatic-colab.html',
+      'events/somatic-lab.html',
       'events/munch.html'
     ];
 

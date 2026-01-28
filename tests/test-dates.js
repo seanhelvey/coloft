@@ -101,8 +101,8 @@ console.log('=' .repeat(60));
 
 let allPass = true;
 
-// Test Somatic Co-Lab (select Sundays starting Jan 25, 2026)
-console.log('\nSomatic Co-Lab (Select Sundays, starting Jan 25, 2026):');
+// Test Somatic Lab Loft Sessions (select Sundays starting Jan 25, 2026)
+console.log('\nSomatic Lab Loft Sessions (Select Sundays, starting Jan 25, 2026):');
 const somaticDates = getNextOccurrences(selectSundaysRule, { count: 3, months: 3, startDate: '2026-01-25' });
 console.log(`  Next 3 occurrences:`);
 somaticDates.slice(0, 3).forEach((date, i) => {

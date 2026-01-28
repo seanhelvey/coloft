@@ -5,7 +5,7 @@
 // After changing, just refresh the page - no rebuild needed!
 
 const EVENT_SCHEDULES = {
-  'somatic-colab': {
+  'somatic-lab': {
     name: 'Somatic Lab Loft Sessions',
     rule: 'select-sundays',     // Select Sundays at 6:00 PM
     isMonthly: false,
@@ -167,15 +167,15 @@ const everyOtherSaturdayRule = {
 document.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname;
 
-  if (path.includes('somatic-colab')) {
-    updateEventDates('somatic-colab', selectSundaysRule, '2026-01-25');
+  if (path.includes('somatic-lab')) {
+    updateEventDates('somatic-lab', selectSundaysRule, '2026-01-25');
   } else if (path.includes('munch')) {
     updateEventDates('munch', everyTuesdayRule, '2026-01-13');
   } else if (path.includes('relating-games')) {
     updateEventDates('relating-games', everyOtherSaturdayRule, '2026-01-24');
   } else if (path.includes('index.html') || path.endsWith('/') || path === '') {
     // Update all active events on index page
-    updateEventDates('somatic-colab', selectSundaysRule, '2026-01-25');
+    updateEventDates('somatic-lab', selectSundaysRule, '2026-01-25');
     updateEventDates('munch', everyTuesdayRule, '2026-01-13');
     updateEventDates('relating-games', everyOtherSaturdayRule, '2026-01-24');
   }
