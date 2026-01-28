@@ -6,7 +6,7 @@
 
 const EVENT_SCHEDULES = {
   'somatic-colab': {
-    name: 'Somatic Co-Lab',
+    name: 'Somatic Lab Loft Sessions',
     rule: 'select-sundays',     // Select Sundays at 6:00 PM
     isMonthly: false,
     startDate: '2026-01-25'     // First event on January 25, 2026
@@ -19,7 +19,7 @@ const EVENT_SCHEDULES = {
   },
   'relating-games': {
     name: 'Relating Games',
-    rule: 'most-saturdays',     // Most Saturdays at 3:00 PM
+    rule: 'every-other-saturday', // Every other Saturday at 3:00 PM
     isMonthly: false,
     startDate: '2026-01-24'     // First event on January 24, 2026
   }
@@ -151,32 +151,15 @@ const everyTuesdayRule = {
   matches: (date) => date.getDay() === 2
 };
 
-// Rule: Most Saturdays (specific dates for Relating Games)
-const mostSaturdaysRule = {
+// Rule: Every other Saturday (biweekly from Jan 24, 2026)
+const everyOtherSaturdayRule = {
   isMonthly: false,
   matches: (date) => {
-    // Convert date to YYYY-MM-DD format for comparison
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    const dateStr = `${year}-${month}-${day}`;
-
-    // List of Saturday dates (update this list as needed)
-    const saturdayDates = [
-      '2026-01-24',
-      '2026-01-31',
-      '2026-02-07',
-      '2026-02-14',
-      '2026-02-21',
-      '2026-02-28',
-      '2026-03-07',
-      '2026-03-14',
-      '2026-03-21',
-      '2026-03-28'
-      // Add more dates as they are scheduled
-    ];
-
-    return saturdayDates.includes(dateStr);
+    if (date.getDay() !== 6) return false; // Not Saturday
+    // Calculate weeks since the anchor date (Jan 24, 2026)
+    const anchor = new Date(2026, 0, 24); // Jan 24, 2026
+    const diffDays = Math.round((date - anchor) / (1000 * 60 * 60 * 24));
+    return diffDays >= 0 && diffDays % 14 === 0;
   }
 };
 
@@ -189,11 +172,11 @@ document.addEventListener('DOMContentLoaded', () => {
   } else if (path.includes('munch')) {
     updateEventDates('munch', everyTuesdayRule, '2026-01-13');
   } else if (path.includes('relating-games')) {
-    updateEventDates('relating-games', mostSaturdaysRule, '2026-01-24');
+    updateEventDates('relating-games', everyOtherSaturdayRule, '2026-01-24');
   } else if (path.includes('index.html') || path.endsWith('/') || path === '') {
     // Update all active events on index page
     updateEventDates('somatic-colab', selectSundaysRule, '2026-01-25');
     updateEventDates('munch', everyTuesdayRule, '2026-01-13');
-    updateEventDates('relating-games', mostSaturdaysRule, '2026-01-24');
+    updateEventDates('relating-games', everyOtherSaturdayRule, '2026-01-24');
   }
 });

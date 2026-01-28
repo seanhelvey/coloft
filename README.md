@@ -257,9 +257,9 @@ Add CNAME record pointing to `[username].github.io`
 
 **Local Events** ([index.html](index.html)):
 - **3 active events starting mid-January 2026**:
-  - Somatic Co-Lab: Select Sundays at 6:00 PM (starts Jan 25, 2026)
+  - Somatic Lab Loft Sessions: Select Sundays at 6:00 PM (starts Jan 25, 2026)
   - Munch: Every Tuesday at 5:30 PM (starts Jan 13, 2026)
-  - Relating Games: Most Saturdays at 3:00 PM (starts Jan 24, 2026)
+  - Relating Games: Every other Saturday at 3:00 PM (starts Jan 24, 2026)
 - **Static HTML** with embedded event metadata (manually maintained)
 - **Dynamic date calculation**: [scripts/dates.js](scripts/dates.js) runs in browser on page load
   - Hardcoded recurrence rules for each event (select Sundays, every Tuesday, etc.)

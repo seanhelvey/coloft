@@ -105,9 +105,9 @@ npm run test:dates          # Test date calculations only
 ## Architecture
 
 ### Local Events (3 events)
-- **Somatic Co-Lab**: Select Sundays at 6:00 PM (starts Jan 25, 2026)
+- **Somatic Lab Loft Sessions**: Select Sundays at 6:00 PM (starts Jan 25, 2026)
 - **Munch**: Every Tuesday at 5:30 PM (starts Jan 13, 2026)
-- **Relating Games**: Most Saturdays at 3:00 PM (starts Jan 24, 2026)
+- **Relating Games**: Every other Saturday at 3:00 PM (starts Jan 24, 2026)
 - **Static HTML** with embedded metadata in index.html and events/*.html
 - **Dynamic dates**: scripts/dates.js calculates "Next 3 occurrences" in browser on page load
 - **Configuration**: EVENT_SCHEDULES object at top of scripts/dates.js
@@ -185,9 +185,9 @@ When ready to publish a specific event schedule:
 
 ## Current Status (2026-01-17)
 - **Local events**: 3 active events with dynamic date calculation
-  - Somatic Co-Lab (Select Sundays)
+  - Somatic Lab Loft Sessions (Select Sundays)
   - Munch (Every Tuesday)
-  - Relating Games (Most Saturdays)
+  - Relating Games (Every Other Saturday)
 - **Regional calendar**: 37 events across 10 regions, all tests passing
 - **Data quality**: Automated validation in place
 - **Maintenance**: Quarterly workflow documented
