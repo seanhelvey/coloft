@@ -203,3 +203,12 @@ Use these terms when researching new events:
 - "[city] breathwork OR somatic"
 - "[city] polyamory OR ethical non-monogamy community"
 - "transformational festivals [region]"
+
+## Avoiding Stale Events
+Before adding any new event to the regional calendar:
+1. **Verify the event is currently active** - Check that it doesn't show "ended", "cancelled", or past dates only
+2. **Check the venue's current schedule** - Confirm the event appears on the venue's website or calendar
+3. **Look for recent activity** - Prefer events with dates in the current or upcoming months
+4. **Avoid event aggregator pages** - These often show outdated listings; verify on the primary source
+5. **Check multiple sources** - If one source shows the event ended, don't add it even if another mentions it
+6. **When in doubt, skip it** - Better to miss a real event than add a stale one that confuses users
