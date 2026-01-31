@@ -188,7 +188,7 @@ When ready to publish a specific event schedule:
   - Somatic Lab Loft Sessions (Select Sundays)
   - Munch (Every Tuesday)
   - Relating Games (Every Other Saturday)
-- **Regional calendar**: 37 events across 10 regions, all tests passing
+- **Regional calendar**: 36 events across 10 regions, all tests passing
 - **Data quality**: Automated validation in place
 - **Maintenance**: Quarterly workflow documented
 - **Tests**: All passing (print constraint + date calculations)

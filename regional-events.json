@@ -105,9 +105,33 @@
       "state": "oregon",
       "events": [
         {
+          "name": "🔄 Fluidity Ecstatic Dance",
+          "url": "https://ecstaticdance.org/dance/fluidity-ashland-ecstatic-dance/",
+          "schedule": "Tuesdays, 7-10 PM (somatic workshop 6:45 PM)",
+          "venue": "Jackson Wellsprings, 2253 Hwy 99 N, Ashland",
+          "price": "$15 dance, $25 dance + soak (sliding scale)",
+          "description": "Weekly ecstatic dance at hot springs. Outdoor meadow in summer, indoor community room in winter. Optional late-night soak 10:30 PM-1 AM. Contact: fluidityecstaticdance@gmail.com",
+          "tags": [
+            "dance",
+            "weekly"
+          ]
+        },
+        {
+          "name": "🔄 Radiance Ecstatic Dance",
+          "url": "mailto:meredithmcfadden44@gmail.com",
+          "schedule": "1st & 3rd Wednesdays",
+          "venue": "Studio Z, 280 E. Hersey St #1, Ashland",
+          "price": "$13-$23 sliding scale (no one turned away)",
+          "description": "A sacred, grounded, sensual, playful musical journey into hearts and bodies. Particularly inviting voice in the dance when inspired. Email: meredithmcfadden44@gmail.com",
+          "tags": [
+            "dance",
+            "monthly"
+          ]
+        },
+        {
           "name": "🔄 Dancing Prayers",
           "url": "https://danceashland.com/",
-          "schedule": "Select Sundays, 10:30 AM - 12:30 PM (Dec 28, Jan 11, 25)",
+          "schedule": "Select Sundays, 10:30 AM - 12:30 PM (Feb 8, 22)",
           "venue": "The Dance Space, 280 E. Hersey St #10, Ashland",
           "price": "$15",
           "tags": [
@@ -214,18 +238,6 @@
           "tags": [
             "dance",
             "weekly"
-          ]
-        },
-        {
-          "name": "🎪 Plant Dance :: Botanical Embodiment",
-          "url": "https://www.toshayoga.com/events/2025/12/8/plant-dance",
-          "schedule": "4-week series: Jan 9-30, 2026, Fridays 8:00-10:00 PM",
-          "venue": "Tosha Yoga, 1251 9th St (Creamery Building), Arcata",
-          "price": "See registration",
-          "description": "4-week botanical embodiment immersion with Lauryn Lavendula. Ecstatic movement through a botanical lens, combining dance with plant-based themes and consciousness exploration",
-          "tags": [
-            "dance",
-            "seasonal"
           ]
         }
       ]

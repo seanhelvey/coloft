@@ -5,7 +5,7 @@ A vibrant static website for Coloft, a grassroots healing collective in Arcata, 
 ## Features
 
 - **Local Events**: Printable flyers for 3 active recurring Humboldt County events (starting mid-January 2026)
-- **Regional Community Calendar**: 37 transformational events across 10 regions (SF to Ashland)
+- **Regional Community Calendar**: 36 transformational events across 10 regions (SF to Ashland)
 - **Mobile Responsive**: Works beautifully on all devices
 - **Print Optimized**: All event flyers fit perfectly on 1 page
 - **Data-Driven**: Regional calendar built from JSON for easy maintenance
