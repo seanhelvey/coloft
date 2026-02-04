@@ -115,14 +115,14 @@ if (somaticDates.every(date => selectSundaysRule.matches(date))) {
   allPass = false;
 }
 
-// Test Munch (starts Jan 13, 2026)
-console.log('\nMunch (Every Tuesday, starting Jan 13, 2026):');
-const munchDates = getNextOccurrences(everyTuesdayRule, { count: 3, months: 3, startDate: '2026-01-13' });
+// Test Authentic Connection Circle (starts Jan 13, 2026)
+console.log('\nAuthentic Connection Circle (Every Tuesday, starting Jan 13, 2026):');
+const connectionDates = getNextOccurrences(everyTuesdayRule, { count: 3, months: 3, startDate: '2026-01-13' });
 console.log(`  Next 3 occurrences:`);
-munchDates.slice(0, 3).forEach((date, i) => {
+connectionDates.slice(0, 3).forEach((date, i) => {
   console.log(`    ${i + 1}. ${formatDate(date)}`);
 });
-if (munchDates.every(date => everyTuesdayRule.matches(date))) {
+if (connectionDates.every(date => everyTuesdayRule.matches(date))) {
   console.log('  ✅ All dates match the recurrence rule');
 } else {
   console.log('  ❌ Some dates do not match!');

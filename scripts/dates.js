@@ -11,8 +11,8 @@ const EVENT_SCHEDULES = {
     isMonthly: false,
     startDate: '2026-01-25'     // First event on January 25, 2026
   },
-  'munch': {
-    name: 'Munch',
+  'authentic-connection': {
+    name: 'Authentic Connection Circle',
     rule: 'every-tuesday',      // Every Tuesday at 5:30 PM
     isMonthly: false,
     startDate: '2026-01-13'     // Start on January 13, 2026
@@ -169,14 +169,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (path.includes('somatic-lab')) {
     updateEventDates('somatic-lab', selectSundaysRule, '2026-01-25');
-  } else if (path.includes('munch')) {
-    updateEventDates('munch', everyTuesdayRule, '2026-01-13');
+  } else if (path.includes('authentic-connection')) {
+    updateEventDates('authentic-connection', everyTuesdayRule, '2026-01-13');
   } else if (path.includes('relating-games')) {
     updateEventDates('relating-games', everyOtherSaturdayRule, '2026-01-24');
   } else if (path.includes('index.html') || path.endsWith('/') || path === '') {
     // Update all active events on index page
     updateEventDates('somatic-lab', selectSundaysRule, '2026-01-25');
-    updateEventDates('munch', everyTuesdayRule, '2026-01-13');
+    updateEventDates('authentic-connection', everyTuesdayRule, '2026-01-13');
     updateEventDates('relating-games', everyOtherSaturdayRule, '2026-01-24');
   }
 });

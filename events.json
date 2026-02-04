@@ -17,15 +17,15 @@
       }
     },
     {
-      "id": "munch",
-      "name": "Munch",
+      "id": "authentic-connection",
+      "name": "Authentic Connection Circle",
       "tagline": "Open conversations in a safe space",
       "schedule": "5:30PM every Tuesday",
-      "location": "Culture Shrooms in Arcata",
+      "location": "TBD",
       "description": "An open table to connect in a safe public setting. Topics are fluid but may explore consent, communication, boundaries, relationships, intimacy, pleasure, and navigating desire with openness and curiosity.",
-      "price": "One drink or snack to support venue",
+      "price": "Free",
       "contact": "events@coloft.org",
-      "image": "munch.svg",
+      "image": "authentic-connection.svg",
       "recurrence": "every-tuesday",
       "theme": {
         "primary": "#E91E63",

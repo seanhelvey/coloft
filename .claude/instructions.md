@@ -57,7 +57,7 @@ Coloft is a grassroots healing collective in Arcata, CA (Goudi'ni, Wiyot Land). 
 ├── events.json             # Local event metadata (not used by date calculation yet)
 ├── events/                 # Individual Coloft event pages with printable flyers
 │   ├── somatic-lab.html
-│   ├── munch.html
+│   ├── authentic-connection.html
 │   └── relating-games.html
 ├── images/                 # SVG images for events
 ├── styles/                 # CSS files
@@ -106,7 +106,7 @@ npm run test:dates          # Test date calculations only
 
 ### Local Events (3 events)
 - **Somatic Lab Loft Sessions**: Select Sundays at 6:00 PM (starts Jan 25, 2026)
-- **Munch**: Every Tuesday at 5:30 PM (starts Jan 13, 2026)
+- **Authentic Connection Circle**: Every Tuesday at 5:30 PM (starts Jan 13, 2026)
 - **Relating Games**: Every other Saturday at 3:00 PM (starts Jan 24, 2026)
 - **Static HTML** with embedded metadata in index.html and events/*.html
 - **Dynamic dates**: scripts/dates.js calculates "Next 3 occurrences" in browser on page load
@@ -186,7 +186,7 @@ When ready to publish a specific event schedule:
 ## Current Status (2026-01-17)
 - **Local events**: 3 active events with dynamic date calculation
   - Somatic Lab Loft Sessions (Select Sundays)
-  - Munch (Every Tuesday)
+  - Authentic Connection Circle (Every Tuesday)
   - Relating Games (Every Other Saturday)
 - **Regional calendar**: 36 events across 10 regions, all tests passing
 - **Data quality**: Automated validation in place

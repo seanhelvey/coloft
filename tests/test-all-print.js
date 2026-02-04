@@ -49,7 +49,7 @@ async function testAllPages() {
 
     const pages = [
       'events/somatic-lab.html',
-      'events/munch.html'
+      'events/authentic-connection.html'
     ];
 
     console.log('📄 Testing all pages:\n');
