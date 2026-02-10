@@ -169,14 +169,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (path.includes('somatic-lab')) {
     updateEventDates('somatic-lab', selectSundaysRule, '2026-01-25');
-  } else if (path.includes('authentic-connection')) {
-    updateEventDates('authentic-connection', everyTuesdayRule, '2026-01-13');
   } else if (path.includes('relating-games')) {
     updateEventDates('relating-games', everyOtherSaturdayRule, '2026-01-24');
   } else if (path.includes('index.html') || path.endsWith('/') || path === '') {
     // Update all active events on index page
     updateEventDates('somatic-lab', selectSundaysRule, '2026-01-25');
-    updateEventDates('authentic-connection', everyTuesdayRule, '2026-01-13');
     updateEventDates('relating-games', everyOtherSaturdayRule, '2026-01-24');
   }
 });
