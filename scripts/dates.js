@@ -165,15 +165,5 @@ const everyOtherSaturdayRule = {
 
 // Run when page loads
 document.addEventListener('DOMContentLoaded', () => {
-  const path = window.location.pathname;
-
-  if (path.includes('somatic-lab')) {
-    updateEventDates('somatic-lab', selectSundaysRule, '2026-01-25');
-  } else if (path.includes('relating-games')) {
-    updateEventDates('relating-games', everyOtherSaturdayRule, '2026-01-24');
-  } else if (path.includes('index.html') || path.endsWith('/') || path === '') {
-    // Update all active events on index page
-    updateEventDates('somatic-lab', selectSundaysRule, '2026-01-25');
-    updateEventDates('relating-games', everyOtherSaturdayRule, '2026-01-24');
-  }
+  // Somatic Lab and Relating Games dates are TBD — no dynamic date computation needed
 });
