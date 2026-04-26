@@ -200,6 +200,14 @@ h4 {
     border-color: var(--secondary-color);
 }
 
+.event-card--external {
+    border-color: #0891B2;
+}
+
+.event-card--external:hover {
+    border-color: #059669;
+}
+
 .event-image {
     width: 120px;
     height: 120px;

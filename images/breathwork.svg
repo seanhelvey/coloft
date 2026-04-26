@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Free Breathwork: Expanding breath rings with lung/wind motif -->
+  <defs>
+    <linearGradient id="breath-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0891B2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Expanding breath rings -->
+  <circle cx="100" cy="100" r="20" fill="url(#breath-grad)" opacity="0.9"/>
+  <circle cx="100" cy="100" r="38" fill="none" stroke="url(#breath-grad)" stroke-width="3" opacity="0.7"/>
+  <circle cx="100" cy="100" r="56" fill="none" stroke="url(#breath-grad)" stroke-width="2.5" opacity="0.5"/>
+  <circle cx="100" cy="100" r="74" fill="none" stroke="url(#breath-grad)" stroke-width="2" opacity="0.3"/>
+
+  <!-- Wind/breath curves flowing outward -->
+  <path d="M 100 26 Q 120 55, 100 82" fill="none" stroke="#0891B2" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+  <path d="M 174 100 Q 145 80, 118 100" fill="none" stroke="#059669" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+  <path d="M 100 174 Q 80 145, 100 118" fill="none" stroke="#0891B2" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+  <path d="M 26 100 Q 55 120, 82 100" fill="none" stroke="#059669" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- Center glow -->
+  <circle cx="100" cy="100" r="12" fill="white" opacity="0.35"/>
+</svg>
