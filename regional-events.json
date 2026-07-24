@@ -4,6 +4,7 @@
       "name": "Portland, OR",
       "id": "portland-or",
       "state": "oregon",
+      "shortName": "Portland",
       "events": [
         {
           "name": "🔄 Ecstatic Dance Portland",
@@ -33,6 +34,7 @@
       "name": "Eugene & Central Oregon",
       "id": "eugene-central-oregon",
       "state": "oregon",
+      "shortName": "Eugene & Central OR",
       "events": [
         {
           "name": "🔄 Coalessence Ecstatic Dance",
@@ -61,7 +63,7 @@
         {
           "name": "🎪 New Culture Summer Camp West",
           "url": "https://www.networkfornewculture.org/events/summer-camp-west",
-          "schedule": "July 31 - Aug 9, 2026 (dates TBA for 2025)",
+          "schedule": "July 31 - Aug 9, 2026",
           "venue": "Near Veneta (close to Eugene)",
           "price": "Registration opens spring",
           "description": "10-day intentional community gathering focused on heart-centered connections, emotional resilience, boundary work, conflict resolution. Families with children welcome. Registration: networkfornewculture.org | Email: registration@cfnc.us",
@@ -103,6 +105,7 @@
       "name": "Rogue Valley, OR (Ashland/Medford/Grants Pass)",
       "id": "rogue-valley-or-ashlandmedfordgrants-pass",
       "state": "oregon",
+      "shortName": "Rogue Valley",
       "events": [
         {
           "name": "🔄 Fluidity Ecstatic Dance",
@@ -193,6 +196,7 @@
       "name": "Humboldt County, CA",
       "id": "humboldt-county-ca",
       "state": "california",
+      "shortName": "Humboldt",
       "events": [
         {
           "name": "🔄 Arcata Ecstatic Dance",
@@ -271,6 +275,7 @@
       "name": "Mt. Shasta, CA",
       "id": "mt-shasta-ca",
       "state": "california",
+      "shortName": "Mt. Shasta",
       "events": [
         {
           "name": "🔄 Mt Shasta Ecstatic Dance",
@@ -302,6 +307,7 @@
       "name": "Sonoma, Mendocino & Lake Counties, CA",
       "id": "sonoma-mendocino-lake-counties-ca",
       "state": "california",
+      "shortName": "Sonoma/Mendo/Lake",
       "events": [
         {
           "name": "🔄 Ecstatic Dance Sebastopol",
@@ -384,6 +390,7 @@
       "name": "San Francisco Bay Area, CA",
       "id": "san-francisco-bay-area-ca",
       "state": "california",
+      "shortName": "Bay Area",
       "events": [
         {
           "name": "🔄 MOVEMENT Ecstatic Dance SF",
@@ -462,6 +469,7 @@
       "name": "Santa Cruz, CA",
       "id": "santa-cruz-ca",
       "state": "california",
+      "shortName": "Santa Cruz",
       "events": [
         {
           "name": "🔄 Ecstatic Dance Santa Cruz - Saturdays",
@@ -503,6 +511,7 @@
       "name": "Chico & Northern Sacramento Valley, CA",
       "id": "chico-northern-sacramento-valley-ca",
       "state": "california",
+      "shortName": "Chico",
       "events": [
         {
           "name": "🔄 Infinite Rhythms Ecstatic Dance",
@@ -534,6 +543,7 @@
       "name": "Redding & Shasta County, CA",
       "id": "redding-shasta-county-ca",
       "state": "california",
+      "shortName": "Redding",
       "events": [
         {
           "name": "🔄 Balance Yoga Center Integrative Breathwork",

@@ -1,7 +1,11 @@
 const fs = require('fs');
+const path = require('path');
+
+const DATA_FILE = path.join(__dirname, '..', 'regional-events.json');
+const OUTPUT_FILE = path.join(__dirname, '..', 'regional-calendar.html');
 
 // Read the regional events data
-const data = JSON.parse(fs.readFileSync('/home/sean/Code/coloft/regional-events.json', 'utf8'));
+const data = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
 
 // Helper function to generate region section HTML
 function generateRegionHTML(region) {
@@ -35,6 +39,11 @@ const californiaRegions = data.regions.filter(r => r.state === 'california');
 // Generate all region sections
 const oregonSections = oregonRegions.map(generateRegionHTML).join('\n\n');
 const californiaSections = californiaRegions.map(generateRegionHTML).join('\n\n');
+
+// Region filter tags, generated from the data so every region gets a filter
+const regionFilterTags = data.regions
+    .map(r => `                    <span class="filter-tag" data-filter="region-${r.id}">${r.shortName || r.name}</span>`)
+    .join('\n');
 
 // Complete HTML template
 const html = `<!DOCTYPE html>
@@ -345,14 +354,7 @@ const html = `<!DOCTYPE html>
             <div class="filter-group">
                 <label>📍 Regions:</label>
                 <div class="filter-tags">
-                    <span class="filter-tag" data-filter="region-portland-or">Portland</span>
-                    <span class="filter-tag" data-filter="region-eugene-central-oregon">Eugene & Central OR</span>
-                    <span class="filter-tag" data-filter="region-rogue-valley-or-ashlandmedfordgrants-pass">Rogue Valley</span>
-                    <span class="filter-tag" data-filter="region-humboldt-county-ca">Humboldt</span>
-                    <span class="filter-tag" data-filter="region-mt-shasta-ca">Shasta</span>
-                    <span class="filter-tag" data-filter="region-sonoma-mendocino-lake-counties-ca">Sonoma/Mendo/Lake</span>
-                    <span class="filter-tag" data-filter="region-san-francisco-bay-area-ca">Bay Area</span>
-                    <span class="filter-tag" data-filter="region-santa-cruz-ca">Santa Cruz</span>
+${regionFilterTags}
                 </div>
             </div>
 
@@ -532,7 +534,7 @@ ${californiaSections}
 `;
 
 // Write the generated HTML to the file
-fs.writeFileSync('/home/sean/Code/coloft/regional-calendar.html', html, 'utf8');
+fs.writeFileSync(OUTPUT_FILE, html, 'utf8');
 
 console.log('✅ Successfully built regional-calendar.html from regional-events.json');
 console.log(`📊 Generated ${data.regions.length} regions (${oregonRegions.length} OR, ${californiaRegions.length} CA)`);

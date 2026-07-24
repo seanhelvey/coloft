@@ -49,7 +49,8 @@ async function testAllPages() {
 
     const pages = [
       'events/somatic-lab.html',
-      'events/authentic-connection.html'
+      'events/authentic-connection.html',
+      'events/relating-games.html'
     ];
 
     console.log('📄 Testing all pages:\n');

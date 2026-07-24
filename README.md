@@ -4,8 +4,8 @@ A vibrant static website for Coloft, a grassroots healing collective in Arcata, 
 
 ## Features
 
-- **Local Events**: Printable flyers for 3 active recurring Humboldt County events (starting mid-January 2026)
-- **Regional Community Calendar**: 36 transformational events across 10 regions (SF to Ashland)
+- **Local Events**: Printable flyers for 3 Humboldt County events (Somatic Lab Loft Sessions, Authentic Connection Circle, Relating Games), plus a Free Breathwork tile — most are currently "forming," check events@coloft.org for the next date
+- **Regional Community Calendar**: 40 transformational events across 10 regions (Portland, OR to Santa Cruz, CA)
 - **Mobile Responsive**: Works beautifully on all devices
 - **Print Optimized**: All event flyers fit perfectly on 1 page
 - **Data-Driven**: Regional calendar built from JSON for easy maintenance
@@ -33,7 +33,7 @@ Push to GitHub → Settings → Pages → Enable
 /
 ├── index.html              # Main landing page (Coloft local events)
 ├── regional-calendar.html  # Regional community calendar (generated from regional-events.json)
-├── regional-events.json    # Regional calendar data (24 events, 10 regions)
+├── regional-events.json    # Regional calendar data (40 events, 10 regions)
 ├── events.json             # Local event metadata (not currently used by date calculation)
 ├── events/                 # Individual event pages with printable flyers
 ├── scripts/                # Maintenance & build scripts
@@ -110,9 +110,9 @@ The regional community calendar features transformational events focused on:
 ### Geographic Coverage
 **10 regions** organized north to south for easy trip planning:
 
-**Oregon (3)**: Portland → Eugene → Rogue Valley
+**Oregon (3)**: Portland → Eugene & Central Oregon → Rogue Valley (Ashland/Medford/Grants Pass)
 
-**California (7)**: Humboldt → Mt. Shasta → Sonoma → Mendocino → West Marin → SF Bay → Santa Cruz
+**California (7)**: Humboldt County → Mt. Shasta → Sonoma/Mendocino/Lake Counties → San Francisco Bay Area → Santa Cruz → Chico & Northern Sacramento Valley → Redding & Shasta County
 
 ### Adding Regional Events
 
@@ -256,18 +256,15 @@ Add CNAME record pointing to `[username].github.io`
 - **Progressive enhancement**: Core content works without JavaScript
 
 **Local Events** ([index.html](index.html)):
-- **3 active events starting mid-January 2026**:
-  - Somatic Lab Loft Sessions: Select Sundays at 6:00 PM (starts Jan 25, 2026)
-  - Authentic Connection Circle: Every Tuesday at 5:30 PM (starts Jan 13, 2026)
-  - Relating Games: Every other Saturday at 3:00 PM (starts Jan 24, 2026)
+- **4 event tiles**, most currently in "forming" status (no fixed next date — email events@coloft.org to join):
+  - Free Breathwork: new sessions forming (no dedicated flyer page)
+  - Somatic Lab Loft Sessions: Select Sundays, 6:00 PM ([flyer](events/somatic-lab.html))
+  - Authentic Connection Circle: new circles forming ([flyer](events/authentic-connection.html))
+  - Relating Games: Select Saturdays, 3:00 PM, new sessions forming ([flyer](events/relating-games.html))
 - **Static HTML** with embedded event metadata (manually maintained)
-- **Dynamic date calculation**: [scripts/dates.js](scripts/dates.js) runs in browser on page load
-  - Hardcoded recurrence rules for each event (select Sundays, every Tuesday, etc.)
-  - Each event has its own start date (Somatic Lab Loft Sessions: Jan 25, Authentic Connection Circle: Jan 13)
-  - Calculates "Next 3 occurrences" from today's date (always current)
-  - Updates `.event-next` elements automatically
-  - **Easy schedule changes**: Edit `EVENT_SCHEDULES` at top of scripts/dates.js - no rebuild needed!
-- **Always fresh**: Dates never go stale - calculated from today on every page load
+- **Dynamic date calculation**: [scripts/dates.js](scripts/dates.js) can compute "Next 3 occurrences" from a recurrence rule and start date, and inject them into `.event-next` / `.date-list` elements on page load
+  - Recurrence rules and start dates live in `EVENT_SCHEDULES` at the top of the file — no rebuild needed to change them
+  - Currently only wired up for events that show a live "next date" list; pages using static "forming" copy don't render one
 - **Print-optimized**: Individual event pages fit perfectly on 1 page (US Letter)
 - **Event metadata**: [events.json](events.json) stores event configuration (descriptions, themes, etc.)
   - Currently **not used** by date calculation (reserved for future data-driven architecture)
